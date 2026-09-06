@@ -5,11 +5,15 @@ const http = require('http');
 const path = require('path');
 const fs = require('fs');
 const os = require('os');
-const { default: makeWASocket, useMultiFileAuthState, DisconnectReason } = require('@whiskeysockets/baileys');
+const { default: makeWASocket, useMultiFileAuthState, DisconnectReason, makeInMemoryStore } = require('@whiskeysockets/baileys');
 const pino = require('pino');
 const QRCode = require('qrcode');
 
 const dynamicConfig = require('./lib/system/dynamicConfig');
+const { smsg } = require('./lib/myfunction');
+const Elaina = require('./Elaina');
+
+const store = makeInMemoryStore({ logger: pino({ level: 'silent' }) });
 
 const app = express();
 const server = http.createServer(app);
@@ -20,7 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // -------------------------------------------------------------
-// GLOBAL SESSION & QR STATE (PERSISTENT & MEMORY)
+// GLOBAL SESSION & QR STATE
 // -------------------------------------------------------------
 const sessions = {};  // Nyimpen socket & status per sessionId / nomor
 const qrCodes = {};   // Nyimpen DataURL Base64 QR Code
@@ -75,12 +79,28 @@ async function startBotSession(sessionId, isPairing = false, phoneNumber = '') {
             createdAt: Date.now()
         };
 
+        store.bind(sock.ev);
+
         sock.ev.on('creds.update', saveCreds);
+
+        // Connect incoming messages to Elaina features script
+        sock.ev.on('messages.upsert', async (chatUpdate) => {
+            try {
+                const mek = chatUpdate.messages[0];
+                if (!mek || !mek.message) return;
+                mek.message = (Object.keys(mek.message)[0] === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message;
+                if (mek.key && mek.key.remoteJid === 'status@broadcast') return;
+
+                const m = smsg(sock, mek, store);
+                await Elaina(sock, m, chatUpdate, store);
+            } catch (err) {
+                console.error(`[Session ${sessionId}] Error handling message:`, err);
+            }
+        });
 
         sock.ev.on('connection.update', async (update) => {
             const { connection, lastDisconnect, qr } = update;
 
-            // Logika Simpan QR Code ke DataURL Base64
             if (qr) {
                 try {
                     qrCodes[sessionId] = await QRCode.toDataURL(qr);
@@ -120,7 +140,7 @@ async function startBotSession(sessionId, isPairing = false, phoneNumber = '') {
             }
         });
 
-        // Logika Pairing Code
+        // Request pairing code if requested and not registered
         if (isPairing && phoneNumber && !sock.authState.creds.registered) {
             setTimeout(async () => {
                 try {
@@ -133,7 +153,7 @@ async function startBotSession(sessionId, isPairing = false, phoneNumber = '') {
                 } catch (pErr) {
                     console.error(`[Session ${sessionId}] Gagal request pairing code:`, pErr);
                 }
-            }, 2500);
+            }, 2000);
         }
 
         return sock;
@@ -143,7 +163,7 @@ async function startBotSession(sessionId, isPairing = false, phoneNumber = '') {
 }
 
 // -------------------------------------------------------------
-// Auto-Reconnect Session yang Pernah Dibuat saat Server Restart
+// Auto-Reconnect Saved Sessions
 // -------------------------------------------------------------
 function autoLoadSessions() {
     try {
@@ -222,7 +242,7 @@ app.post('/api/addbot/qr-start', (req, res) => {
     res.json({ success: true, sessionId, message: 'Sesi QR berhasil dibuat!' });
 });
 
-// 6. Get QR Status for a Session
+// 6. Get QR / Session Status
 app.get('/api/addbot/qr-status/:sessionId', (req, res) => {
     const { sessionId } = req.params;
     const sess = sessions[sessionId];
@@ -233,26 +253,48 @@ app.get('/api/addbot/qr-status/:sessionId', (req, res) => {
         exists: !!sess,
         status: sess ? sess.status : 'Non-Existent',
         qrCode: qrCode,
-        number: sess ? sess.number : null
+        number: sess ? sess.number : null,
+        pairingCode: sess ? sess.pairingCode : null
     });
 });
 
 // 7. Start Pairing Code Session
-app.post('/api/addbot/pairing', (req, res) => {
+app.post('/api/addbot/pairing', async (req, res) => {
     let { phoneNumber } = req.body;
     if (!phoneNumber) return res.status(400).json({ success: false, error: 'Nomor HP wajib diisi!' });
 
     phoneNumber = String(phoneNumber).replace(/[^0-9]/g, '');
-    const sessionId = `pair_${phoneNumber}`;
+    if (phoneNumber.length < 10) return res.status(400).json({ success: false, error: 'Nomor HP tidak valid! (Min 10 digit)' });
+
+    const sessionId = phoneNumber;
 
     if (!sessions[sessionId]) {
-        startBotSession(sessionId, true, phoneNumber);
+        await startBotSession(sessionId, true, phoneNumber);
     }
 
-    res.json({ success: true, sessionId, phoneNumber, message: 'Memproses pairing code...' });
+    // Wait for pairing code to generate (max 8 seconds)
+    let attempts = 0;
+    const checkInterval = setInterval(() => {
+        attempts++;
+        const sess = sessions[sessionId];
+        if (sess && sess.pairingCode) {
+            clearInterval(checkInterval);
+            return res.json({
+                success: true,
+                sessionId,
+                phoneNumber,
+                pairingCode: sess.pairingCode,
+                message: 'Pairing code berhasil dibuat!'
+            });
+        }
+        if (attempts >= 8) {
+            clearInterval(checkInterval);
+            return res.status(500).json({ success: false, error: 'Timeout membuat pairing code. Coba klik lagi.' });
+        }
+    }, 1000);
 });
 
-// 8. Delete / Logout / Clear Session
+// 8. Delete / Logout Session
 app.post('/api/bots/delete', async (req, res) => {
     const { id } = req.body;
     if (!id) return res.status(400).json({ success: false, error: 'ID Sesi wajib diisi' });
@@ -273,7 +315,7 @@ app.post('/api/bots/delete', async (req, res) => {
     res.json({ success: true, message: `Sesi ${id} berhasil dihapus!` });
 });
 
-// 9. Reset All Pending / Temp Stuck Sessions
+// 9. Reset All Stuck Sessions
 app.post('/api/bots/reset-stuck', (req, res) => {
     try {
         let count = 0;
@@ -305,7 +347,7 @@ app.get('/api/logs', (req, res) => {
 server.listen(PORT, () => {
     console.log(`\n======================================================`);
     console.log(` ⚡ ELAINA V3 ULTRA-PREMIUM DASHBOARD & ADDBOT SERVER `);
-    console.log(` 📍 Status : ONLINE (Logika QR + Session Reset)`);
+    console.log(` 📍 Status : ONLINE (Fix Pairing & Complete Settings)`);
     console.log(` 🌐 Web UI : http://localhost:${PORT}`);
     console.log(`======================================================\n`);
 
