@@ -5,7 +5,7 @@ const http = require('http');
 const path = require('path');
 const fs = require('fs');
 const os = require('os');
-const { default: makeWASocket, useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion } = require('@whiskeysockets/baileys');
+const { default: makeWASocket, useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion, Browsers } = require('@whiskeysockets/baileys');
 const pino = require('pino');
 const QRCode = require('qrcode');
 
@@ -81,7 +81,7 @@ async function initSubBotSession(phoneNumber) {
             logger: pino({ level: 'silent' }),
             printQRInTerminal: false,
             auth: state,
-            browser: ['Elaina Multi-Bot', 'Chrome', '1.0.0']
+            browser: Browsers.ubuntu('Chrome')
         });
 
         sock.ev.on('creds.update', saveCreds);
@@ -97,7 +97,9 @@ async function initSubBotSession(phoneNumber) {
                     setTimeout(() => initSubBotSession(phoneNumber), 5000);
                 } else {
                     activeSubBots.delete(phoneNumber);
-                    fs.rmSync(botSessionDir, { recursive: true, force: true });
+                    if (fs.existsSync(botSessionDir)) {
+                        fs.rmSync(botSessionDir, { recursive: true, force: true });
+                    }
                 }
             } else if (connection === 'open') {
                 activeSubBots.set(phoneNumber, {
@@ -214,7 +216,7 @@ app.post('/api/addbot/pairing', async (req, res) => {
             logger: pino({ level: 'silent' }),
             printQRInTerminal: false,
             auth: state,
-            browser: ['Elaina Multi-Bot', 'Chrome', '1.0.0']
+            browser: Browsers.ubuntu('Chrome')
         });
 
         sock.ev.on('creds.update', saveCreds);
@@ -263,7 +265,7 @@ app.post('/api/addbot/pairing', async (req, res) => {
                 const shouldReconnect = (lastDisconnect?.error)?.output?.statusCode !== DisconnectReason.loggedOut;
                 if (!shouldReconnect) {
                     activeSubBots.delete(phoneNumber);
-                    fs.rmSync(botSessionDir, { recursive: true, force: true });
+                    if (fs.existsSync(botSessionDir)) fs.rmSync(botSessionDir, { recursive: true, force: true });
                 }
             } else if (connection === 'open') {
                 activeSubBots.set(phoneNumber, {
@@ -281,10 +283,20 @@ app.post('/api/addbot/pairing', async (req, res) => {
     }
 });
 
-// 6. Addbot - Method 2: QR Code Generator & Listener
+// 6. Addbot - Method 2: QR Code Generator & Listener (Fixed Handshake & Clean Temp Session)
 app.post('/api/addbot/qr-start', async (req, res) => {
     const sessionId = 'qr_session_' + Date.now();
     const tempDir = path.join(SESSIONS_DIR, `temp_${sessionId}`);
+
+    // Clean any old temp sessions first
+    try {
+        const folders = fs.readdirSync(SESSIONS_DIR);
+        folders.forEach(f => {
+            if (f.startsWith('temp_')) {
+                fs.rmSync(path.join(SESSIONS_DIR, f), { recursive: true, force: true });
+            }
+        });
+    } catch {}
 
     try {
         const { state, saveCreds } = await useMultiFileAuthState(tempDir);
@@ -295,7 +307,8 @@ app.post('/api/addbot/qr-start', async (req, res) => {
             logger: pino({ level: 'silent' }),
             printQRInTerminal: false,
             auth: state,
-            browser: ['Elaina Multi-Bot', 'Desktop', '2.0.0']
+            browser: Browsers.ubuntu('Chrome'), // Fixed standard browser for WhatsApp Web QR Handshake!
+            syncFullHistory: false
         });
 
         sock.ev.on('creds.update', saveCreds);
@@ -319,7 +332,7 @@ app.post('/api/addbot/qr-start', async (req, res) => {
                     const qrDataUrl = await QRCode.toDataURL(qr, { margin: 2, scale: 8 });
                     sessionObject.qrDataUrl = qrDataUrl;
                     sessionObject.status = 'QR_READY';
-                    console.log(`[Addbot QR] QR Code generated for session ${sessionId}`);
+                    console.log(`[Addbot QR] Fresh QR Code generated for session ${sessionId}`);
                 } catch (qrErr) {
                     console.error('[Addbot QR] Error generating QR Data URL:', qrErr);
                 }
@@ -383,7 +396,7 @@ app.get('/api/addbot/qr-status/:sessionId', (req, res) => {
     });
 });
 
-// 8. Logout Sub-Bot
+// 8. Logout / Reset Specific Sub-Bot Session
 app.post('/api/bots/logout', async (req, res) => {
     let { phoneNumber } = req.body;
     phoneNumber = String(phoneNumber).replace(/[^0-9]/g, '');
@@ -403,7 +416,26 @@ app.post('/api/bots/logout', async (req, res) => {
     res.json({ success: true, message: `Sub-bot +${phoneNumber} berhasil di-logout & dihapus.` });
 });
 
-// 9. Get Live Terminal Logs
+// 9. Reset All Inactive / Stuck Sessions
+app.post('/api/bots/reset-sessions', (req, res) => {
+    try {
+        let deletedCount = 0;
+        const folders = fs.readdirSync(SESSIONS_DIR);
+        folders.forEach(f => {
+            if (f.startsWith('temp_')) {
+                fs.rmSync(path.join(SESSIONS_DIR, f), { recursive: true, force: true });
+                deletedCount++;
+            }
+        });
+        activeQRSessions.clear();
+        console.log(`[ResetSessions] ${deletedCount} temporary stuck QR sessions cleaned up.`);
+        res.json({ success: true, message: `${deletedCount} sesi temp/stuck berhasil dibersihkan.` });
+    } catch (err) {
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
+// 10. Get Live Terminal Logs
 app.get('/api/logs', (req, res) => {
     res.json({ success: true, logs: systemLogs });
 });
@@ -412,7 +444,7 @@ app.get('/api/logs', (req, res) => {
 server.listen(PORT, () => {
     console.log(`\n======================================================`);
     console.log(` ⚡ ELAINA V3 ULTRA-PREMIUM DASHBOARD & ADDBOT SERVER `);
-    console.log(` 📍 Status : ONLINE (Dual Mode: Pairing Code + QR Code)`);
+    console.log(` 📍 Status : ONLINE (Browsers.ubuntu('Chrome') Fixed QR)`);
     console.log(` 🌐 Web UI : http://localhost:${PORT}`);
     console.log(`======================================================\n`);
 
