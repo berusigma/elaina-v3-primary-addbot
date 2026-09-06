@@ -253,6 +253,40 @@
             color: var(--accent-primary);
         }
 
+        /* METHOD SELECTOR */
+        .method-selector {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 1.5rem;
+            background: rgba(9, 13, 22, 0.7);
+            padding: 8px;
+            border-radius: 14px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .method-btn {
+            flex: 1;
+            padding: 0.8rem;
+            background: transparent;
+            border: none;
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .method-btn.active {
+            background: var(--accent-gradient);
+            color: white;
+            box-shadow: 0 4px 14px rgba(139, 92, 246, 0.3);
+        }
+
         /* FORM ELEMENTS */
         .form-grid {
             display: grid;
@@ -319,8 +353,8 @@
             box-shadow: 0 6px 20px rgba(244, 63, 94, 0.4);
         }
 
-        /* PAIRING DISPLAY */
-        .pairing-container {
+        /* PAIRING & QR CONTAINERS */
+        .pairing-container, .qr-container {
             background: rgba(9, 13, 22, 0.9);
             border: 2px dashed var(--accent-primary);
             border-radius: 16px;
@@ -349,6 +383,21 @@
             padding: 0.5rem 1.5rem;
             border-radius: 12px;
             border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+
+        .qr-image-wrapper {
+            background: white;
+            padding: 1rem;
+            border-radius: 16px;
+            display: inline-block;
+            box-shadow: 0 0 25px rgba(139, 92, 246, 0.3);
+            margin: 1rem 0;
+        }
+
+        .qr-image-wrapper img {
+            width: 230px;
+            height: 230px;
+            display: block;
         }
 
         .copy-btn {
@@ -411,11 +460,6 @@
             font-weight: 700;
         }
 
-        .bot-details p {
-            font-size: 0.8rem;
-            color: var(--text-sub);
-        }
-
         .status-badge {
             display: inline-flex;
             align-items: center;
@@ -445,11 +489,7 @@
             line-height: 1.6;
         }
 
-        .log-line {
-            margin-bottom: 4px;
-            word-break: break-all;
-        }
-
+        .log-line { margin-bottom: 4px; word-break: break-all; }
         .log-time { color: #6b7280; }
         .log-tag-info { color: #3b82f6; font-weight: 600; }
         .log-tag-error { color: #f43f5e; font-weight: 600; }
@@ -549,30 +589,61 @@
             <div class="glass-card">
                 <div class="card-header">
                     <div class="card-title">
-                        <i class="fa-solid fa-qrcode"></i> Connect New WhatsApp Sub-Bot
+                        <i class="fa-solid fa-link"></i> Connect New WhatsApp Sub-Bot
                     </div>
                 </div>
 
-                <form id="form-pairing" onsubmit="requestPairingCode(event)">
-                    <div class="form-group">
-                        <label><i class="fa-solid fa-phone"></i> Nomor WhatsApp (Format: 628xxxxxxxx)</label>
-                        <input type="text" id="input-phone" class="form-control" placeholder="Contoh: 6285812345678" required>
-                    </div>
-                    <button type="submit" class="btn" id="btn-pair">
-                        <i class="fa-solid fa-key"></i> Dapatkan Pairing Code
+                <!-- METHOD SWITCHER -->
+                <div class="method-selector">
+                    <button class="method-btn active" id="btn-method-pairing" onclick="switchMethod('pairing')">
+                        <i class="fa-solid fa-key"></i> 📱 8-Digit Pairing Code
                     </button>
-                </form>
+                    <button class="method-btn" id="btn-method-qr" onclick="switchMethod('qr')">
+                        <i class="fa-solid fa-qrcode"></i> 📷 Scan QR Code
+                    </button>
+                </div>
 
-                <div id="pairing-result" class="pairing-container">
-                    <p style="color: var(--text-sub); font-size: 0.95rem;">Masukkan 8-digit kode ini di aplikasi WhatsApp HP kamu:</p>
-                    <div class="pairing-code-wrapper">
-                        <div class="pairing-code" id="code-display">---- ----</div>
-                        <button class="copy-btn" onclick="copyCode()"><i class="fa-regular fa-copy"></i> Copy</button>
+                <!-- METHOD A: PAIRING CODE -->
+                <div id="method-pairing-box">
+                    <form id="form-pairing" onsubmit="requestPairingCode(event)">
+                        <div class="form-group">
+                            <label><i class="fa-solid fa-phone"></i> Nomor WhatsApp (Format: 628xxxxxxxx)</label>
+                            <input type="text" id="input-phone" class="form-control" placeholder="Contoh: 6285812345678">
+                        </div>
+                        <button type="submit" class="btn" id="btn-pair">
+                            <i class="fa-solid fa-key"></i> Dapatkan Pairing Code
+                        </button>
+                    </form>
+
+                    <div id="pairing-result" class="pairing-container">
+                        <p style="color: var(--text-sub); font-size: 0.95rem;">Masukkan 8-digit kode ini di aplikasi WhatsApp HP kamu:</p>
+                        <div class="pairing-code-wrapper">
+                            <div class="pairing-code" id="code-display">---- ----</div>
+                            <button class="copy-btn" onclick="copyCode()"><i class="fa-regular fa-copy"></i> Copy</button>
+                        </div>
+                        <p style="color: var(--text-sub); font-size: 0.85rem;">Buka WhatsApp &gt; Perangkat Tertaut &gt; Tautkan dengan nomor telepon saja.</p>
                     </div>
-                    <p style="color: var(--text-sub); font-size: 0.85rem;">Buka WhatsApp &gt; Perangkat Tertaut &gt; Tautkan dengan nomor telepon saja.</p>
+                </div>
+
+                <!-- METHOD B: SCAN QR CODE -->
+                <div id="method-qr-box" style="display: none; text-align: center;">
+                    <button class="btn" id="btn-start-qr" onclick="startQRScan()">
+                        <i class="fa-solid fa-qrcode"></i> Generate QR Code Baru
+                    </button>
+
+                    <div id="qr-result" class="qr-container">
+                        <p style="color: var(--text-sub); font-size: 0.95rem;">Scan QR Code ini menggunakan Kamera WhatsApp HP Kamu:</p>
+                        <div class="qr-image-wrapper">
+                            <img id="qr-img" src="" alt="QR Code Loading...">
+                        </div>
+                        <p id="qr-status-text" style="color: var(--accent-cyan); font-weight: 600; font-size: 0.9rem;">
+                            <i class="fa-solid fa-spinner fa-spin"></i> Menunggu Scan...
+                        </p>
+                    </div>
                 </div>
             </div>
 
+            <!-- BOTS LIST -->
             <div class="glass-card">
                 <div class="card-header">
                     <div class="card-title"><i class="fa-solid fa-list"></i> Sub-Bots Active List</div>
@@ -657,10 +728,12 @@
     </div>
 
     <footer>
-        Elaina V3 Ultra-Premium Panel &copy; 2026 - Zero-Prompt Auto Start Edition
+        Elaina V3 Ultra-Premium Panel &copy; 2026 - Dual Mode: Pairing Code + QR Code
     </footer>
 
     <script>
+        let qrPollInterval = null;
+
         function showToast(text) {
             const toast = document.getElementById('toast');
             document.getElementById('toast-text').innerText = text;
@@ -678,6 +751,19 @@
             if (tabId === 'settings') loadSettings();
             if (tabId === 'addbot') loadBots();
             if (tabId === 'logs') fetchLogs();
+        }
+
+        function switchMethod(method) {
+            document.querySelectorAll('.method-btn').forEach(btn => btn.classList.remove('active'));
+            if (method === 'pairing') {
+                document.getElementById('btn-method-pairing').classList.add('active');
+                document.getElementById('method-pairing-box').style.display = 'block';
+                document.getElementById('method-qr-box').style.display = 'none';
+            } else {
+                document.getElementById('btn-method-qr').classList.add('active');
+                document.getElementById('method-pairing-box').style.display = 'none';
+                document.getElementById('method-qr-box').style.display = 'block';
+            }
         }
 
         async function fetchStatus() {
@@ -764,6 +850,64 @@
                 btn.innerHTML = '<i class="fa-solid fa-key"></i> Dapatkan Pairing Code';
                 btn.disabled = false;
                 loadBots();
+            }
+        }
+
+        async function startQRScan() {
+            const btn = document.getElementById('btn-start-qr');
+            const qrBox = document.getElementById('qr-result');
+            const qrImg = document.getElementById('qr-img');
+            const statusText = document.getElementById('qr-status-text');
+
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Initializing QR...';
+            btn.disabled = true;
+
+            if (qrPollInterval) clearInterval(qrPollInterval);
+
+            try {
+                const res = await fetch('/api/addbot/qr-start', { method: 'POST' });
+                const data = await res.json();
+
+                if (data.success) {
+                    qrBox.style.display = 'block';
+                    const sessionId = data.sessionId;
+
+                    qrPollInterval = setInterval(async () => {
+                        try {
+                            const statusRes = await fetch(`/api/addbot/qr-status/${sessionId}`);
+                            const statusData = await statusRes.json();
+
+                            if (statusData.success) {
+                                if (statusData.qrDataUrl) {
+                                    qrImg.src = statusData.qrDataUrl;
+                                    statusText.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Menunggu HP Scan QR Code ini...';
+                                }
+                                if (statusData.status === 'CONNECTED') {
+                                    clearInterval(qrPollInterval);
+                                    statusText.innerHTML = `<i class="fa-solid fa-circle-check" style="color:var(--success);"></i> TERHUBUNG! +${statusData.phoneNumber}`;
+                                    showToast(`Bot +${statusData.phoneNumber} Berhasil Terhubung!`);
+                                    loadBots();
+                                    btn.innerHTML = '<i class="fa-solid fa-qrcode"></i> Generate QR Code Baru';
+                                    btn.disabled = false;
+                                }
+                            } else {
+                                clearInterval(qrPollInterval);
+                                statusText.innerText = 'Sesi QR telah kadaluarsa. Silakan generate ulang.';
+                                btn.innerHTML = '<i class="fa-solid fa-qrcode"></i> Generate QR Code Baru';
+                                btn.disabled = false;
+                            }
+                        } catch (pollErr) { console.error(pollErr); }
+                    }, 2000);
+
+                } else {
+                    alert(data.error || 'Gagal membuat QR Code');
+                    btn.innerHTML = '<i class="fa-solid fa-qrcode"></i> Generate QR Code Baru';
+                    btn.disabled = false;
+                }
+            } catch (err) {
+                alert('Error: ' + err.message);
+                btn.innerHTML = '<i class="fa-solid fa-qrcode"></i> Generate QR Code Baru';
+                btn.disabled = false;
             }
         }
 

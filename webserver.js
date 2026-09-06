@@ -7,6 +7,7 @@ const fs = require('fs');
 const os = require('os');
 const { default: makeWASocket, useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion } = require('@whiskeysockets/baileys');
 const pino = require('pino');
+const QRCode = require('qrcode');
 
 const dynamicConfig = require('./lib/system/dynamicConfig');
 
@@ -18,8 +19,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Store active sub-bot instances
+// Store active sub-bot instances & QR sessions
 const activeSubBots = new Map();
+const activeQRSessions = new Map();
 
 // In-Memory Live Logs Buffer
 const systemLogs = [];
@@ -190,7 +192,7 @@ app.get('/api/bots', (req, res) => {
     res.json({ success: true, bots: botsList });
 });
 
-// 5. Addbot - Pairing Request
+// 5. Addbot - Method 1: Pairing Code
 app.post('/api/addbot/pairing', async (req, res) => {
     let { phoneNumber } = req.body;
     if (!phoneNumber) {
@@ -269,7 +271,7 @@ app.post('/api/addbot/pairing', async (req, res) => {
                     status: 'CONNECTED',
                     connectedAt: Date.now()
                 });
-                console.log(`[Addbot] Sub-bot +${phoneNumber} CONNECTED!`);
+                console.log(`[Addbot] Sub-bot +${phoneNumber} CONNECTED via Pairing Code!`);
             }
         });
 
@@ -279,7 +281,109 @@ app.post('/api/addbot/pairing', async (req, res) => {
     }
 });
 
-// 6. Logout Sub-Bot
+// 6. Addbot - Method 2: QR Code Generator & Listener
+app.post('/api/addbot/qr-start', async (req, res) => {
+    const sessionId = 'qr_session_' + Date.now();
+    const tempDir = path.join(SESSIONS_DIR, `temp_${sessionId}`);
+
+    try {
+        const { state, saveCreds } = await useMultiFileAuthState(tempDir);
+        const { version } = await fetchLatestBaileysVersion();
+
+        const sock = makeWASocket({
+            version,
+            logger: pino({ level: 'silent' }),
+            printQRInTerminal: false,
+            auth: state,
+            browser: ['Elaina Multi-Bot', 'Desktop', '2.0.0']
+        });
+
+        sock.ev.on('creds.update', saveCreds);
+
+        const sessionObject = {
+            sessionId,
+            sock,
+            tempDir,
+            status: 'INITIALIZING',
+            qrDataUrl: null,
+            phoneNumber: null,
+            createdAt: Date.now()
+        };
+        activeQRSessions.set(sessionId, sessionObject);
+
+        sock.ev.on('connection.update', async (update) => {
+            const { qr, connection, lastDisconnect } = update;
+            
+            if (qr) {
+                try {
+                    const qrDataUrl = await QRCode.toDataURL(qr, { margin: 2, scale: 8 });
+                    sessionObject.qrDataUrl = qrDataUrl;
+                    sessionObject.status = 'QR_READY';
+                    console.log(`[Addbot QR] QR Code generated for session ${sessionId}`);
+                } catch (qrErr) {
+                    console.error('[Addbot QR] Error generating QR Data URL:', qrErr);
+                }
+            }
+
+            if (connection === 'open') {
+                const userNum = sock.user.id.split(':')[0].split('@')[0];
+                sessionObject.status = 'CONNECTED';
+                sessionObject.phoneNumber = userNum;
+                console.log(`[Addbot QR] ✅ Sub-bot +${userNum} CONNECTED via QR Code!`);
+
+                // Move temp directory to permanent subbot directory
+                const permanentDir = path.join(SESSIONS_DIR, `subbot_${userNum}`);
+                if (fs.existsSync(permanentDir)) {
+                    fs.rmSync(permanentDir, { recursive: true, force: true });
+                }
+                fs.renameSync(tempDir, permanentDir);
+
+                // Register to activeSubBots
+                activeSubBots.set(userNum, {
+                    sock,
+                    status: 'CONNECTED',
+                    connectedAt: Date.now()
+                });
+
+                activeQRSessions.delete(sessionId);
+            } else if (connection === 'close') {
+                const statusCode = (lastDisconnect?.error)?.output?.statusCode;
+                if (statusCode === DisconnectReason.loggedOut) {
+                    activeQRSessions.delete(sessionId);
+                    if (fs.existsSync(tempDir)) fs.rmSync(tempDir, { recursive: true, force: true });
+                }
+            }
+        });
+
+        res.json({
+            success: true,
+            sessionId,
+            message: 'Sesi QR Code diinisialisasi...'
+        });
+
+    } catch (err) {
+        console.error('[Addbot QR] Exception:', err);
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
+// 7. Poll QR Session Status
+app.get('/api/addbot/qr-status/:sessionId', (req, res) => {
+    const { sessionId } = req.params;
+    if (!activeQRSessions.has(sessionId)) {
+        return res.json({ success: false, status: 'EXPIRED_OR_CLOSED' });
+    }
+
+    const sess = activeQRSessions.get(sessionId);
+    res.json({
+        success: true,
+        status: sess.status,
+        qrDataUrl: sess.qrDataUrl,
+        phoneNumber: sess.phoneNumber
+    });
+});
+
+// 8. Logout Sub-Bot
 app.post('/api/bots/logout', async (req, res) => {
     let { phoneNumber } = req.body;
     phoneNumber = String(phoneNumber).replace(/[^0-9]/g, '');
@@ -299,7 +403,7 @@ app.post('/api/bots/logout', async (req, res) => {
     res.json({ success: true, message: `Sub-bot +${phoneNumber} berhasil di-logout & dihapus.` });
 });
 
-// 7. Get Live Terminal Logs
+// 9. Get Live Terminal Logs
 app.get('/api/logs', (req, res) => {
     res.json({ success: true, logs: systemLogs });
 });
@@ -308,7 +412,7 @@ app.get('/api/logs', (req, res) => {
 server.listen(PORT, () => {
     console.log(`\n======================================================`);
     console.log(` ⚡ ELAINA V3 ULTRA-PREMIUM DASHBOARD & ADDBOT SERVER `);
-    console.log(` 📍 Status : ONLINE (Zero-Prompt Auto-Start)`);
+    console.log(` 📍 Status : ONLINE (Dual Mode: Pairing Code + QR Code)`);
     console.log(` 🌐 Web UI : http://localhost:${PORT}`);
     console.log(`======================================================\n`);
 
