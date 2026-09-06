@@ -5,7 +5,7 @@ const http = require('http');
 const path = require('path');
 const fs = require('fs');
 const os = require('os');
-const { default: makeWASocket, useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion, Browsers } = require('@whiskeysockets/baileys');
+const { default: makeWASocket, useMultiFileAuthState, DisconnectReason } = require('@whiskeysockets/baileys');
 const pino = require('pino');
 const QRCode = require('qrcode');
 
@@ -19,22 +19,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Safe Browser Config Helper to prevent "Browsers.ubuntu is not a function" error
-const getBrowserConfig = () => {
-    try {
-        if (Browsers && typeof Browsers.ubuntu === 'function') {
-            return Browsers.ubuntu('Chrome');
-        }
-        if (Browsers && typeof Browsers.macOS === 'function') {
-            return Browsers.macOS('Desktop');
-        }
-    } catch {}
-    return ['Ubuntu', 'Chrome', '20.0.04'];
-};
-
-// Store active sub-bot instances & QR sessions
-const activeSubBots = new Map();
-const activeQRSessions = new Map();
+// -------------------------------------------------------------
+// GLOBAL SESSION & QR STATE (PERSISTENT & MEMORY)
+// -------------------------------------------------------------
+const sessions = {};  // Nyimpen socket & status per sessionId / nomor
+const qrCodes = {};   // Nyimpen DataURL Base64 QR Code
 
 // In-Memory Live Logs Buffer
 const systemLogs = [];
@@ -47,7 +36,6 @@ function addLog(type, message) {
     if (systemLogs.length > MAX_LOGS) systemLogs.shift();
 }
 
-// Override stdout / stderr for Live Log Buffer
 const origLog = console.log;
 const origErr = console.error;
 console.log = function (...args) {
@@ -66,78 +54,114 @@ if (!fs.existsSync(SESSIONS_DIR)) {
 }
 
 // -------------------------------------------------------------
-// Auto-Reconnect Existing Sub-Bots on Boot
+// CORE ENGINE: START BOT SESSION (QR CODE & PAIRING)
 // -------------------------------------------------------------
-async function autoConnectSavedBots() {
+async function startBotSession(sessionId, isPairing = false, phoneNumber = '') {
+    const sessionDir = path.join(SESSIONS_DIR, `auth_info_${sessionId}`);
     try {
-        const folders = fs.readdirSync(SESSIONS_DIR);
-        for (const folder of folders) {
-            if (folder.startsWith('subbot_')) {
-                const phoneNumber = folder.replace('subbot_', '');
-                console.log(`[AutoConnect] Menghubungkan ulang sub-bot +${phoneNumber}...`);
-                initSubBotSession(phoneNumber);
-            }
-        }
-    } catch (err) {
-        console.error('[AutoConnect] Error reconnecting bots:', err);
-    }
-}
-
-async function initSubBotSession(phoneNumber) {
-    const botSessionDir = path.join(SESSIONS_DIR, `subbot_${phoneNumber}`);
-    try {
-        const { state, saveCreds } = await useMultiFileAuthState(botSessionDir);
-        const { version } = await fetchLatestBaileysVersion();
+        const { state, saveCreds } = await useMultiFileAuthState(sessionDir);
 
         const sock = makeWASocket({
-            version,
+            auth: state,
             logger: pino({ level: 'silent' }),
             printQRInTerminal: false,
-            auth: state,
-            browser: getBrowserConfig()
+            browser: ['Elaina Workspace', 'Chrome', '1.0.0']
         });
+
+        sessions[sessionId] = {
+            sock,
+            status: 'Menghubungkan...',
+            number: phoneNumber || sessionId,
+            createdAt: Date.now()
+        };
 
         sock.ev.on('creds.update', saveCreds);
 
-        sock.ev.on('connection.update', (update) => {
-            const { connection, lastDisconnect } = update;
-            if (connection === 'close') {
-                const statusCode = (lastDisconnect?.error)?.output?.statusCode;
-                const shouldReconnect = statusCode !== DisconnectReason.loggedOut;
-                console.log(`[SubBot +${phoneNumber}] Connection CLOSED (Status: ${statusCode || 'unknown'}). Reconnect: ${shouldReconnect}`);
-                
-                if (shouldReconnect) {
-                    setTimeout(() => initSubBotSession(phoneNumber), 5000);
-                } else {
-                    activeSubBots.delete(phoneNumber);
-                    if (fs.existsSync(botSessionDir)) {
-                        fs.rmSync(botSessionDir, { recursive: true, force: true });
+        sock.ev.on('connection.update', async (update) => {
+            const { connection, lastDisconnect, qr } = update;
+
+            // Logika Simpan QR Code ke DataURL Base64
+            if (qr) {
+                try {
+                    qrCodes[sessionId] = await QRCode.toDataURL(qr);
+                    if (sessions[sessionId]) {
+                        sessions[sessionId].status = 'Menunggu Scan QR';
                     }
+                    console.log(`[Session ${sessionId}] 📸 QR Code baru dihasilkan`);
+                } catch (err) {
+                    console.error(`[Session ${sessionId}] Gagal generate QR URL:`, err);
+                }
+            }
+
+            if (connection === 'close') {
+                delete qrCodes[sessionId];
+                if (sessions[sessionId]) sessions[sessionId].status = 'Terputus (Offline)';
+
+                const statusCode = lastDisconnect?.error?.output?.statusCode;
+                const shouldReconnect = statusCode !== DisconnectReason.loggedOut;
+                console.log(`[Session ${sessionId}] Connection CLOSED (Code: ${statusCode || 'unknown'}). Reconnect: ${shouldReconnect}`);
+
+                if (shouldReconnect) {
+                    setTimeout(() => startBotSession(sessionId, isPairing, phoneNumber), 4000);
+                } else {
+                    if (fs.existsSync(sessionDir)) {
+                        fs.rmSync(sessionDir, { recursive: true, force: true });
+                    }
+                    delete sessions[sessionId];
                 }
             } else if (connection === 'open') {
-                activeSubBots.set(phoneNumber, {
-                    sock,
-                    status: 'CONNECTED',
-                    connectedAt: Date.now()
-                });
-                console.log(`[SubBot +${phoneNumber}] ✅ CONNECTED & READY!`);
+                delete qrCodes[sessionId];
+                const botNum = sock.user ? sock.user.id.split(':')[0].split('@')[0] : (phoneNumber || sessionId);
+                if (sessions[sessionId]) {
+                    sessions[sessionId].status = 'Online ✅';
+                    sessions[sessionId].number = botNum;
+                }
+                console.log(`[Session ${sessionId}] ✅ TERHUBUNG & ONLINE! (+${botNum})`);
             }
         });
 
-        activeSubBots.set(phoneNumber, {
-            sock,
-            status: sock.authState.creds.registered ? 'CONNECTING' : 'PAIRING_READY',
-            connectedAt: Date.now()
-        });
+        // Logika Pairing Code
+        if (isPairing && phoneNumber && !sock.authState.creds.registered) {
+            setTimeout(async () => {
+                try {
+                    const code = await sock.requestPairingCode(phoneNumber);
+                    if (sessions[sessionId]) {
+                        sessions[sessionId].pairingCode = code;
+                        sessions[sessionId].status = 'Pairing Code Ready';
+                    }
+                    console.log(`[Session ${sessionId}] 📱 Pairing Code untuk +${phoneNumber}: ${code}`);
+                } catch (pErr) {
+                    console.error(`[Session ${sessionId}] Gagal request pairing code:`, pErr);
+                }
+            }, 2500);
+        }
 
         return sock;
     } catch (err) {
-        console.error(`[SubBot +${phoneNumber}] Init Exception:`, err);
+        console.error(`[Session ${sessionId}] Exception startBotSession:`, err);
     }
 }
 
 // -------------------------------------------------------------
-// API Endpoints
+// Auto-Reconnect Session yang Pernah Dibuat saat Server Restart
+// -------------------------------------------------------------
+function autoLoadSessions() {
+    try {
+        const folders = fs.readdirSync(SESSIONS_DIR);
+        folders.forEach(f => {
+            if (f.startsWith('auth_info_')) {
+                const sessionId = f.replace('auth_info_', '');
+                console.log(`[AutoLoad] Memuat ulang sesi: ${sessionId}...`);
+                startBotSession(sessionId);
+            }
+        });
+    } catch (err) {
+        console.error('[AutoLoad] Error:', err);
+    }
+}
+
+// -------------------------------------------------------------
+// API ENDPOINTS
 // -------------------------------------------------------------
 
 // 1. Get System Status
@@ -157,11 +181,11 @@ app.get('/api/status', (req, res) => {
             platform: os.platform(),
             nodeVersion: process.version
         },
-        activeBotsCount: activeSubBots.size
+        activeBotsCount: Object.keys(sessions).length
     });
 });
 
-// 2. Get Current Settings
+// 2. Get Settings
 app.get('/api/settings', (req, res) => {
     const settings = dynamicConfig.loadSettings();
     res.json({ success: true, settings });
@@ -170,296 +194,120 @@ app.get('/api/settings', (req, res) => {
 // 3. Save Settings
 app.post('/api/settings', (req, res) => {
     const result = dynamicConfig.saveSettings(req.body);
-    if (result.success) {
-        console.log('[Settings] Dynamic settings updated via Web Dashboard');
-    }
     res.json(result);
 });
 
-// 4. List Sub-Bots
+// 4. List Active Bots
 app.get('/api/bots', (req, res) => {
     const botsList = [];
-    const processedNums = new Set();
-
-    activeSubBots.forEach((bot, number) => {
-        processedNums.add(number);
+    for (const [id, sess] of Object.entries(sessions)) {
         botsList.push({
-            number,
-            status: bot.status || 'CONNECTED',
-            connectedAt: bot.connectedAt || Date.now()
+            id,
+            number: sess.number || id,
+            status: sess.status || 'Offline',
+            hasQR: !!qrCodes[id],
+            hasPairing: !!sess.pairingCode,
+            pairingCode: sess.pairingCode || null
         });
-    });
-
-    const folders = fs.readdirSync(SESSIONS_DIR);
-    folders.forEach(folder => {
-        if (folder.startsWith('subbot_')) {
-            const num = folder.replace('subbot_', '');
-            if (!processedNums.has(num)) {
-                botsList.push({
-                    number: num,
-                    status: 'INACTIVE',
-                    connectedAt: null
-                });
-            }
-        }
-    });
-
+    }
     res.json({ success: true, bots: botsList });
 });
 
-// 5. Addbot - Method 1: Pairing Code
-app.post('/api/addbot/pairing', async (req, res) => {
-    let { phoneNumber } = req.body;
-    if (!phoneNumber) {
-        return res.status(400).json({ success: false, error: 'Nomor HP wajib diisi!' });
+// 5. Start QR Session
+app.post('/api/addbot/qr-start', (req, res) => {
+    const sessionId = req.body.session_id || 'bot_' + Date.now();
+    if (!sessions[sessionId]) {
+        startBotSession(sessionId);
     }
-
-    phoneNumber = String(phoneNumber).replace(/[^0-9]/g, '');
-    if (phoneNumber.length < 10) {
-        return res.status(400).json({ success: false, error: 'Nomor HP tidak valid! Gunakan format 628xxx' });
-    }
-
-    try {
-        const botSessionDir = path.join(SESSIONS_DIR, `subbot_${phoneNumber}`);
-        const { state, saveCreds } = await useMultiFileAuthState(botSessionDir);
-        const { version } = await fetchLatestBaileysVersion();
-
-        const sock = makeWASocket({
-            version,
-            logger: pino({ level: 'silent' }),
-            printQRInTerminal: false,
-            auth: state,
-            browser: getBrowserConfig()
-        });
-
-        sock.ev.on('creds.update', saveCreds);
-
-        if (!sock.authState.creds.registered) {
-            setTimeout(async () => {
-                try {
-                    const code = await sock.requestPairingCode(phoneNumber);
-                    activeSubBots.set(phoneNumber, {
-                        sock,
-                        status: 'PAIRING_READY',
-                        pairingCode: code,
-                        connectedAt: Date.now()
-                    });
-
-                    console.log(`[Addbot] Pairing Code generated for +${phoneNumber}: ${code}`);
-                    return res.json({
-                        success: true,
-                        phoneNumber,
-                        pairingCode: code,
-                        message: 'Pairing code berhasil dibuat!'
-                    });
-                } catch (err) {
-                    console.error('[Addbot] Error pairing:', err);
-                    return res.status(500).json({ success: false, error: 'Gagal membuat pairing code: ' + err.message });
-                }
-            }, 2500);
-        } else {
-            activeSubBots.set(phoneNumber, {
-                sock,
-                status: 'CONNECTED',
-                connectedAt: Date.now()
-            });
-
-            return res.json({
-                success: true,
-                phoneNumber,
-                pairingCode: null,
-                message: 'Bot nomor ini sudah terhubung & aktif!'
-            });
-        }
-
-        sock.ev.on('connection.update', (update) => {
-            const { connection, lastDisconnect } = update;
-            if (connection === 'close') {
-                const shouldReconnect = (lastDisconnect?.error)?.output?.statusCode !== DisconnectReason.loggedOut;
-                if (!shouldReconnect) {
-                    activeSubBots.delete(phoneNumber);
-                    if (fs.existsSync(botSessionDir)) fs.rmSync(botSessionDir, { recursive: true, force: true });
-                }
-            } else if (connection === 'open') {
-                activeSubBots.set(phoneNumber, {
-                    sock,
-                    status: 'CONNECTED',
-                    connectedAt: Date.now()
-                });
-                console.log(`[Addbot] Sub-bot +${phoneNumber} CONNECTED via Pairing Code!`);
-            }
-        });
-
-    } catch (err) {
-        console.error('[Addbot] Exception:', err);
-        return res.status(500).json({ success: false, error: err.message });
-    }
+    res.json({ success: true, sessionId, message: 'Sesi QR berhasil dibuat!' });
 });
 
-// 6. Addbot - Method 2: QR Code Generator & Listener
-app.post('/api/addbot/qr-start', async (req, res) => {
-    const sessionId = 'qr_session_' + Date.now();
-    const tempDir = path.join(SESSIONS_DIR, `temp_${sessionId}`);
-
-    // Clean any old temp sessions first
-    try {
-        const folders = fs.readdirSync(SESSIONS_DIR);
-        folders.forEach(f => {
-            if (f.startsWith('temp_')) {
-                fs.rmSync(path.join(SESSIONS_DIR, f), { recursive: true, force: true });
-            }
-        });
-    } catch {}
-
-    try {
-        const { state, saveCreds } = await useMultiFileAuthState(tempDir);
-        const { version } = await fetchLatestBaileysVersion();
-
-        const sock = makeWASocket({
-            version,
-            logger: pino({ level: 'silent' }),
-            printQRInTerminal: false,
-            auth: state,
-            browser: getBrowserConfig(), // Safe Browser tuple for WhatsApp Web QR Handshake!
-            syncFullHistory: false
-        });
-
-        sock.ev.on('creds.update', saveCreds);
-
-        const sessionObject = {
-            sessionId,
-            sock,
-            tempDir,
-            status: 'INITIALIZING',
-            qrDataUrl: null,
-            phoneNumber: null,
-            createdAt: Date.now()
-        };
-        activeQRSessions.set(sessionId, sessionObject);
-
-        sock.ev.on('connection.update', async (update) => {
-            const { qr, connection, lastDisconnect } = update;
-            
-            if (qr) {
-                try {
-                    const qrDataUrl = await QRCode.toDataURL(qr, { margin: 2, scale: 8 });
-                    sessionObject.qrDataUrl = qrDataUrl;
-                    sessionObject.status = 'QR_READY';
-                    console.log(`[Addbot QR] Fresh QR Code generated for session ${sessionId}`);
-                } catch (qrErr) {
-                    console.error('[Addbot QR] Error generating QR Data URL:', qrErr);
-                }
-            }
-
-            if (connection === 'open') {
-                const userNum = sock.user.id.split(':')[0].split('@')[0];
-                sessionObject.status = 'CONNECTED';
-                sessionObject.phoneNumber = userNum;
-                console.log(`[Addbot QR] ✅ Sub-bot +${userNum} CONNECTED via QR Code!`);
-
-                // Move temp directory to permanent subbot directory
-                const permanentDir = path.join(SESSIONS_DIR, `subbot_${userNum}`);
-                if (fs.existsSync(permanentDir)) {
-                    fs.rmSync(permanentDir, { recursive: true, force: true });
-                }
-                fs.renameSync(tempDir, permanentDir);
-
-                // Register to activeSubBots
-                activeSubBots.set(userNum, {
-                    sock,
-                    status: 'CONNECTED',
-                    connectedAt: Date.now()
-                });
-
-                activeQRSessions.delete(sessionId);
-            } else if (connection === 'close') {
-                const statusCode = (lastDisconnect?.error)?.output?.statusCode;
-                if (statusCode === DisconnectReason.loggedOut) {
-                    activeQRSessions.delete(sessionId);
-                    if (fs.existsSync(tempDir)) fs.rmSync(tempDir, { recursive: true, force: true });
-                }
-            }
-        });
-
-        res.json({
-            success: true,
-            sessionId,
-            message: 'Sesi QR Code diinisialisasi...'
-        });
-
-    } catch (err) {
-        console.error('[Addbot QR] Exception:', err);
-        res.status(500).json({ success: false, error: err.message });
-    }
-});
-
-// 7. Poll QR Session Status
+// 6. Get QR Status for a Session
 app.get('/api/addbot/qr-status/:sessionId', (req, res) => {
     const { sessionId } = req.params;
-    if (!activeQRSessions.has(sessionId)) {
-        return res.json({ success: false, status: 'EXPIRED_OR_CLOSED' });
-    }
+    const sess = sessions[sessionId];
+    const qrCode = qrCodes[sessionId] || null;
 
-    const sess = activeQRSessions.get(sessionId);
     res.json({
         success: true,
-        status: sess.status,
-        qrDataUrl: sess.qrDataUrl,
-        phoneNumber: sess.phoneNumber
+        exists: !!sess,
+        status: sess ? sess.status : 'Non-Existent',
+        qrCode: qrCode,
+        number: sess ? sess.number : null
     });
 });
 
-// 8. Logout / Reset Specific Sub-Bot Session
-app.post('/api/bots/logout', async (req, res) => {
+// 7. Start Pairing Code Session
+app.post('/api/addbot/pairing', (req, res) => {
     let { phoneNumber } = req.body;
+    if (!phoneNumber) return res.status(400).json({ success: false, error: 'Nomor HP wajib diisi!' });
+
     phoneNumber = String(phoneNumber).replace(/[^0-9]/g, '');
+    const sessionId = `pair_${phoneNumber}`;
 
-    if (activeSubBots.has(phoneNumber)) {
-        const bot = activeSubBots.get(phoneNumber);
-        try { bot.sock.logout(); } catch {}
-        activeSubBots.delete(phoneNumber);
+    if (!sessions[sessionId]) {
+        startBotSession(sessionId, true, phoneNumber);
     }
 
-    const botSessionDir = path.join(SESSIONS_DIR, `subbot_${phoneNumber}`);
-    if (fs.existsSync(botSessionDir)) {
-        fs.rmSync(botSessionDir, { recursive: true, force: true });
-    }
-
-    console.log(`[Addbot] Sub-bot +${phoneNumber} logged out and session deleted.`);
-    res.json({ success: true, message: `Sub-bot +${phoneNumber} berhasil di-logout & dihapus.` });
+    res.json({ success: true, sessionId, phoneNumber, message: 'Memproses pairing code...' });
 });
 
-// 9. Reset All Inactive / Stuck Sessions
-app.post('/api/bots/reset-sessions', (req, res) => {
+// 8. Delete / Logout / Clear Session
+app.post('/api/bots/delete', async (req, res) => {
+    const { id } = req.body;
+    if (!id) return res.status(400).json({ success: false, error: 'ID Sesi wajib diisi' });
+
+    delete qrCodes[id];
+
+    if (sessions[id]) {
+        try { sessions[id].sock.logout(); } catch {}
+        delete sessions[id];
+    }
+
+    const sessionDir = path.join(SESSIONS_DIR, `auth_info_${id}`);
+    if (fs.existsSync(sessionDir)) {
+        fs.rmSync(sessionDir, { recursive: true, force: true });
+    }
+
+    console.log(`[DeleteSession] Sesi ${id} berhasil dihapus.`);
+    res.json({ success: true, message: `Sesi ${id} berhasil dihapus!` });
+});
+
+// 9. Reset All Pending / Temp Stuck Sessions
+app.post('/api/bots/reset-stuck', (req, res) => {
     try {
-        let deletedCount = 0;
-        const folders = fs.readdirSync(SESSIONS_DIR);
-        folders.forEach(f => {
-            if (f.startsWith('temp_')) {
-                fs.rmSync(path.join(SESSIONS_DIR, f), { recursive: true, force: true });
-                deletedCount++;
+        let count = 0;
+        for (const [id, sess] of Object.entries(sessions)) {
+            if (sess.status !== 'Online ✅') {
+                delete qrCodes[id];
+                try { sess.sock.logout(); } catch {}
+                delete sessions[id];
+
+                const sessionDir = path.join(SESSIONS_DIR, `auth_info_${id}`);
+                if (fs.existsSync(sessionDir)) {
+                    fs.rmSync(sessionDir, { recursive: true, force: true });
+                }
+                count++;
             }
-        });
-        activeQRSessions.clear();
-        console.log(`[ResetSessions] ${deletedCount} temporary stuck QR sessions cleaned up.`);
-        res.json({ success: true, message: `${deletedCount} sesi temp/stuck berhasil dibersihkan.` });
+        }
+        res.json({ success: true, message: `${count} sesi stuck/offline berhasil dibersihkan!` });
     } catch (err) {
         res.status(500).json({ success: false, error: err.message });
     }
 });
 
-// 10. Get Live Terminal Logs
+// 10. Live Logs
 app.get('/api/logs', (req, res) => {
     res.json({ success: true, logs: systemLogs });
 });
 
-// Start Server & Auto-Connect
+// Start Server
 server.listen(PORT, () => {
     console.log(`\n======================================================`);
     console.log(` ⚡ ELAINA V3 ULTRA-PREMIUM DASHBOARD & ADDBOT SERVER `);
-    console.log(` 📍 Status : ONLINE (Safe Browser Helper Fixed)`);
+    console.log(` 📍 Status : ONLINE (Logika QR + Session Reset)`);
     console.log(` 🌐 Web UI : http://localhost:${PORT}`);
     console.log(`======================================================\n`);
 
-    autoConnectSavedBots();
+    autoLoadSessions();
 });

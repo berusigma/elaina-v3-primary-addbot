@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Elaina V3 - Mobile & Desktop Control Panel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -12,8 +12,8 @@
             --bg-card: rgba(18, 25, 41, 0.85);
             --border-glow: rgba(139, 92, 246, 0.3);
             --border-subtle: rgba(255, 255, 255, 0.08);
-            --accent-primary: #8b5cf6;
-            --accent-gradient: linear-gradient(135deg, #a855f7, #6366f1, #06b6d4);
+            --accent-primary: #3b82f6;
+            --accent-gradient: linear-gradient(135deg, #3b82f6, #6366f1, #06b6d4);
             --accent-cyan: #06b6d4;
             --text-main: #f8fafc;
             --text-sub: #94a3b8;
@@ -26,14 +26,14 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
 
         body {
             background-color: var(--bg-body);
             background-image: 
-                radial-gradient(circle at 15% 15%, rgba(139, 92, 246, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 15% 15%, rgba(59, 130, 246, 0.12) 0%, transparent 40%),
                 radial-gradient(circle at 85% 85%, rgba(6, 182, 212, 0.12) 0%, transparent 40%);
             background-attachment: fixed;
             color: var(--text-main);
@@ -72,7 +72,7 @@
             justify-content: center;
             font-size: 1.2rem;
             color: white;
-            box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
         }
 
         .logo-text {
@@ -115,7 +115,7 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
 
-        /* NAVIGATION BAR MOBILE FRIENDLY */
+        /* NAVIGATION BAR */
         .nav-container {
             padding: 0.8rem 1rem 0 1rem;
             max-width: 1240px;
@@ -157,7 +157,7 @@
         nav button.active {
             background: var(--accent-gradient);
             color: white;
-            box-shadow: 0 4px 14px rgba(139, 92, 246, 0.35);
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.35);
         }
 
         /* MAIN CONTAINER */
@@ -222,7 +222,7 @@
             width: 40px;
             height: 40px;
             border-radius: 10px;
-            background: rgba(139, 92, 246, 0.15);
+            background: rgba(59, 130, 246, 0.15);
             color: var(--accent-primary);
             display: flex;
             align-items: center;
@@ -296,7 +296,7 @@
         .method-btn.active {
             background: var(--accent-gradient);
             color: white;
-            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
         }
 
         /* FORM ELEMENTS */
@@ -335,7 +335,7 @@
 
         .form-control:focus {
             border-color: var(--accent-primary);
-            box-shadow: 0 0 10px rgba(139, 92, 246, 0.25);
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.25);
         }
 
         .btn {
@@ -411,13 +411,13 @@
             padding: 0.8rem;
             border-radius: 14px;
             display: inline-block;
-            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
             margin: 0.8rem 0;
         }
 
         .qr-image-wrapper img {
-            width: 190px;
-            height: 190px;
+            width: 200px;
+            height: 200px;
             display: block;
         }
 
@@ -622,7 +622,7 @@
                             <i class="fa-solid fa-qrcode"></i> Generate QR Code Baru
                         </button>
                         <button class="btn btn-warning" style="font-size: 0.82rem;" onclick="resetStuckSessions()">
-                            <i class="fa-solid fa-broom"></i> Bersihkan Sesi Stuck / QR Pending
+                            <i class="fa-solid fa-broom"></i> Bersihkan Sesi Stuck / Offline
                         </button>
                     </div>
 
@@ -653,7 +653,7 @@
                         <p style="color: var(--text-sub); font-size: 0.88rem;">Masukkan 8-digit kode ini di aplikasi WhatsApp HP kamu:</p>
                         <div class="pairing-code-wrapper">
                             <div class="pairing-code" id="code-display">---- ----</div>
-                            <button class="btn" style="padding: 0.6rem 1rem;" onclick="copyCode()"><i class="fa-regular fa-copy"></i> Copy</button>
+                            <button class="btn" style="padding: 0.6rem 1rem; width: auto;" onclick="copyCode()"><i class="fa-regular fa-copy"></i> Copy</button>
                         </div>
                         <p style="color: var(--text-sub); font-size: 0.8rem;">Buka WhatsApp &gt; Perangkat Tertaut &gt; Tautkan dengan nomor telepon saja.</p>
                     </div>
@@ -749,6 +749,7 @@
     </footer>
 
     <script>
+        let currentSessionId = null;
         let qrPollInterval = null;
 
         function showToast(text) {
@@ -817,7 +818,7 @@
                 }
 
                 data.bots.forEach(bot => {
-                    const isConn = bot.status === 'CONNECTED';
+                    const isConn = bot.status === 'Online ✅';
                     container.innerHTML += `
                         <div class="bot-card">
                             <div class="bot-info">
@@ -827,7 +828,7 @@
                                     <span class="status-badge ${isConn ? 'connected' : 'inactive'}">${bot.status}</span>
                                 </div>
                             </div>
-                            <button class="btn btn-danger" style="padding:0.4rem 0.8rem; font-size:0.8rem; width:auto; min-height:36px;" onclick="logoutBot('${bot.number}')">
+                            <button class="btn btn-danger" style="padding:0.4rem 0.8rem; font-size:0.8rem; width:auto; min-height:36px;" onclick="deleteBot('${bot.id}')">
                                 <i class="fa-solid fa-trash"></i> Hapus
                             </button>
                         </div>
@@ -854,19 +855,48 @@
                 });
 
                 const data = await res.json();
-                if (data.success && data.pairingCode) {
-                    codeDisplay.innerText = data.pairingCode;
-                    resultBox.style.display = 'block';
-                    showToast('Pairing Code Berhasil Dibuat!');
+                if (data.success) {
+                    currentSessionId = data.sessionId;
+                    showToast('Memproses Pairing Code...');
+
+                    // Poll status pairing
+                    const pairInterval = setInterval(async () => {
+                        try {
+                            const statusRes = await fetch(`/api/addbot/qr-status/${currentSessionId}`);
+                            const statusData = await statusRes.json();
+
+                            if (statusData.success && statusData.exists) {
+                                // Check if code ready
+                                const botsRes = await fetch('/api/bots');
+                                const botsData = await botsRes.json();
+                                const currentBot = botsData.bots.find(b => b.id === currentSessionId);
+
+                                if (currentBot && currentBot.pairingCode) {
+                                    clearInterval(pairInterval);
+                                    codeDisplay.innerText = currentBot.pairingCode;
+                                    resultBox.style.display = 'block';
+                                    showToast('Pairing Code Berhasil Dibuat!');
+                                    btn.innerHTML = '<i class="fa-solid fa-key"></i> Dapatkan Pairing Code';
+                                    btn.disabled = false;
+                                } else if (statusData.status === 'Online ✅') {
+                                    clearInterval(pairInterval);
+                                    showToast('Bot Berhasil Terhubung!');
+                                    loadBots();
+                                    btn.innerHTML = '<i class="fa-solid fa-key"></i> Dapatkan Pairing Code';
+                                    btn.disabled = false;
+                                }
+                            }
+                        } catch (pErr) { console.error(pErr); }
+                    }, 1500);
                 } else {
-                    alert(data.error || data.message || 'Gagal membuat pairing code');
+                    alert(data.error || 'Gagal membuat pairing code');
+                    btn.innerHTML = '<i class="fa-solid fa-key"></i> Dapatkan Pairing Code';
+                    btn.disabled = false;
                 }
             } catch (err) {
                 alert('Error: ' + err.message);
-            } finally {
                 btn.innerHTML = '<i class="fa-solid fa-key"></i> Dapatkan Pairing Code';
                 btn.disabled = false;
-                loadBots();
             }
         }
 
@@ -887,22 +917,22 @@
 
                 if (data.success) {
                     qrBox.style.display = 'block';
-                    const sessionId = data.sessionId;
+                    currentSessionId = data.sessionId;
 
                     qrPollInterval = setInterval(async () => {
                         try {
-                            const statusRes = await fetch(`/api/addbot/qr-status/${sessionId}`);
+                            const statusRes = await fetch(`/api/addbot/qr-status/${currentSessionId}`);
                             const statusData = await statusRes.json();
 
-                            if (statusData.success) {
-                                if (statusData.qrDataUrl) {
-                                    qrImg.src = statusData.qrDataUrl;
+                            if (statusData.success && statusData.exists) {
+                                if (statusData.qrCode) {
+                                    qrImg.src = statusData.qrCode;
                                     statusText.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Menunggu HP Scan QR Code ini...';
                                 }
-                                if (statusData.status === 'CONNECTED') {
+                                if (statusData.status === 'Online ✅') {
                                     clearInterval(qrPollInterval);
-                                    statusText.innerHTML = `<i class="fa-solid fa-circle-check" style="color:var(--success);"></i> TERHUBUNG! +${statusData.phoneNumber}`;
-                                    showToast(`Bot +${statusData.phoneNumber} Berhasil Terhubung!`);
+                                    statusText.innerHTML = `<i class="fa-solid fa-circle-check" style="color:var(--success);"></i> TERHUBUNG! +${statusData.number}`;
+                                    showToast(`Bot +${statusData.number} Berhasil Terhubung!`);
                                     loadBots();
                                     btn.innerHTML = '<i class="fa-solid fa-qrcode"></i> Generate QR Code Baru';
                                     btn.disabled = false;
@@ -914,7 +944,7 @@
                                 btn.disabled = false;
                             }
                         } catch (pollErr) { console.error(pollErr); }
-                    }, 2000);
+                    }, 1500);
 
                 } else {
                     alert(data.error || 'Gagal membuat QR Code');
@@ -929,13 +959,14 @@
         }
 
         async function resetStuckSessions() {
-            if (!confirm('Bersihkan semua sesi QR temp yang sedang menggantung?')) return;
+            if (!confirm('Bersihkan semua sesi stuck / offline?')) return;
             try {
-                const res = await fetch('/api/bots/reset-sessions', { method: 'POST' });
+                const res = await fetch('/api/bots/reset-stuck', { method: 'POST' });
                 const data = await res.json();
                 showToast(data.message);
                 if (qrPollInterval) clearInterval(qrPollInterval);
                 document.getElementById('qr-result').style.display = 'none';
+                loadBots();
             } catch (err) { alert('Error: ' + err.message); }
         }
 
@@ -945,14 +976,14 @@
             showToast('Kode berhasil dicopy!');
         }
 
-        async function logoutBot(phoneNumber) {
-            if (!confirm(`Yakin ingin mematikan & menghapus sub-bot +${phoneNumber}?`)) return;
+        async function deleteBot(sessionId) {
+            if (!confirm(`Yakin ingin menghapus sesi bot ${sessionId}?`)) return;
 
             try {
-                const res = await fetch('/api/bots/logout', {
+                const res = await fetch('/api/bots/delete', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ phoneNumber })
+                    body: JSON.stringify({ id: sessionId })
                 });
                 const data = await res.json();
                 showToast(data.message);
