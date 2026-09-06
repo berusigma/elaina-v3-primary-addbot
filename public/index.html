@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elaina V3 - Web Dashboard & Addbot Panel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title>Elaina V3 - Ultra Premium Control Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --accent-color: #6366f1;
-            --accent-hover: #4f46e5;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --success-color: #10b981;
-            --danger-color: #ef4444;
-            --warning-color: #f59e0b;
-            --border-color: #334155;
+            --bg-body: #070a12;
+            --bg-card: rgba(18, 25, 41, 0.75);
+            --bg-card-hover: rgba(26, 36, 59, 0.85);
+            --border-glow: rgba(139, 92, 246, 0.25);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --accent-primary: #8b5cf6;
+            --accent-gradient: linear-gradient(135deg, #a855f7, #6366f1, #06b6d4);
+            --accent-cyan: #06b6d4;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --success: #10b981;
+            --danger: #f43f5e;
+            --warning: #f59e0b;
         }
 
         * {
@@ -28,18 +31,23 @@
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-primary);
+            background-color: var(--bg-body);
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(139, 92, 246, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(6, 182, 212, 0.12) 0%, transparent 40%);
+            background-attachment: fixed;
+            color: var(--text-main);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
+        /* HEADER */
         header {
-            background: rgba(30, 41, 59, 0.8);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
-            padding: 1.2rem 2rem;
+            background: rgba(11, 16, 28, 0.8);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -48,48 +56,100 @@
             z-index: 100;
         }
 
-        .logo {
+        .logo-container {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--text-primary);
+            gap: 14px;
         }
 
-        .logo span {
-            background: linear-gradient(135deg, #a855f7, #6366f1);
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--accent-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: white;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+        }
+
+        .logo-text {
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            background: var(--accent-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
+        .server-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 0.35rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--success);
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--success);
+            box-shadow: 0 0 8px var(--success);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        /* NAVIGATION TABS */
         nav {
             display: flex;
-            gap: 10px;
+            gap: 8px;
+            background: rgba(15, 23, 42, 0.6);
+            padding: 6px;
+            border-radius: 12px;
+            border: 1px solid var(--border-subtle);
         }
 
         nav button {
             background: transparent;
-            border: 1px solid var(--border-color);
-            color: var(--text-secondary);
+            border: none;
+            color: var(--text-sub);
             padding: 0.6rem 1.2rem;
             border-radius: 8px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        nav button.active, nav button:hover {
-            background: var(--accent-color);
+        nav button.active {
+            background: var(--accent-gradient);
             color: white;
-            border-color: var(--accent-color);
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 4px 16px rgba(139, 92, 246, 0.35);
         }
 
+        /* MAIN CONTAINER */
         main {
             flex: 1;
-            max-width: 1200px;
+            max-width: 1240px;
             width: 100%;
             margin: 2rem auto;
             padding: 0 1.5rem;
@@ -101,79 +161,103 @@
 
         .tab-content.active {
             display: block;
-            animation: fadeIn 0.3s ease;
+            animation: slideUp 0.35s ease;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(12px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .stats-grid {
+        /* METRICS CARDS */
+        .metrics-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.2rem;
             margin-bottom: 2rem;
         }
 
-        .stat-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 14px;
-            padding: 1.5rem;
+        .metric-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 1.4rem;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            justify-content: space-between;
+            transition: all 0.25s ease;
         }
 
-        .stat-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            background: rgba(99, 102, 241, 0.15);
-            color: var(--accent-color);
+        .metric-card:hover {
+            border-color: var(--border-glow);
+            transform: translateY(-2px);
+        }
+
+        .metric-info h4 {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            font-weight: 600;
+        }
+
+        .metric-info p {
+            font-size: 1.7rem;
+            font-weight: 800;
+            margin-top: 4px;
+            color: var(--text-main);
+        }
+
+        .metric-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: rgba(139, 92, 246, 0.12);
+            color: var(--accent-primary);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
         }
 
-        .stat-info h4 {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .stat-info p {
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin-top: 4px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
+        /* GLASS CARD */
+        .glass-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(14px);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
             padding: 2rem;
             margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 1.5rem;
-            border-bottom: 1px solid var(--border-color);
             padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-subtle);
         }
 
         .card-title {
             font-size: 1.25rem;
             font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .card-subtitle {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-top: 4px;
+        .card-title i {
+            color: var(--accent-primary);
+        }
+
+        /* FORM ELEMENTS */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.2rem;
         }
 
         .form-group {
@@ -182,110 +266,226 @@
 
         .form-group label {
             display: block;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            color: var(--text-secondary);
+            color: var(--text-sub);
         }
 
         .form-control {
             width: 100%;
-            background: #0f172a;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 0.8rem 1rem;
-            color: var(--text-primary);
-            font-size: 1rem;
+            background: rgba(9, 13, 22, 0.8);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 0.85rem 1.1rem;
+            color: var(--text-main);
+            font-size: 0.95rem;
             outline: none;
-            transition: border-color 0.2s ease;
+            transition: all 0.2s ease;
         }
 
         .form-control:focus {
-            border-color: var(--accent-color);
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 12px rgba(139, 92, 246, 0.25);
         }
 
         .btn {
-            background: var(--accent-color);
+            background: var(--accent-gradient);
             color: white;
             border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
+            padding: 0.85rem 1.6rem;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.25s ease;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            justify-content: center;
+            gap: 10px;
         }
 
         .btn:hover {
-            background: var(--accent-hover);
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+            opacity: 0.92;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
         }
 
         .btn-danger {
-            background: var(--danger-color);
+            background: linear-gradient(135deg, #f43f5e, #e11d48);
         }
 
         .btn-danger:hover {
-            background: #dc2626;
+            box-shadow: 0 6px 20px rgba(244, 63, 94, 0.4);
         }
 
-        .pairing-box {
-            background: #0f172a;
-            border: 2px dashed var(--accent-color);
-            border-radius: 12px;
+        /* PAIRING DISPLAY */
+        .pairing-container {
+            background: rgba(9, 13, 22, 0.9);
+            border: 2px dashed var(--accent-primary);
+            border-radius: 16px;
             padding: 2rem;
             text-align: center;
             margin-top: 1.5rem;
             display: none;
         }
 
-        .pairing-code {
-            font-size: 2.8rem;
-            font-weight: 800;
-            letter-spacing: 6px;
-            color: var(--success-color);
-            margin: 1rem 0;
-            font-family: monospace;
+        .pairing-code-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 1.2rem 0;
         }
 
-        .bot-table {
-            width: 100%;
-            border-collapse: collapse;
+        .pairing-code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: 8px;
+            color: var(--accent-cyan);
+            text-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+            background: rgba(6, 182, 212, 0.08);
+            padding: 0.5rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+
+        .copy-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border-subtle);
+            color: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .copy-btn:hover {
+            background: var(--accent-primary);
+        }
+
+        /* BOTS GRID */
+        .bots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.2rem;
             margin-top: 1rem;
         }
 
-        .bot-table th, .bot-table td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
+        .bot-card {
+            background: rgba(9, 13, 22, 0.8);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            padding: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.2s ease;
         }
 
-        .bot-table th {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            text-transform: uppercase;
+        .bot-card:hover {
+            border-color: var(--border-glow);
         }
 
-        .badge {
-            display: inline-block;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
+        .bot-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .bot-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--accent-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: white;
+        }
+
+        .bot-details h5 {
+            font-size: 1rem;
             font-weight: 700;
         }
 
-        .badge-success { background: rgba(16, 185, 129, 0.15); color: var(--success-color); }
-        .badge-warning { background: rgba(245, 158, 11, 0.15); color: var(--warning-color); }
+        .bot-details p {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-top: 4px;
+        }
+
+        .status-badge.connected { background: rgba(16, 185, 129, 0.15); color: var(--success); }
+        .status-badge.pairing { background: rgba(245, 158, 11, 0.15); color: var(--warning); }
+        .status-badge.inactive { background: rgba(244, 63, 94, 0.15); color: var(--danger); }
+
+        /* LIVE CONSOLE LOGS */
+        .terminal-box {
+            background: #04060c;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            padding: 1.2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            height: 380px;
+            overflow-y: auto;
+            color: #d1d5db;
+            line-height: 1.6;
+        }
+
+        .log-line {
+            margin-bottom: 4px;
+            word-break: break-all;
+        }
+
+        .log-time { color: #6b7280; }
+        .log-tag-info { color: #3b82f6; font-weight: 600; }
+        .log-tag-error { color: #f43f5e; font-weight: 600; }
+
+        /* TOAST NOTIFICATION */
+        #toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: rgba(18, 25, 41, 0.95);
+            border: 1px solid var(--accent-primary);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            z-index: 999;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        #toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
 
         footer {
             text-align: center;
-            padding: 1.5rem;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            font-size: 0.9rem;
+            padding: 1.8rem;
+            border-top: 1px solid var(--border-subtle);
+            color: var(--text-sub);
+            font-size: 0.88rem;
             margin-top: auto;
         }
     </style>
@@ -293,99 +493,106 @@
 <body>
 
     <header>
-        <div class="logo">
-            ⚡ <span>Elaina V3</span> Panel
+        <div class="logo-container">
+            <div class="logo-icon"><i class="fa-solid fa-bolt"></i></div>
+            <div class="logo-text">ELAINA V3 <span>ULTRA</span></div>
         </div>
-        <nav>
-            <button class="active" onclick="switchTab('addbot')">📱 Addbot / Sub-Bot</button>
 
-            <button onclick="switchTab('settings')">⚙️ Settings Bot</button>
-            <button onclick="switchTab('system')">📊 System Status</button>
+        <nav>
+            <button class="active" onclick="switchTab('addbot', event)"><i class="fa-solid fa-robot"></i> Sub-Bots Panel</button>
+            <button onclick="switchTab('settings', event)"><i class="fa-solid fa-sliders"></i> Bot Settings</button>
+            <button onclick="switchTab('system', event)"><i class="fa-solid fa-chart-pie"></i> Metrics</button>
+            <button onclick="switchTab('logs', event)"><i class="fa-solid fa-terminal"></i> Live Logs</button>
         </nav>
+
+        <div class="server-badge">
+            <div class="pulse-dot"></div>
+            <span>SERVER ONLINE</span>
+        </div>
     </header>
 
     <main>
-        <!-- STATS HEADER -->
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-icon">🤖</div>
-                <div class="stat-info">
-                    <h4>Sub-Bot Aktif</h4>
+        <!-- TOP METRICS -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-info">
+                    <h4>Active Sub-Bots</h4>
                     <p id="stat-active-bots">0</p>
                 </div>
+                <div class="metric-icon"><i class="fa-solid fa-robot"></i></div>
             </div>
-            <div class="stat-card">
-                <div class="stat-icon">💾</div>
-                <div class="stat-info">
+            <div class="metric-card">
+                <div class="metric-info">
                     <h4>RAM Usage</h4>
                     <p id="stat-ram">0 MB</p>
                 </div>
+                <div class="metric-icon"><i class="fa-solid fa-memory"></i></div>
             </div>
-            <div class="stat-card">
-                <div class="stat-icon">⏱️</div>
-                <div class="stat-info">
+            <div class="metric-card">
+                <div class="metric-info">
                     <h4>Server Uptime</h4>
                     <p id="stat-uptime">0s</p>
                 </div>
+                <div class="metric-icon"><i class="fa-solid fa-clock"></i></div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-info">
+                    <h4>Node.js</h4>
+                    <p id="stat-node">v22</p>
+                </div>
+                <div class="metric-icon"><i class="fa-brands fa-node-js"></i></div>
             </div>
         </div>
 
         <!-- TAB 1: ADDBOT -->
         <div id="tab-addbot" class="tab-content active">
-            <div class="card">
+            <div class="glass-card">
                 <div class="card-header">
-                    <div class="card-title">Tambah Sub-Bot Baru (Pairing Code)</div>
-                    <div class="card-subtitle">Masukkan nomor WhatsApp target untuk dihubungkan sebagai bot baru.</div>
+                    <div class="card-title">
+                        <i class="fa-solid fa-qrcode"></i> Connect New WhatsApp Sub-Bot
+                    </div>
                 </div>
 
                 <form id="form-pairing" onsubmit="requestPairingCode(event)">
                     <div class="form-group">
-                        <label>Nomor WhatsApp (Contoh: 6285812345678)</label>
-                        <input type="text" id="input-phone" class="form-control" placeholder="628xxxxxxxx" required>
+                        <label><i class="fa-solid fa-phone"></i> Nomor WhatsApp (Format: 628xxxxxxxx)</label>
+                        <input type="text" id="input-phone" class="form-control" placeholder="Contoh: 6285812345678" required>
                     </div>
                     <button type="submit" class="btn" id="btn-pair">
-                        🔗 Dapatkan Pairing Code
+                        <i class="fa-solid fa-key"></i> Dapatkan Pairing Code
                     </button>
                 </form>
 
-                <div id="pairing-result" class="pairing-box">
-                    <p>Masukkan kode berikut di WhatsApp HP kamu:</p>
-                    <div class="pairing-code" id="code-display">---- ----</div>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Navigasi ke WA > Perangkat Tertaut > Tautkan dengan nomor telepon saja.</p>
+                <div id="pairing-result" class="pairing-container">
+                    <p style="color: var(--text-sub); font-size: 0.95rem;">Masukkan 8-digit kode ini di aplikasi WhatsApp HP kamu:</p>
+                    <div class="pairing-code-wrapper">
+                        <div class="pairing-code" id="code-display">---- ----</div>
+                        <button class="copy-btn" onclick="copyCode()"><i class="fa-regular fa-copy"></i> Copy</button>
+                    </div>
+                    <p style="color: var(--text-sub); font-size: 0.85rem;">Buka WhatsApp &gt; Perangkat Tertaut &gt; Tautkan dengan nomor telepon saja.</p>
                 </div>
             </div>
 
-            <div class="card">
+            <div class="glass-card">
                 <div class="card-header">
-                    <div class="card-title">Daftar Sub-Bot Terhubung</div>
+                    <div class="card-title"><i class="fa-solid fa-list"></i> Sub-Bots Active List</div>
+                    <button class="btn" style="padding: 0.5rem 1rem; font-size: 0.85rem;" onclick="loadBots()"><i class="fa-solid fa-rotate"></i> Refresh</button>
                 </div>
-                <table class="bot-table">
-                    <thead>
-                        <tr>
-                            <th>Nomor Bot</th>
-                            <th>Status</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody id="bot-list-body">
-                        <tr>
-                            <td colspan="3" style="text-align:center; color:var(--text-secondary);">Memuat data bot...</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div id="bots-container" class="bots-grid">
+                    <p style="color: var(--text-sub);">Memuat data bot...</p>
+                </div>
             </div>
         </div>
 
         <!-- TAB 2: SETTINGS -->
         <div id="tab-settings" class="tab-content">
-            <div class="card">
+            <div class="glass-card">
                 <div class="card-header">
-                    <div class="card-title">Edit Dynamic Settings (Realtime)</div>
-                    <div class="card-subtitle">Ubah pengaturan nama bot, owner, dan pesan otomatis langsung dari web.</div>
+                    <div class="card-title"><i class="fa-solid fa-sliders"></i> Dynamic Identity &amp; Bot Config</div>
                 </div>
 
                 <form id="form-settings" onsubmit="saveSettings(event)">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-grid">
                         <div class="form-group">
                             <label>Nama Bot</label>
                             <input type="text" id="set-namaBot" class="form-control" required>
@@ -395,56 +602,82 @@
                             <input type="text" id="set-namaowner" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Nomor Owner (Utama)</label>
+                            <label>Nomor Owner Utama</label>
                             <input type="text" id="set-owner" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Prefix Command (Pisahkan koma)</label>
+                            <label>Prefix (Pisahkan dengan koma)</label>
                             <input type="text" id="set-prefix" class="form-control" required>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label>Pesan Welcome (Grup)</label>
+                        <label>Pesan Welcome (Group)</label>
                         <input type="text" id="set-welcomeMessage" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label>Pesan Goodbye (Grup)</label>
+                        <label>Pesan Goodbye (Group)</label>
                         <input type="text" id="set-leaveMessage" class="form-control">
                     </div>
 
-                    <button type="submit" class="btn">💾 Simpan Perubahan Settings</button>
+                    <button type="submit" class="btn"><i class="fa-solid fa-floppy-disk"></i> Simpan Perubahan Settings</button>
                 </form>
             </div>
         </div>
 
-        <!-- TAB 3: SYSTEM -->
+        <!-- TAB 3: METRICS -->
         <div id="tab-system" class="tab-content">
-            <div class="card">
+            <div class="glass-card">
                 <div class="card-header">
-                    <div class="card-title">Informasi Sistem VPS</div>
+                    <div class="card-title"><i class="fa-solid fa-server"></i> Detail Spesifikasi Server VPS</div>
                 </div>
-                <div id="system-details" style="line-height: 2;">
+                <div id="system-details" style="line-height: 2.2; font-size: 1rem;">
                     Memuat data sistem...
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: LOGS -->
+        <div id="tab-logs" class="tab-content">
+            <div class="glass-card">
+                <div class="card-header">
+                    <div class="card-title"><i class="fa-solid fa-terminal"></i> Terminal Live Console Logs</div>
+                    <button class="btn" style="padding:0.4rem 0.9rem; font-size:0.85rem;" onclick="fetchLogs()"><i class="fa-solid fa-sync"></i> Refresh Logs</button>
+                </div>
+                <div class="terminal-box" id="log-box">
+                    <div class="log-line">[SYSTEM] Waiting for console stream...</div>
                 </div>
             </div>
         </div>
     </main>
 
+    <div id="toast">
+        <i class="fa-solid fa-circle-check" style="color: var(--success); font-size: 1.2rem;"></i>
+        <span id="toast-text">Success message</span>
+    </div>
+
     <footer>
-        Elaina V3 The Primary &copy; 2026 - Web Server Addbot Panel
+        Elaina V3 Ultra-Premium Panel &copy; 2026 - Zero-Prompt Auto Start Edition
     </footer>
 
     <script>
-        function switchTab(tabId) {
+        function showToast(text) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-text').innerText = text;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3500);
+        }
+
+        function switchTab(tabId, evt) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('nav button').forEach(el => el.classList.remove('active'));
-            
+
             document.getElementById(`tab-${tabId}`).classList.add('active');
-            event.target.classList.add('active');
+            if (evt) evt.currentTarget.classList.add('active');
 
             if (tabId === 'settings') loadSettings();
             if (tabId === 'addbot') loadBots();
+            if (tabId === 'logs') fetchLogs();
         }
 
         async function fetchStatus() {
@@ -455,12 +688,14 @@
                     document.getElementById('stat-active-bots').innerText = data.activeBotsCount;
                     document.getElementById('stat-ram').innerText = `${data.system.ramUsedMB} MB`;
                     document.getElementById('stat-uptime').innerText = `${data.system.uptime}s`;
+                    document.getElementById('stat-node').innerText = data.system.nodeVersion || 'v22';
 
                     document.getElementById('system-details').innerHTML = `
-                        <strong>Platform OS:</strong> ${data.system.platform}<br>
+                        <strong>OS Platform:</strong> ${data.system.platform}<br>
+                        <strong>Node.js Version:</strong> ${data.system.nodeVersion}<br>
                         <strong>CPU Cores:</strong> ${data.system.cpuCount} Core<br>
                         <strong>RAM Terpakai:</strong> ${data.system.ramUsedMB} MB<br>
-                        <strong>RAM Bebas System:</strong> ${data.system.freeMemGB} GB / ${data.system.totalMemGB} GB
+                        <strong>Free RAM System:</strong> ${data.system.freeMemGB} GB / ${data.system.totalMemGB} GB
                     `;
                 }
             } catch (err) { console.error(err); }
@@ -470,26 +705,29 @@
             try {
                 const res = await fetch('/api/bots');
                 const data = await res.json();
-                const tbody = document.getElementById('bot-list-body');
-                tbody.innerHTML = '';
+                const container = document.getElementById('bots-container');
+                container.innerHTML = '';
 
                 if (data.bots.length === 0) {
-                    tbody.innerHTML = '<tr><td colspan="3" style="text-align:center; color:var(--text-secondary);">Belum ada sub-bot yang terhubung.</td></tr>';
+                    container.innerHTML = '<p style="color: var(--text-sub);">Belum ada sub-bot yang terhubung.</p>';
                     return;
                 }
 
                 data.bots.forEach(bot => {
                     const isConn = bot.status === 'CONNECTED';
-                    tbody.innerHTML += `
-                        <tr>
-                            <td><strong>+${bot.number}</strong></td>
-                            <td><span class="badge ${isConn ? 'badge-success' : 'badge-warning'}">${bot.status}</span></td>
-                            <td>
-                                <button class="btn btn-danger" style="padding:0.4rem 0.8rem; font-size:0.85rem;" onclick="logoutBot('${bot.number}')">
-                                    🗑️ Logout / Hapus
-                                </button>
-                            </td>
-                        </tr>
+                    container.innerHTML += `
+                        <div class="bot-card">
+                            <div class="bot-info">
+                                <div class="bot-avatar"><i class="fa-solid fa-robot"></i></div>
+                                <div class="bot-details">
+                                    <h5>+${bot.number}</h5>
+                                    <span class="status-badge ${isConn ? 'connected' : 'inactive'}">${bot.status}</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-danger" style="padding:0.4rem 0.8rem; font-size:0.8rem;" onclick="logoutBot('${bot.number}')">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
                     `;
                 });
             } catch (err) { console.error(err); }
@@ -502,7 +740,7 @@
             const resultBox = document.getElementById('pairing-result');
             const codeDisplay = document.getElementById('code-display');
 
-            btn.innerText = '⏳ Membuat Code...';
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Generating...';
             btn.disabled = true;
 
             try {
@@ -516,16 +754,23 @@
                 if (data.success && data.pairingCode) {
                     codeDisplay.innerText = data.pairingCode;
                     resultBox.style.display = 'block';
+                    showToast('Pairing Code Berhasil Dibuat!');
                 } else {
                     alert(data.error || data.message || 'Gagal membuat pairing code');
                 }
             } catch (err) {
                 alert('Error: ' + err.message);
             } finally {
-                btn.innerText = '🔗 Dapatkan Pairing Code';
+                btn.innerHTML = '<i class="fa-solid fa-key"></i> Dapatkan Pairing Code';
                 btn.disabled = false;
                 loadBots();
             }
+        }
+
+        function copyCode() {
+            const code = document.getElementById('code-display').innerText;
+            navigator.clipboard.writeText(code);
+            showToast('Kode berhasil dicopy!');
         }
 
         async function logoutBot(phoneNumber) {
@@ -538,7 +783,7 @@
                     body: JSON.stringify({ phoneNumber })
                 });
                 const data = await res.json();
-                alert(data.message);
+                showToast(data.message);
                 loadBots();
             } catch (err) { alert('Error: ' + err.message); }
         }
@@ -580,17 +825,35 @@
                 });
                 const data = await res.json();
                 if (data.success) {
-                    alert('✅ Settings berhasil disimpan & diperbarui secara realtime!');
+                    showToast('Settings berhasil disimpan!');
                 } else {
-                    alert('❌ Gagal menyimpan settings: ' + data.error);
+                    alert('Gagal menyimpan: ' + data.error);
                 }
             } catch (err) { alert('Error: ' + err.message); }
+        }
+
+        async function fetchLogs() {
+            try {
+                const res = await fetch('/api/logs');
+                const data = await res.json();
+                const box = document.getElementById('log-box');
+                if (data.success && data.logs.length > 0) {
+                    box.innerHTML = data.logs.map(l => `
+                        <div class="log-line">
+                            <span class="log-time">[${l.timestamp}]</span>
+                            <span class="log-tag-${l.type.toLowerCase()}">[${l.type}]</span> ${l.message}
+                        </div>
+                    `).join('');
+                    box.scrollTop = box.scrollHeight;
+                }
+            } catch (err) { console.error(err); }
         }
 
         // Init
         fetchStatus();
         loadBots();
         setInterval(fetchStatus, 5000);
+        setInterval(fetchLogs, 4000);
     </script>
 </body>
 </html>
