@@ -12,6 +12,7 @@ const QRCode = require('qrcode');
 const dynamicConfig = require('./lib/system/dynamicConfig');
 const { smsg } = require('./lib/myfunction');
 const Elaina = require('./Elaina');
+const decorateSocket = require('./lib/socketDecorator');
 
 const store = makeInMemoryStore({ logger: pino({ level: 'silent' }) });
 
@@ -40,15 +41,21 @@ function addLog(type, message) {
     if (systemLogs.length > MAX_LOGS) systemLogs.shift();
 }
 
+function formatLogArg(a) {
+    if (a instanceof Error) return a.stack || a.message;
+    if (typeof a === 'object') return JSON.stringify(a);
+    return String(a);
+}
+
 const origLog = console.log;
 const origErr = console.error;
 console.log = function (...args) {
     origLog.apply(console, args);
-    addLog('INFO', args.map(a => (typeof a === 'object' ? JSON.stringify(a) : a)).join(' '));
+    addLog('INFO', args.map(formatLogArg).join(' '));
 };
 console.error = function (...args) {
     origErr.apply(console, args);
-    addLog('ERROR', args.map(a => (typeof a === 'object' ? JSON.stringify(a) : a)).join(' '));
+    addLog('ERROR', args.map(formatLogArg).join(' '));
 };
 
 // Helper: Ensure sessions directory
@@ -71,6 +78,8 @@ async function startBotSession(sessionId, isPairing = false, phoneNumber = '') {
             printQRInTerminal: false,
             browser: ['Elaina Workspace', 'Chrome', '1.0.0']
         });
+
+        decorateSocket(sock, store);
 
         sessions[sessionId] = {
             sock,
