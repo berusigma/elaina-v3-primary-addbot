@@ -19,6 +19,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Safe Browser Config Helper to prevent "Browsers.ubuntu is not a function" error
+const getBrowserConfig = () => {
+    try {
+        if (Browsers && typeof Browsers.ubuntu === 'function') {
+            return Browsers.ubuntu('Chrome');
+        }
+        if (Browsers && typeof Browsers.macOS === 'function') {
+            return Browsers.macOS('Desktop');
+        }
+    } catch {}
+    return ['Ubuntu', 'Chrome', '20.0.04'];
+};
+
 // Store active sub-bot instances & QR sessions
 const activeSubBots = new Map();
 const activeQRSessions = new Map();
@@ -81,7 +94,7 @@ async function initSubBotSession(phoneNumber) {
             logger: pino({ level: 'silent' }),
             printQRInTerminal: false,
             auth: state,
-            browser: Browsers.ubuntu('Chrome')
+            browser: getBrowserConfig()
         });
 
         sock.ev.on('creds.update', saveCreds);
@@ -216,7 +229,7 @@ app.post('/api/addbot/pairing', async (req, res) => {
             logger: pino({ level: 'silent' }),
             printQRInTerminal: false,
             auth: state,
-            browser: Browsers.ubuntu('Chrome')
+            browser: getBrowserConfig()
         });
 
         sock.ev.on('creds.update', saveCreds);
@@ -283,7 +296,7 @@ app.post('/api/addbot/pairing', async (req, res) => {
     }
 });
 
-// 6. Addbot - Method 2: QR Code Generator & Listener (Fixed Handshake & Clean Temp Session)
+// 6. Addbot - Method 2: QR Code Generator & Listener
 app.post('/api/addbot/qr-start', async (req, res) => {
     const sessionId = 'qr_session_' + Date.now();
     const tempDir = path.join(SESSIONS_DIR, `temp_${sessionId}`);
@@ -307,7 +320,7 @@ app.post('/api/addbot/qr-start', async (req, res) => {
             logger: pino({ level: 'silent' }),
             printQRInTerminal: false,
             auth: state,
-            browser: Browsers.ubuntu('Chrome'), // Fixed standard browser for WhatsApp Web QR Handshake!
+            browser: getBrowserConfig(), // Safe Browser tuple for WhatsApp Web QR Handshake!
             syncFullHistory: false
         });
 
@@ -444,7 +457,7 @@ app.get('/api/logs', (req, res) => {
 server.listen(PORT, () => {
     console.log(`\n======================================================`);
     console.log(` ⚡ ELAINA V3 ULTRA-PREMIUM DASHBOARD & ADDBOT SERVER `);
-    console.log(` 📍 Status : ONLINE (Browsers.ubuntu('Chrome') Fixed QR)`);
+    console.log(` 📍 Status : ONLINE (Safe Browser Helper Fixed)`);
     console.log(` 🌐 Web UI : http://localhost:${PORT}`);
     console.log(`======================================================\n`);
 
