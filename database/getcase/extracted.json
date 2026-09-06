@@ -1,0 +1,54 @@
+{
+  "64eb0c957aa9": {
+    "cmdName": "sticker",
+    "code": "case 'sticker': {\n    const q = m.quoted ? m.quoted : m;\n    const mimeQ = (q.msg || q).mimetype || '';\n\n    if (!m.quoted || (!/image/.test(mimeQ) && !/video/.test(mimeQ))) {\n        return replyButton(`❯  🎭 *STICKER MAKER*\n\n  📌 *Cara Pakai:*\n  Reply gambar/video + ketik:\n  *${prefix}sticker*\n\n  ✅ *Support:*\n  • Gambar (JPG/PNG/WebP)\n  • Video/GIF (maks 10 detik)\n\n  💡 *Tips:*\n  Pakai *${prefix}wm pack|author*\n  untuk custom nama sticker\n`, [\n            { buttonId: `.menu`, buttonText: { displayText: '🏠 Menu' }, type: 1 }\n        ]);\n    }\n\n    bulter.sendMessage(m.chat, { react: { text: '⏳', key: m.key } });\n\n    try {\n        if (/video/.test(mimeQ)) {\n            const durasi = (q.msg || q).seconds || 0;\n            if (durasi > 10) return replyButton(`❯  ⚠️ *VIDEO TERLALU PANJANG*\n\n  🚫 Durasi video maks *10 detik*\n  Video kamu: *${durasi} detik*\n\n  Coba potong video terlebih dulu.\n`, [\n                { buttonId: `.menu`, buttonText: { displayText: '🏠 Menu' }, type: 1 }\n            ]);\n\n            const media = await bulter.downloadMediaMessage(q);\n            await bulter.sendVideoAsSticker(m.chat, media, m, {\n                packname: global.packname || global.namaBot,\n                author: global.author || global.namaowner\n            });\n        } else {\n            const media = await bulter.downloadMediaMessage(q);\n            await bulter.sendImageAsSticker(m.chat, media, m, {\n                packname: global.packname || global.namaBot,\n                author: global.author || global.namaowner\n            });\n        }\n\n        bulter.sendMessage(m.chat, { react: { text: '✅', key: m.key } });\n\n        replyButton(`❯  🎭 *STICKER BERHASIL*\n\n  ✅ Sticker berhasil dibuat!\n\n  💡 *Mau custom nama sticker?*\n  Klik tombol di bawah 👇\n`, [\n            { buttonId: `.wm ${global.packname || global.namaBot}|${global.namaowner}`, buttonText: { displayText: '🏷️ Custom Watermark' }, type: 1 },\n            { buttonId: `.toimg`, buttonText: { displayText: '🖼️ Sticker → Gambar' }, type: 1 },\n            { buttonId: `.menu`, buttonText: { displayText: '🏠 Menu' }, type: 1 }\n        ]);\n\n    } catch (e) {\n        console.error('Sticker error:', e.message);\n        bulter.sendMessage(m.chat, { react: { text: '❌', key: m.key } });\n        replyButton(`❯  ❌ *GAGAL BUAT STICKER*\n\n  😵 *Error:* ${e.message}\n\n  Pastikan:\n  • Gambar tidak corrupt\n  • Video maks 10 detik\n`, [\n            { buttonId: `.menu`, buttonText: { displayText: '🏠 Menu' }, type: 1 }\n        ]);\n    }\n    break;",
+    "source": "switch_case",
+    "lineStart": 12203,
+    "analysis": {
+      "lineCount": 80,
+      "charCount": 2525,
+      "hasAsync": false,
+      "hasAwait": true,
+      "hasTryCatch": true,
+      "hasReply": false,
+      "hasAxios": false,
+      "hasFetch": false,
+      "hasFs": false,
+      "hasCrypto": false,
+      "hasBuffer": false,
+      "hasRegex": true,
+      "hasConditional": 3,
+      "hasLoop": false,
+      "hasMediaDownload": true,
+      "hasGroupOps": false,
+      "hasDatabaseOps": false,
+      "complexity": 9,
+      "imports": [],
+      "detectedVars": {
+        "socket": [],
+        "message": [],
+        "sender": []
+      },
+      "apiEndpoints": [],
+      "functionCalls": [
+        {
+          "type": "send_message",
+          "match": ".sendMessage(",
+          "param": null
+        },
+        {
+          "type": "download_media",
+          "match": ".downloadMediaMessage(",
+          "param": null
+        },
+        {
+          "type": "async_op",
+          "match": "await ",
+          "param": null
+        }
+      ],
+      "comments": []
+    },
+    "savedAt": 1776067664050
+  }
+}

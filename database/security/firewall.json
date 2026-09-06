@@ -1,0 +1,80 @@
+{
+  "120363406234119805@g.us": {
+    "enabled": true,
+    "whitelist": [],
+    "blacklist": [],
+    "graylist": [],
+    "rules": [],
+    "autoEscalate": true,
+    "escalateThreshold": 5,
+    "maxMsgPerMin": 30,
+    "blockMediaFromNew": true,
+    "created": 1775481986001,
+    "updatedBy": ""
+  },
+  "120363424767529424@g.us": {
+    "enabled": true,
+    "whitelist": [],
+    "blacklist": [],
+    "graylist": [],
+    "rules": [],
+    "autoEscalate": true,
+    "escalateThreshold": 5,
+    "maxMsgPerMin": 30,
+    "blockMediaFromNew": true,
+    "created": 1775646485358,
+    "updatedBy": ""
+  },
+  "120363426512701657@g.us": {
+    "enabled": true,
+    "whitelist": [],
+    "blacklist": [],
+    "graylist": [],
+    "rules": [],
+    "autoEscalate": true,
+    "escalateThreshold": 5,
+    "maxMsgPerMin": 30,
+    "blockMediaFromNew": true,
+    "created": 1775646819405,
+    "updatedBy": ""
+  },
+  "120363406525393123@g.us": {
+    "enabled": true,
+    "whitelist": [],
+    "blacklist": [],
+    "graylist": [],
+    "rules": [],
+    "autoEscalate": true,
+    "escalateThreshold": 5,
+    "maxMsgPerMin": 30,
+    "blockMediaFromNew": true,
+    "created": 1775660978213,
+    "updatedBy": ""
+  },
+  "120363403978997642@g.us": {
+    "enabled": true,
+    "whitelist": [],
+    "blacklist": [],
+    "graylist": [],
+    "rules": [],
+    "autoEscalate": true,
+    "escalateThreshold": 5,
+    "maxMsgPerMin": 30,
+    "blockMediaFromNew": true,
+    "created": 1775962547883,
+    "updatedBy": ""
+  },
+  "120363409129794613@g.us": {
+    "enabled": true,
+    "whitelist": [],
+    "blacklist": [],
+    "graylist": [],
+    "rules": [],
+    "autoEscalate": true,
+    "escalateThreshold": 5,
+    "maxMsgPerMin": 30,
+    "blockMediaFromNew": true,
+    "created": 1775981048670,
+    "updatedBy": ""
+  }
+}

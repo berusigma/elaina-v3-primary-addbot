@@ -1,0 +1,18 @@
+{
+  "6283815201912@s.whatsapp.net": {
+    "wallet": 238,
+    "bank": 0,
+    "bankMax": 500000,
+    "bankInterest": 0.5,
+    "lastInterest": 1775479069783,
+    "totalEarned": 238,
+    "totalSpent": 0,
+    "totalTransferred": 0,
+    "dailyClaimed": false,
+    "lastDailyReset": 1775647245252,
+    "dailyStreak": 1,
+    "longestDailyStreak": 1,
+    "weeklyClaimed": false,
+    "lastWeeklyReset": 1775479069784
+  }
+}

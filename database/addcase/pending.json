@@ -1,0 +1,60 @@
+{
+  "tourl3": {
+    "code": "case 'tourl3': {\n    await bulter.sendMessage(m.chat, { react: { text: '⏳', key: m.key } })\n    try {\n        let q = m.quoted ? m.quoted : m\n        let mime = (q.msg || q).mimetype || ''\n        if (!mime) return reply('Kirim foto/video atau reply media dengan perintah .tourl')\n        \n        let media = await bulter.downloadMediaMessage(q)\n        if (!media) return reply('Gagal mengunduh media')\n        \n        let base64Data = `data:${mime};base64,${media.toString('base64')}`\n        let extension = mime.split('/')[1]\n        let fileName = `WA-Upload-${Date.now()}.${extension}`\n        \n        const response = await axios.post('https://wanzofc.site/api/upload', {\n            filename: fileName,\n            contentType: mime,\n            base64: base64Data,\n            description: \"Upload Bot\",\n            parentId: null\n        }, {\n            headers: {\n                'Content-Type': 'application/json',\n                'x-api-key': 'wu_67ad1ff844bf7a195035dd401d9d964aa8e74e4085c49ff1'\n            }\n        })\n        \n        if (response.data && response.data.url) {\n            let caption = `*UPLOAD BERHASIL*\\n\\n`\n            caption += `*◦ Nama:* ${response.data.filename || fileName}\\n`\n            caption += `*◦ Ukuran:* ${response.data.size || 'Unknown'}\\n`\n            caption += `*◦ Link:* ${response.data.url}\\n\\n`\n            caption += `_File akan tersimpan secara permanen di akun W-Upload._`\n            reply(caption)\n        } else {\n            reply('Gagal mendapatkan respon URL dari server.')\n        }\n    } catch (e) {\n        console.error(e)\n        reply(`Terjadi kesalahan saat upload: ${e.message}`)\n    }\n}\nbreak",
+    "desc": "Manual input + AI corrected",
+    "mode": "manual",
+    "aiCorrected": true,
+    "originalCode": ".addcase case 'tourl3': {\n    try {\n        let q = m.quoted ? m.quoted : m\n        let mime = (q.msg || q).mimetype || ''    \n        if (!mime) return m.reply('Kirim foto/video atau reply media dengan perintah .tourl')     \n        m.reply('Sedang mengunggah, mohon tunggu...')\n        let media = await q.download()\n        let base64Data = `data:${mime};base64,${media.toString('base64')}`\n        let extension = mime.split('/')[1]\n        let fileName = `WA-Upload-${Date.now()}.${extension}`\n        const response = await axios.post('https://wanzofc.site/api/upload', { \n            filename: fileName,\n            contentType: mime,\n            base64: base64Data,\n            description: \"Upload Bot\",\n            parentId: null\n        }, {\n            headers: {\n                'Content-Type': 'application/json',\n                'x-api-key': 'wu_67ad1ff844bf7a195035dd401d9d964aa8e74e4085c49ff1'\n            }\n        })\n        if (response.data && response.data.url) {\n            let caption = `*UPLOAD BERHASIL*\\n\\n`\n            caption += `*◦ Nama:* ${response.data.filename || fileName}\\n`\n            caption += `*◦ Ukuran:* ${response.data.size || 'Unknown'}\\n`\n            caption += `*◦ Link:* ${response.data.url}\\n\\n`\n            caption += `_File akan tersimpan secara permanen di akun W-Upload._`\n            \n            m.reply(caption)\n        } else {\n            m.reply('Gagal mendapatkan respon URL dari server.')\n        }\n\n    } catch (e) {\n        console.error(e)\n        m.reply(`Terjadi kesalahan saat upload: ${e.message}`)\n    }\n}\nbreak",
+    "createdBy": "6283815201912@s.whatsapp.net",
+    "createdAt": 1775645076095,
+    "dependencies": [
+      {
+        "type": "http",
+        "method": "post",
+        "url": "https://wanzofc.site/api/upload",
+        "hostname": "wanzofc.site",
+        "secure": true
+      },
+      {
+        "type": "baileys",
+        "methods": [
+          "sendMessage",
+          "downloadMediaMessage"
+        ]
+      }
+    ],
+    "codeStats": {
+      "lines": 43,
+      "chars": 1672,
+      "caseCount": 1,
+      "breakCount": 0,
+      "returnCount": 2,
+      "awaitCount": 3,
+      "asyncCount": 0,
+      "hasAsync": true,
+      "hasTryCatch": true,
+      "braceDepth": -1,
+      "complexity": 14,
+      "maintainability": {
+        "score": 95,
+        "grade": "A",
+        "avgLineLength": 38,
+        "codeLines": 39,
+        "commentLines": 0,
+        "commentRatio": 0
+      }
+    },
+    "updatedAt": 1775645076096,
+    "codeHash": "5011d6af23a170d1606c00b82db7f68ac1113f25cf36ea5fa3eb78f3cbfcacf1",
+    "structHash": "95282a8d80bb9b0f589927be569e405c",
+    "fingerprint": "d2818d444001ed03",
+    "quality": {
+      "score": 100,
+      "issues": [],
+      "suggestions": [],
+      "grade": "A"
+    },
+    "version": 1,
+    "previousVersions": []
+  }
+}

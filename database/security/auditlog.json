@@ -1,0 +1,688 @@
+{
+  "120363423370858177@g.us": [
+    {
+      "ts": 1775479365213,
+      "time": "6/4/2026, 12.42.45",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "addsewa",
+      "target": "",
+      "detail": "30"
+    }
+  ],
+  "120363406234119805@g.us": [
+    {
+      "ts": 1775481986078,
+      "time": "6/4/2026, 13.26.26",
+      "actor": "__escalation__",
+      "action": "ESCALATE_L1",
+      "target": "62881036032734@s.whatsapp.net",
+      "detail": "🔗 Link invite grup lain tidak diizinkan"
+    },
+    {
+      "ts": 1775482420734,
+      "time": "6/4/2026, 13.33.40",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "antilink",
+      "target": "",
+      "detail": "off"
+    }
+  ],
+  "120363422846424347@g.us": [
+    {
+      "ts": 1775484382448,
+      "time": "6/4/2026, 14.06.22",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "addsewa",
+      "target": "",
+      "detail": "1"
+    },
+    {
+      "ts": 1775948191362,
+      "time": "11/4/2026, 22.56.31",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "addsewa",
+      "target": "",
+      "detail": "1"
+    },
+    {
+      "ts": 1776058101045,
+      "time": "13/4/2026, 05.28.21",
+      "actor": "6285188322430@s.whatsapp.net",
+      "action": "kick",
+      "target": "6285188034067@s.whatsapp.net",
+      "detail": ""
+    }
+  ],
+  "120363426512701657@g.us": [
+    {
+      "ts": 1775646700306,
+      "time": "8/4/2026, 11.11.40",
+      "actor": "584269137412@s.whatsapp.net",
+      "action": "demote",
+      "target": "6281325421833@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775646753512,
+      "time": "8/4/2026, 11.12.33",
+      "actor": "584269137412@s.whatsapp.net",
+      "action": "promote",
+      "target": "6281325421833@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775646762382,
+      "time": "8/4/2026, 11.12.42",
+      "actor": "584269137412@s.whatsapp.net",
+      "action": "promote",
+      "target": "6285188034067@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775646782406,
+      "time": "8/4/2026, 11.13.02",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "antitoxic",
+      "target": "584269137412@s.whatsapp.net",
+      "detail": "off"
+    },
+    {
+      "ts": 1775646785700,
+      "time": "8/4/2026, 11.13.05",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "antilink",
+      "target": "",
+      "detail": "off"
+    },
+    {
+      "ts": 1775667039005,
+      "time": "8/4/2026, 16.50.39",
+      "actor": "263788713956@s.whatsapp.net",
+      "action": "demote",
+      "target": "6283815201912@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775695230038,
+      "time": "9/4/2026, 00.40.30",
+      "actor": "263788713956@s.whatsapp.net",
+      "action": "promote",
+      "target": "6285813973702@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775695270037,
+      "time": "9/4/2026, 00.41.10",
+      "actor": "263788713956@s.whatsapp.net",
+      "action": "demote",
+      "target": "241828871798885@lid",
+      "detail": "@241828871798885"
+    },
+    {
+      "ts": 1775711500898,
+      "time": "9/4/2026, 05.11.40",
+      "actor": "584169606904@s.whatsapp.net",
+      "action": "promote",
+      "target": "584267652563@s.whatsapp.net",
+      "detail": "dia😨🤲"
+    },
+    {
+      "ts": 1775718376832,
+      "time": "9/4/2026, 07.06.16",
+      "actor": "584267652563@s.whatsapp.net",
+      "action": "kick",
+      "target": "",
+      "detail": ""
+    },
+    {
+      "ts": 1775958793077,
+      "time": "12/4/2026, 01.53.13",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "promote",
+      "target": "584267652563@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775958855228,
+      "time": "12/4/2026, 01.54.15",
+      "actor": "584169606904@s.whatsapp.net",
+      "action": "promote",
+      "target": "584267652563@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775959706748,
+      "time": "12/4/2026, 02.08.26",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "promote",
+      "target": "",
+      "detail": "6283815201912"
+    },
+    {
+      "ts": 1775959963457,
+      "time": "12/4/2026, 02.12.43",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "promote",
+      "target": "584162132924@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775959968154,
+      "time": "12/4/2026, 02.12.48",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "demote",
+      "target": "584162132924@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775960184800,
+      "time": "12/4/2026, 02.16.24",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "promote",
+      "target": "584169606904@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775960213247,
+      "time": "12/4/2026, 02.16.53",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "demote",
+      "target": "584267652563@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775960218297,
+      "time": "12/4/2026, 02.16.58",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "promote",
+      "target": "584267652563@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775974837384,
+      "time": "12/4/2026, 06.20.37",
+      "actor": "584169606904@s.whatsapp.net",
+      "action": "demote",
+      "target": "241828871798885@lid",
+      "detail": "@241828871798885"
+    },
+    {
+      "ts": 1775974865818,
+      "time": "12/4/2026, 06.21.05",
+      "actor": "584169606904@s.whatsapp.net",
+      "action": "kick",
+      "target": "119899028476029@lid",
+      "detail": "@119899028476029"
+    },
+    {
+      "ts": 1775974878590,
+      "time": "12/4/2026, 06.21.18",
+      "actor": "584169606904@s.whatsapp.net",
+      "action": "antilink",
+      "target": "",
+      "detail": "on"
+    },
+    {
+      "ts": 1775974947500,
+      "time": "12/4/2026, 06.22.27",
+      "actor": "584169606904@s.whatsapp.net",
+      "action": "promote",
+      "target": "6285188034067@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775975037849,
+      "time": "12/4/2026, 06.23.57",
+      "actor": "584169606904@s.whatsapp.net",
+      "action": "demote",
+      "target": "6285188034067@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775975267847,
+      "time": "12/4/2026, 06.27.47",
+      "actor": "584169606904@s.whatsapp.net",
+      "action": "antilink",
+      "target": "",
+      "detail": "on"
+    },
+    {
+      "ts": 1775975287753,
+      "time": "12/4/2026, 06.28.07",
+      "actor": "584169606904@s.whatsapp.net",
+      "action": "promote",
+      "target": "6285188034067@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775975757219,
+      "time": "12/4/2026, 06.35.57",
+      "actor": "584267652563@s.whatsapp.net",
+      "action": "antilink",
+      "target": "6283815201912@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775975784911,
+      "time": "12/4/2026, 06.36.24",
+      "actor": "584267652563@s.whatsapp.net",
+      "action": "antilink",
+      "target": "241828871798885@lid",
+      "detail": "off"
+    },
+    {
+      "ts": 1775975897360,
+      "time": "12/4/2026, 06.38.17",
+      "actor": "584267652563@s.whatsapp.net",
+      "action": "antilink",
+      "target": "",
+      "detail": ""
+    },
+    {
+      "ts": 1775975901993,
+      "time": "12/4/2026, 06.38.21",
+      "actor": "584267652563@s.whatsapp.net",
+      "action": "antilink",
+      "target": "241828871798885@lid",
+      "detail": "off"
+    },
+    {
+      "ts": 1775975908250,
+      "time": "12/4/2026, 06.38.28",
+      "actor": "584267652563@s.whatsapp.net",
+      "action": "antilink",
+      "target": "241828871798885@lid",
+      "detail": "off"
+    },
+    {
+      "ts": 1775975917161,
+      "time": "12/4/2026, 06.38.37",
+      "actor": "584267652563@s.whatsapp.net",
+      "action": "antilink",
+      "target": "",
+      "detail": "on"
+    },
+    {
+      "ts": 1775975963502,
+      "time": "12/4/2026, 06.39.23",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "demote",
+      "target": "584267652563@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775976009881,
+      "time": "12/4/2026, 06.40.09",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "promote",
+      "target": "584267652563@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775976055439,
+      "time": "12/4/2026, 06.40.55",
+      "actor": "584267652563@s.whatsapp.net",
+      "action": "demote",
+      "target": "584267652563@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775976075135,
+      "time": "12/4/2026, 06.41.15",
+      "actor": "584267652563@s.whatsapp.net",
+      "action": "promote",
+      "target": "584267652563@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775976084680,
+      "time": "12/4/2026, 06.41.24",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "promote",
+      "target": "584267652563@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775976094892,
+      "time": "12/4/2026, 06.41.34",
+      "actor": "6285813973702@s.whatsapp.net",
+      "action": "demote",
+      "target": "6285188034067@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775976115774,
+      "time": "12/4/2026, 06.41.55",
+      "actor": "6285813973702@s.whatsapp.net",
+      "action": "promote",
+      "target": "6285188034067@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775977958470,
+      "time": "12/4/2026, 07.12.38",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "kick",
+      "target": "",
+      "detail": "6283183450102"
+    },
+    {
+      "ts": 1775979584510,
+      "time": "12/4/2026, 07.39.44",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "demote",
+      "target": "584267652563@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775979617635,
+      "time": "12/4/2026, 07.40.17",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "antilink",
+      "target": "",
+      "detail": "on"
+    },
+    {
+      "ts": 1775979647889,
+      "time": "12/4/2026, 07.40.47",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "promote",
+      "target": "584267652563@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775979705730,
+      "time": "12/4/2026, 07.41.45",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "antispam",
+      "target": "",
+      "detail": "on"
+    },
+    {
+      "ts": 1775979728066,
+      "time": "12/4/2026, 07.42.08",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "mute",
+      "target": "584267652563@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775979734488,
+      "time": "12/4/2026, 07.42.14",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "demote",
+      "target": "584267652563@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775979750152,
+      "time": "12/4/2026, 07.42.30",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "unmute",
+      "target": "584267652563@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775980298171,
+      "time": "12/4/2026, 07.51.38",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "promote",
+      "target": "584267652563@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775980307785,
+      "time": "12/4/2026, 07.51.47",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "promote",
+      "target": "",
+      "detail": "6283815201912"
+    },
+    {
+      "ts": 1776010576116,
+      "time": "12/4/2026, 16.16.16",
+      "actor": "584267652563@s.whatsapp.net",
+      "action": "kick",
+      "target": "584169606904@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1776010588166,
+      "time": "12/4/2026, 16.16.28",
+      "actor": "584267652563@s.whatsapp.net",
+      "action": "kick",
+      "target": "",
+      "detail": ""
+    },
+    {
+      "ts": 1776010597664,
+      "time": "12/4/2026, 16.16.37",
+      "actor": "584267652563@s.whatsapp.net",
+      "action": "antilink",
+      "target": "",
+      "detail": "on"
+    },
+    {
+      "ts": 1776010617075,
+      "time": "12/4/2026, 16.16.57",
+      "actor": "584267652563@s.whatsapp.net",
+      "action": "demote",
+      "target": "584267652563@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1776010647294,
+      "time": "12/4/2026, 16.17.27",
+      "actor": "584169606904@s.whatsapp.net",
+      "action": "demote",
+      "target": "6285188034067@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1776010672161,
+      "time": "12/4/2026, 16.17.52",
+      "actor": "584169606904@s.whatsapp.net",
+      "action": "promote",
+      "target": "584267652563@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1776010682001,
+      "time": "12/4/2026, 16.18.02",
+      "actor": "584169606904@s.whatsapp.net",
+      "action": "promote",
+      "target": "6285188034067@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1776028944053,
+      "time": "12/4/2026, 21.22.24",
+      "actor": "584267652563@s.whatsapp.net",
+      "action": "kick",
+      "target": "",
+      "detail": ""
+    },
+    {
+      "ts": 1776028956629,
+      "time": "12/4/2026, 21.22.36",
+      "actor": "584267652563@s.whatsapp.net",
+      "action": "antilink",
+      "target": "",
+      "detail": "on"
+    },
+    {
+      "ts": 1776028984896,
+      "time": "12/4/2026, 21.23.04",
+      "actor": "584267652563@s.whatsapp.net",
+      "action": "promote",
+      "target": "584267652563@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1776028993618,
+      "time": "12/4/2026, 21.23.13",
+      "actor": "584267652563@s.whatsapp.net",
+      "action": "demote",
+      "target": "6285188034067@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1776028998173,
+      "time": "12/4/2026, 21.23.18",
+      "actor": "584267652563@s.whatsapp.net",
+      "action": "promote",
+      "target": "584267652563@s.whatsapp.net",
+      "detail": ""
+    }
+  ],
+  "120363404980871826@g.us": [
+    {
+      "ts": 1775916356447,
+      "time": "11/4/2026, 14.05.56",
+      "actor": "6285860302218@s.whatsapp.net",
+      "action": "antilink",
+      "target": "",
+      "detail": "on"
+    },
+    {
+      "ts": 1775974771898,
+      "time": "12/4/2026, 06.19.31",
+      "actor": "6285693249293@s.whatsapp.net",
+      "action": "antilink",
+      "target": "",
+      "detail": ""
+    },
+    {
+      "ts": 1775976861375,
+      "time": "12/4/2026, 06.54.21",
+      "actor": "6285654809718@s.whatsapp.net",
+      "action": "antilink",
+      "target": "",
+      "detail": ""
+    },
+    {
+      "ts": 1775977769538,
+      "time": "12/4/2026, 07.09.29",
+      "actor": "6285693249293@s.whatsapp.net",
+      "action": "antilink",
+      "target": "",
+      "detail": ""
+    }
+  ],
+  "120363404741310562@g.us": [
+    {
+      "ts": 1775918479334,
+      "time": "11/4/2026, 14.41.19",
+      "actor": "6283130912601@s.whatsapp.net",
+      "action": "antilink",
+      "target": "",
+      "detail": ""
+    }
+  ],
+  "120363405450272778@g.us": [
+    {
+      "ts": 1775952792590,
+      "time": "12/4/2026, 00.13.12",
+      "actor": "6281212112379@s.whatsapp.net",
+      "action": "addsewa",
+      "target": "",
+      "detail": ""
+    },
+    {
+      "ts": 1775952810291,
+      "time": "12/4/2026, 00.13.30",
+      "actor": "6281212112379@s.whatsapp.net",
+      "action": "addsewa",
+      "target": "",
+      "detail": "https://chat.whatsapp.com/IzXPOOoAy1g7WK8FIDIBQA?mode=gi_t 1y"
+    }
+  ],
+  "120363403804725270@g.us": [
+    {
+      "ts": 1775953155504,
+      "time": "12/4/2026, 00.19.15",
+      "actor": "923332942647@s.whatsapp.net",
+      "action": "kick",
+      "target": "6285188034067@s.whatsapp.net",
+      "detail": ""
+    }
+  ],
+  "120363403978997642@g.us": [
+    {
+      "ts": 1775962547881,
+      "time": "12/4/2026, 02.55.47",
+      "actor": "6285731423812@s.whatsapp.net",
+      "action": "promote",
+      "target": "",
+      "detail": "6285731423812"
+    }
+  ],
+  "120363406525393123@g.us": [
+    {
+      "ts": 1775963269219,
+      "time": "12/4/2026, 03.07.49",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "ban",
+      "target": "6285188034067@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775963280129,
+      "time": "12/4/2026, 03.08.00",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "unban",
+      "target": "6285188034067@s.whatsapp.net",
+      "detail": ""
+    },
+    {
+      "ts": 1775963326452,
+      "time": "12/4/2026, 03.08.46",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "unban",
+      "target": "",
+      "detail": "+58 416-4385530"
+    }
+  ],
+  "120363409129794613@g.us": [
+    {
+      "ts": 1775974351415,
+      "time": "12/4/2026, 06.12.31",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "kick",
+      "target": "",
+      "detail": "6283183450102"
+    },
+    {
+      "ts": 1775981057182,
+      "time": "12/4/2026, 08.04.17",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "addsewa",
+      "target": "",
+      "detail": ""
+    },
+    {
+      "ts": 1775981067345,
+      "time": "12/4/2026, 08.04.27",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "addsewa",
+      "target": "",
+      "detail": "30"
+    },
+    {
+      "ts": 1776058280768,
+      "time": "13/4/2026, 05.31.20",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "kick",
+      "target": "",
+      "detail": "6283183450102"
+    },
+    {
+      "ts": 1776058433635,
+      "time": "13/4/2026, 05.33.53",
+      "actor": "6283815201912@s.whatsapp.net",
+      "action": "kick",
+      "target": "",
+      "detail": "6283183450102"
+    }
+  ]
+}

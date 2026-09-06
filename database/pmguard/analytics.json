@@ -1,0 +1,25 @@
+{
+  "2026-04-12": {
+    "pms": 7,
+    "blocks": 1,
+    "warns": 4,
+    "floods": 0,
+    "appeals": 0,
+    "unblocks": 1,
+    "unique": [
+      "6283183450102",
+      "255392261136575"
+    ]
+  },
+  "2026-04-13": {
+    "pms": 1,
+    "blocks": 0,
+    "warns": 1,
+    "floods": 0,
+    "appeals": 0,
+    "unblocks": 0,
+    "unique": [
+      "6287826943572"
+    ]
+  }
+}

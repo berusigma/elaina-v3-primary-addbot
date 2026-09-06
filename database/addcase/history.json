@@ -1,0 +1,82 @@
+[
+  {
+    "ts": 1775645076098,
+    "time": "8/4/2026, 10.44.36",
+    "action": "manual_added",
+    "cmdName": "tourl3",
+    "actor": "6283815201912",
+    "detail": "1580 chars, ai=true, quality=A",
+    "sessionId": "84908bb751b2c8c0",
+    "sequence": 1
+  },
+  {
+    "ts": 1775646264465,
+    "time": "8/4/2026, 11.04.24",
+    "action": "manual_added",
+    "cmdName": "tourl",
+    "actor": "6283815201912",
+    "detail": "1570 chars, ai=true, quality=A",
+    "sessionId": "84cf4d36f6367a11",
+    "sequence": 1
+  },
+  {
+    "ts": 1775646280197,
+    "time": "8/4/2026, 11.04.40",
+    "action": "manual_added",
+    "cmdName": "tourl",
+    "actor": "6283815201912",
+    "detail": "1570 chars, ai=true, quality=A",
+    "sessionId": "84cf4d36f6367a11",
+    "sequence": 2
+  },
+  {
+    "ts": 1775646507679,
+    "time": "8/4/2026, 11.08.27",
+    "action": "cancelled",
+    "cmdName": "tourl",
+    "actor": "6283815201912",
+    "detail": "",
+    "sessionId": "84cf4d36f6367a11",
+    "sequence": 3
+  },
+  {
+    "ts": 1776059412832,
+    "time": "13/4/2026, 05.50.12",
+    "action": "ai_generated",
+    "cmdName": "cekbumi",
+    "actor": "6283815201912",
+    "detail": "buatkan alu case cek bumi yang bisa mengecek rotasi bumi sec, quality=A",
+    "sessionId": "f2b44e7f9c9d3699",
+    "sequence": 1
+  },
+  {
+    "ts": 1776063210057,
+    "time": "13/4/2026, 06.53.30",
+    "action": "approved_injected",
+    "cmdName": "cekbumi",
+    "actor": "6283815201912",
+    "detail": "line 27732, backup: bulter_2026-04-13T06-53-23.js, quality: A",
+    "sessionId": "system",
+    "sequence": 2
+  },
+  {
+    "ts": 1776068473425,
+    "time": "13/4/2026, 08.21.13",
+    "action": "manual_added",
+    "cmdName": "getsw",
+    "actor": "6283815201912",
+    "detail": "714 chars, ai=true, quality=A",
+    "sessionId": "6b3f79ed54f6d11f",
+    "sequence": 1
+  },
+  {
+    "ts": 1776068494117,
+    "time": "13/4/2026, 08.21.34",
+    "action": "approved_injected",
+    "cmdName": "getsw",
+    "actor": "6283815201912",
+    "detail": "line 27741, backup: bulter_2026-04-13T08-21-31.js, quality: A",
+    "sessionId": "6b3f79ed54f6d11f",
+    "sequence": 2
+  }
+]

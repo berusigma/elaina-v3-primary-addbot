@@ -1,0 +1,84 @@
+{
+  "120363406234119805@g.us": [
+    {
+      "ts": 1775481986079,
+      "eventType": "🔗 Link invite grup lain tidak diizinkan",
+      "senderId": "62881036032734@s.whatsapp.net",
+      "metadata": {
+        "command": "*butuh",
+        "actions": [
+          "invite_link_blocked",
+          "escalated_to_L1"
+        ]
+      }
+    },
+    {
+      "ts": 1775712993333,
+      "eventType": "Burst terdeteksi! Penalti level 1, tunggu 6 detik.",
+      "senderId": "6289520430523@s.whatsapp.net",
+      "metadata": {
+        "command": "mode_:",
+        "actions": [
+          "rate_limited"
+        ]
+      }
+    },
+    {
+      "ts": 1775713161266,
+      "eventType": "Burst terdeteksi! Penalti level 2, tunggu 12 detik",
+      "senderId": "6289520430523@s.whatsapp.net",
+      "metadata": {
+        "command": "mode_:",
+        "actions": [
+          "rate_limited"
+        ]
+      }
+    }
+  ],
+  "120363426512701657@g.us": [
+    {
+      "ts": 1775999461740,
+      "eventType": "Burst terdeteksi! Penalti level 1, tunggu 6 detik.",
+      "senderId": "584267652563@s.whatsapp.net",
+      "metadata": {
+        "command": "exec_fc-gc",
+        "actions": [
+          "rate_limited"
+        ]
+      }
+    },
+    {
+      "ts": 1776010576125,
+      "eventType": "⛔ Butuh level 70 (Admin), kamu level 10",
+      "senderId": "584267652563@s.whatsapp.net",
+      "metadata": {
+        "command": "kick",
+        "actions": [
+          "permission_denied"
+        ]
+      }
+    },
+    {
+      "ts": 1776010588168,
+      "eventType": "⛔ Butuh level 70 (Admin), kamu level 10",
+      "senderId": "584267652563@s.whatsapp.net",
+      "metadata": {
+        "command": "kick",
+        "actions": [
+          "permission_denied"
+        ]
+      }
+    },
+    {
+      "ts": 1776028944057,
+      "eventType": "⛔ Butuh level 70 (Admin), kamu level 10",
+      "senderId": "584267652563@s.whatsapp.net",
+      "metadata": {
+        "command": "kick",
+        "actions": [
+          "permission_denied"
+        ]
+      }
+    }
+  ]
+}

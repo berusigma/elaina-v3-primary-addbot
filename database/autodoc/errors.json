@@ -1,0 +1,1342 @@
+[
+  {
+    "id": "acfcf5205d1c",
+    "ts": 1775643073274,
+    "time": "8/4/2026, 10.11.13",
+    "fingerprint": "a7c2ca30d296",
+    "name": "TypeError",
+    "message": "fetch failed",
+    "stack": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:12500:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async Timeout._onTimeout (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/newsletter.js:183:17)",
+    "category": "TIMEOUT",
+    "severity": "medium",
+    "fixStrategy": "retry",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "d924e5df8ec3",
+    "ts": 1775659891218,
+    "time": "8/4/2026, 14.51.31",
+    "fingerprint": "dc4770b9861f",
+    "name": "Error",
+    "message": "Memory leak detected: +101% growth",
+    "stack": "Error: Memory leak detected: +101% growth\n    at Timeout._onTimeout (/home/container/autodoc.js:837:26)\n    at listOnTimeout (node:internal/timers:573:17)\n    at process.processTimers (node:internal/timers:514:7)",
+    "category": "TIMEOUT",
+    "severity": "medium",
+    "fixStrategy": "retry",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "watchdog"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "dc4ad347e4a1",
+    "ts": 1775659951220,
+    "time": "8/4/2026, 14.52.31",
+    "fingerprint": "dc4770b9861f",
+    "name": "Error",
+    "message": "Memory leak detected: +121% growth",
+    "stack": "Error: Memory leak detected: +121% growth\n    at Timeout._onTimeout (/home/container/autodoc.js:837:26)\n    at listOnTimeout (node:internal/timers:573:17)\n    at process.processTimers (node:internal/timers:514:7)",
+    "category": "TIMEOUT",
+    "severity": "medium",
+    "fixStrategy": "retry",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "watchdog"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "53cdc797e0f7",
+    "ts": 1775660011239,
+    "time": "8/4/2026, 14.53.31",
+    "fingerprint": "dc4770b9861f",
+    "name": "Error",
+    "message": "Memory leak detected: +130% growth",
+    "stack": "Error: Memory leak detected: +130% growth\n    at Timeout._onTimeout (/home/container/autodoc.js:837:26)\n    at listOnTimeout (node:internal/timers:573:17)\n    at process.processTimers (node:internal/timers:514:7)",
+    "category": "TIMEOUT",
+    "severity": "medium",
+    "fixStrategy": "retry",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "watchdog"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "e5a344005d26",
+    "ts": 1775660071237,
+    "time": "8/4/2026, 14.54.31",
+    "fingerprint": "dc4770b9861f",
+    "name": "Error",
+    "message": "Memory leak detected: +86% growth",
+    "stack": "Error: Memory leak detected: +86% growth\n    at Timeout._onTimeout (/home/container/autodoc.js:837:26)\n    at listOnTimeout (node:internal/timers:573:17)\n    at process.processTimers (node:internal/timers:514:7)",
+    "category": "TIMEOUT",
+    "severity": "medium",
+    "fixStrategy": "retry",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "watchdog"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "a65de35f1197",
+    "ts": 1775660131249,
+    "time": "8/4/2026, 14.55.31",
+    "fingerprint": "dc4770b9861f",
+    "name": "Error",
+    "message": "Memory leak detected: +100% growth",
+    "stack": "Error: Memory leak detected: +100% growth\n    at Timeout._onTimeout (/home/container/autodoc.js:837:26)\n    at listOnTimeout (node:internal/timers:573:17)\n    at process.processTimers (node:internal/timers:514:7)",
+    "category": "TIMEOUT",
+    "severity": "medium",
+    "fixStrategy": "retry",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "watchdog"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "46b17bba897f",
+    "ts": 1775660191244,
+    "time": "8/4/2026, 14.56.31",
+    "fingerprint": "dc4770b9861f",
+    "name": "Error",
+    "message": "Memory leak detected: +110% growth",
+    "stack": "Error: Memory leak detected: +110% growth\n    at Timeout._onTimeout (/home/container/autodoc.js:837:26)\n    at listOnTimeout (node:internal/timers:573:17)\n    at process.processTimers (node:internal/timers:514:7)",
+    "category": "TIMEOUT",
+    "severity": "medium",
+    "fixStrategy": "retry",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "watchdog"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "64c0750de78a",
+    "ts": 1775916273847,
+    "time": "11/4/2026, 14.04.33",
+    "fingerprint": "24cd25c5d3fb",
+    "name": "Error",
+    "message": "Cannot find module './lib/hdUpscale'\nRequire stack:\n- /home/container/bulter.js\n- /home/container/bulter.js\n- /home/container/settings.js\n- /home/container/index.js",
+    "stack": "Error: Cannot find module './lib/hdUpscale'\nRequire stack:\n- /home/container/bulter.js\n- /home/container/bulter.js\n- /home/container/settings.js\n- /home/container/index.js\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1142:15)\n    at Module._load (node:internal/modules/cjs/loader:983:27)",
+    "category": "MODULE",
+    "severity": "high",
+    "fixStrategy": "reinstall_module",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "uncaughtException"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "1f7a4caa8c52",
+    "ts": 1775921560277,
+    "time": "11/4/2026, 15.32.40",
+    "fingerprint": "59605b71ce76",
+    "name": "Error",
+    "message": "rate-overlimit",
+    "stack": "Error: rate-overlimit\n    at assertNodeErrorFree (/home/container/node_modules/@whiskeysockets/baileys/lib/WABinary/generic-utils.js:55:15)\n    at query (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:178:48)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async groupMetadata (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/groups.js:23:24)\n    at async /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:355:41\n    at async Promise.all (index 0)\n    at async /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:347:51",
+    "category": "UNKNOWN",
+    "severity": "low",
+    "fixStrategy": "none",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "474b4fc14bdc",
+    "ts": 1775921560556,
+    "time": "11/4/2026, 15.32.40",
+    "fingerprint": "59605b71ce76",
+    "name": "Error",
+    "message": "rate-overlimit",
+    "stack": "Error: rate-overlimit\n    at assertNodeErrorFree (/home/container/node_modules/@whiskeysockets/baileys/lib/WABinary/generic-utils.js:55:15)\n    at query (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:178:48)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async groupMetadata (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/groups.js:23:24)\n    at async /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:355:41\n    at async Promise.all (index 0)\n    at async /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:347:51",
+    "category": "UNKNOWN",
+    "severity": "low",
+    "fixStrategy": "none",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "ee4f0e734e56",
+    "ts": 1775921561359,
+    "time": "11/4/2026, 15.32.41",
+    "fingerprint": "59605b71ce76",
+    "name": "Error",
+    "message": "rate-overlimit",
+    "stack": "Error: rate-overlimit\n    at assertNodeErrorFree (/home/container/node_modules/@whiskeysockets/baileys/lib/WABinary/generic-utils.js:55:15)\n    at query (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:178:48)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async groupMetadata (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/groups.js:23:24)\n    at async /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:355:41\n    at async Promise.all (index 0)\n    at async /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:347:51",
+    "category": "UNKNOWN",
+    "severity": "low",
+    "fixStrategy": "none",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "0fe4c2e9cab0",
+    "ts": 1775921561808,
+    "time": "11/4/2026, 15.32.41",
+    "fingerprint": "59605b71ce76",
+    "name": "Error",
+    "message": "rate-overlimit",
+    "stack": "Error: rate-overlimit\n    at assertNodeErrorFree (/home/container/node_modules/@whiskeysockets/baileys/lib/WABinary/generic-utils.js:55:15)\n    at query (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:178:48)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async groupMetadata (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/groups.js:23:24)\n    at async /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:355:41\n    at async Promise.all (index 0)\n    at async /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:347:51",
+    "category": "UNKNOWN",
+    "severity": "low",
+    "fixStrategy": "none",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "cff426b5bc0f",
+    "ts": 1775921562436,
+    "time": "11/4/2026, 15.32.42",
+    "fingerprint": "59605b71ce76",
+    "name": "Error",
+    "message": "rate-overlimit",
+    "stack": "Error: rate-overlimit\n    at assertNodeErrorFree (/home/container/node_modules/@whiskeysockets/baileys/lib/WABinary/generic-utils.js:55:15)\n    at query (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:178:48)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async groupMetadata (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/groups.js:23:24)\n    at async /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:355:41\n    at async Promise.all (index 0)\n    at async /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:347:51",
+    "category": "UNKNOWN",
+    "severity": "low",
+    "fixStrategy": "none",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "2953cb1a1b78",
+    "ts": 1775921562707,
+    "time": "11/4/2026, 15.32.42",
+    "fingerprint": "59605b71ce76",
+    "name": "Error",
+    "message": "rate-overlimit",
+    "stack": "Error: rate-overlimit\n    at assertNodeErrorFree (/home/container/node_modules/@whiskeysockets/baileys/lib/WABinary/generic-utils.js:55:15)\n    at query (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:178:48)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async groupMetadata (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/groups.js:23:24)\n    at async /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:355:41\n    at async Promise.all (index 0)\n    at async /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:347:51",
+    "category": "UNKNOWN",
+    "severity": "low",
+    "fixStrategy": "none",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "1d28309e4edd",
+    "ts": 1775940526019,
+    "time": "11/4/2026, 20.48.46",
+    "fingerprint": "b9b5501092db",
+    "name": "TypeError",
+    "message": "Cannot read properties of undefined (reading 'match')",
+    "stack": "TypeError: Cannot read properties of undefined (reading 'match')\n    at extractUrlFromText (/home/container/node_modules/@whiskeysockets/baileys/lib/Utils/messages.js:39:66)\n    at generateLinkPreviewIfRequired (/home/container/node_modules/@whiskeysockets/baileys/lib/Utils/messages.js:42:48)\n    at generateWAMessageContent (/home/container/node_modules/@whiskeysockets/baileys/lib/Utils/messages.js:293:71)\n    at Object.generateWAMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Utils/messages.js:565:102)\n    at Object.sendMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:845:43)\n    at reply (/home/container/bulter.js:6569:8)\n    at bulter (/home/container/bulter.js:18853:28)",
+    "category": "RUNTIME",
+    "severity": "medium",
+    "fixStrategy": "isolate",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "fc2da3e08948",
+    "ts": 1775940736508,
+    "time": "11/4/2026, 20.52.16",
+    "fingerprint": "b9b5501092db",
+    "name": "TypeError",
+    "message": "Cannot read properties of undefined (reading 'match')",
+    "stack": "TypeError: Cannot read properties of undefined (reading 'match')\n    at extractUrlFromText (/home/container/node_modules/@whiskeysockets/baileys/lib/Utils/messages.js:39:66)\n    at generateLinkPreviewIfRequired (/home/container/node_modules/@whiskeysockets/baileys/lib/Utils/messages.js:42:48)\n    at generateWAMessageContent (/home/container/node_modules/@whiskeysockets/baileys/lib/Utils/messages.js:293:71)\n    at Object.generateWAMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Utils/messages.js:565:102)\n    at Object.sendMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:845:43)\n    at reply (/home/container/bulter.js:6569:8)\n    at bulter (/home/container/bulter.js:18853:28)",
+    "category": "RUNTIME",
+    "severity": "medium",
+    "fixStrategy": "isolate",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "35fe12724625",
+    "ts": 1775940825839,
+    "time": "11/4/2026, 20.53.45",
+    "fingerprint": "b9b5501092db",
+    "name": "TypeError",
+    "message": "Cannot read properties of undefined (reading 'match')",
+    "stack": "TypeError: Cannot read properties of undefined (reading 'match')\n    at extractUrlFromText (/home/container/node_modules/@whiskeysockets/baileys/lib/Utils/messages.js:39:66)\n    at generateLinkPreviewIfRequired (/home/container/node_modules/@whiskeysockets/baileys/lib/Utils/messages.js:42:48)\n    at generateWAMessageContent (/home/container/node_modules/@whiskeysockets/baileys/lib/Utils/messages.js:293:71)\n    at Object.generateWAMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Utils/messages.js:565:102)\n    at Object.sendMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:845:43)\n    at reply (/home/container/bulter.js:6569:8)\n    at bulter (/home/container/bulter.js:18568:28)",
+    "category": "RUNTIME",
+    "severity": "medium",
+    "fixStrategy": "isolate",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "99c1fb242bbe",
+    "ts": 1775943186713,
+    "time": "11/4/2026, 21.33.06",
+    "fingerprint": "6b3ba82d2e10",
+    "name": "Error",
+    "message": "Connection Closed",
+    "stack": "Error: Connection Closed\n    at sendRawMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:59:19)\n    at sendNode (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:78:16)\n    at query (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:175:13)\n    at /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:52:38\n    at refreshMediaConn (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:73:15)\n    at async /home/container/node_modules/@whiskeysockets/baileys/lib/Utils/messages-media.js:662:26\n    at async Object.upload (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:859:32)",
+    "category": "BAILEYS",
+    "severity": "high",
+    "fixStrategy": "reconnect_wa",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "ca70d7450e7b",
+    "ts": 1775943188321,
+    "time": "11/4/2026, 21.33.08",
+    "fingerprint": "08e674e1ef83",
+    "name": "Error",
+    "message": "ENOENT: no such file or directory, open '/tmp/audioILSYM-ADE699B45A06'",
+    "stack": "Error: ENOENT: no such file or directory, open '/tmp/audioILSYM-ADE699B45A06'",
+    "category": "FILESYSTEM",
+    "severity": "high",
+    "fixStrategy": "repair_fs",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "uncaughtException"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "60dd99cd5a35",
+    "ts": 1775978737293,
+    "time": "12/4/2026, 07.25.37",
+    "fingerprint": "08e674e1ef83",
+    "name": "Error",
+    "message": "ENOENT: no such file or directory, open '/tmp/audioILSYM-F7EB553C7B9B'",
+    "stack": "Error: ENOENT: no such file or directory, open '/tmp/audioILSYM-F7EB553C7B9B'",
+    "category": "FILESYSTEM",
+    "severity": "high",
+    "fixStrategy": "repair_fs",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "uncaughtException"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "7568b729ec6b",
+    "ts": 1775981241749,
+    "time": "12/4/2026, 08.07.21",
+    "fingerprint": "6b3ba82d2e10",
+    "name": "Error",
+    "message": "Connection Closed",
+    "stack": "Error: Connection Closed\n    at sendRawMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:59:19)\n    at sendNode (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:78:16)\n    at query (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:175:13)\n    at groupQuery (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/groups.js:13:55)\n    at groupMetadata (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/groups.js:23:30)\n    at /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:355:47\n    at /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:359:23",
+    "category": "BAILEYS",
+    "severity": "high",
+    "fixStrategy": "reconnect_wa",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "56080057be48",
+    "ts": 1775981441049,
+    "time": "12/4/2026, 08.10.41",
+    "fingerprint": "6b3ba82d2e10",
+    "name": "Error",
+    "message": "Connection Closed",
+    "stack": "Error: Connection Closed\n    at sendRawMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:59:19)\n    at sendNode (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:78:16)\n    at query (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:175:13)\n    at /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:52:38\n    at refreshMediaConn (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:73:15)\n    at async /home/container/node_modules/@whiskeysockets/baileys/lib/Utils/messages-media.js:662:26\n    at async Object.upload (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:859:32)",
+    "category": "BAILEYS",
+    "severity": "high",
+    "fixStrategy": "reconnect_wa",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "0516238d8090",
+    "ts": 1775981443550,
+    "time": "12/4/2026, 08.10.43",
+    "fingerprint": "08e674e1ef83",
+    "name": "Error",
+    "message": "ENOENT: no such file or directory, open '/tmp/audioILSYM-08841757D70D'",
+    "stack": "Error: ENOENT: no such file or directory, open '/tmp/audioILSYM-08841757D70D'",
+    "category": "FILESYSTEM",
+    "severity": "high",
+    "fixStrategy": "repair_fs",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "uncaughtException"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "03170a54ec6f",
+    "ts": 1775981445980,
+    "time": "12/4/2026, 08.10.45",
+    "fingerprint": "6b3ba82d2e10",
+    "name": "Error",
+    "message": "Connection Closed",
+    "stack": "Error: Connection Closed\n    at sendRawMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:59:19)\n    at sendNode (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:78:16)\n    at query (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:175:13)\n    at /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:52:38\n    at refreshMediaConn (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:73:15)\n    at async /home/container/node_modules/@whiskeysockets/baileys/lib/Utils/messages-media.js:662:26\n    at async Object.upload (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:859:32)",
+    "category": "BAILEYS",
+    "severity": "high",
+    "fixStrategy": "reconnect_wa",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "e037cc71adb0",
+    "ts": 1775981449109,
+    "time": "12/4/2026, 08.10.49",
+    "fingerprint": "08e674e1ef83",
+    "name": "Error",
+    "message": "ENOENT: no such file or directory, open '/tmp/audioILSYM-51A239A6C46B'",
+    "stack": "Error: ENOENT: no such file or directory, open '/tmp/audioILSYM-51A239A6C46B'",
+    "category": "FILESYSTEM",
+    "severity": "high",
+    "fixStrategy": "repair_fs",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "uncaughtException"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "62131aa40001",
+    "ts": 1775990995324,
+    "time": "12/4/2026, 10.49.55",
+    "fingerprint": "6b3ba82d2e10",
+    "name": "Error",
+    "message": "Connection Closed",
+    "stack": "Error: Connection Closed\n    at sendRawMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:59:19)\n    at sendNode (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:78:16)\n    at query (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:175:13)\n    at /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:52:38\n    at refreshMediaConn (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:73:15)\n    at async /home/container/node_modules/@whiskeysockets/baileys/lib/Utils/messages-media.js:662:26\n    at async Object.upload (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:859:32)",
+    "category": "BAILEYS",
+    "severity": "high",
+    "fixStrategy": "reconnect_wa",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "cd5c2d392da8",
+    "ts": 1775990995522,
+    "time": "12/4/2026, 10.49.55",
+    "fingerprint": "08e674e1ef83",
+    "name": "Error",
+    "message": "ENOENT: no such file or directory, open '/tmp/audioILSYM-83FC1F641EAA'",
+    "stack": "Error: ENOENT: no such file or directory, open '/tmp/audioILSYM-83FC1F641EAA'",
+    "category": "FILESYSTEM",
+    "severity": "high",
+    "fixStrategy": "repair_fs",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "uncaughtException"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "cdb82aa6a4d8",
+    "ts": 1775990998764,
+    "time": "12/4/2026, 10.49.58",
+    "fingerprint": "6b3ba82d2e10",
+    "name": "Error",
+    "message": "Connection Closed",
+    "stack": "Error: Connection Closed\n    at sendRawMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:59:19)\n    at sendNode (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:78:16)\n    at query (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:175:13)\n    at /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:52:38\n    at refreshMediaConn (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:73:15)\n    at async /home/container/node_modules/@whiskeysockets/baileys/lib/Utils/messages-media.js:662:26\n    at async Object.upload (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:859:32)",
+    "category": "BAILEYS",
+    "severity": "high",
+    "fixStrategy": "reconnect_wa",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "46a5fbbf7c56",
+    "ts": 1775991002214,
+    "time": "12/4/2026, 10.50.02",
+    "fingerprint": "08e674e1ef83",
+    "name": "Error",
+    "message": "ENOENT: no such file or directory, open '/tmp/audioILSYM-106E22AF9A4B'",
+    "stack": "Error: ENOENT: no such file or directory, open '/tmp/audioILSYM-106E22AF9A4B'",
+    "category": "FILESYSTEM",
+    "severity": "high",
+    "fixStrategy": "repair_fs",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "uncaughtException"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "263399b36aba",
+    "ts": 1775992104236,
+    "time": "12/4/2026, 11.08.24",
+    "fingerprint": "fe8036c728ba",
+    "name": "Error",
+    "message": "Memory leak detected: +35% growth",
+    "stack": "Error: Memory leak detected: +35% growth\n    at Timeout._onTimeout (/home/container/lib/system/autodoc.js:837:26)\n    at listOnTimeout (node:internal/timers:573:17)\n    at process.processTimers (node:internal/timers:514:7)",
+    "category": "TIMEOUT",
+    "severity": "medium",
+    "fixStrategy": "retry",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "watchdog"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "ea30ee302cbf",
+    "ts": 1775992168910,
+    "time": "12/4/2026, 11.09.28",
+    "fingerprint": "fe8036c728ba",
+    "name": "Error",
+    "message": "Memory leak detected: +56% growth",
+    "stack": "Error: Memory leak detected: +56% growth\n    at Timeout._onTimeout (/home/container/lib/system/autodoc.js:837:26)\n    at listOnTimeout (node:internal/timers:573:17)\n    at process.processTimers (node:internal/timers:514:7)",
+    "category": "TIMEOUT",
+    "severity": "medium",
+    "fixStrategy": "retry",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "watchdog"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "d6575cba9751",
+    "ts": 1775992192471,
+    "time": "12/4/2026, 11.09.52",
+    "fingerprint": "a7c2ca30d296",
+    "name": "TypeError",
+    "message": "fetch failed",
+    "stack": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:12500:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async Starts (/home/container/index.js:109:26)",
+    "category": "RUNTIME",
+    "severity": "medium",
+    "fixStrategy": "isolate",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "554e85ec77b4",
+    "ts": 1775996341801,
+    "time": "12/4/2026, 12.19.01",
+    "fingerprint": "24cd25c5d3fb",
+    "name": "Error",
+    "message": "Cannot find module './lib/system/pmguard.js'\nRequire stack:\n- /home/container/bulter.js\n- /home/container/bulter.js\n- /home/container/settings.js\n- /home/container/index.js",
+    "stack": "Error: Cannot find module './lib/system/pmguard.js'\nRequire stack:\n- /home/container/bulter.js\n- /home/container/bulter.js\n- /home/container/settings.js\n- /home/container/index.js\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1142:15)\n    at Module._load (node:internal/modules/cjs/loader:983:27)",
+    "category": "MODULE",
+    "severity": "high",
+    "fixStrategy": "reinstall_module",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "uncaughtException"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "73a078382f00",
+    "ts": 1776000092548,
+    "time": "12/4/2026, 13.21.32",
+    "fingerprint": "a7c2ca30d296",
+    "name": "TypeError",
+    "message": "fetch failed",
+    "stack": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:12500:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async Starts (/home/container/index.js:109:26)",
+    "category": "RUNTIME",
+    "severity": "medium",
+    "fixStrategy": "isolate",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "e129d68db1b6",
+    "ts": 1776000911750,
+    "time": "12/4/2026, 13.35.11",
+    "fingerprint": "6b3ba82d2e10",
+    "name": "Error",
+    "message": "Connection Closed",
+    "stack": "Error: Connection Closed\n    at sendRawMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:59:19)\n    at sendNode (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:78:16)\n    at /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:586:19\n    at async Object.transaction (/home/container/node_modules/@whiskeysockets/baileys/lib/Utils/auth-utils.js:136:26)\n    at async relayMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:331:9)\n    at async sendPeerDataOperationMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:258:23)\n    at async sendRetryRequest (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-recv.js:213:27)",
+    "category": "BAILEYS",
+    "severity": "high",
+    "fixStrategy": "reconnect_wa",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "2af200d953a0",
+    "ts": 1776000915891,
+    "time": "12/4/2026, 13.35.15",
+    "fingerprint": "6b3ba82d2e10",
+    "name": "Error",
+    "message": "Connection Closed",
+    "stack": "Error: Connection Closed\n    at sendRawMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:59:19)\n    at sendNode (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:78:16)\n    at /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-recv.js:266:19\n    at Object.transaction (/home/container/node_modules/@whiskeysockets/baileys/lib/Utils/auth-utils.js:136:32)\n    at sendRetryRequest (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-recv.js:217:30)\n    at async /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-recv.js:819:33\n    at async /home/container/node_modules/@whiskeysockets/baileys/lib/Utils/make-mutex.js:18:36",
+    "category": "BAILEYS",
+    "severity": "high",
+    "fixStrategy": "reconnect_wa",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "809ae81d6007",
+    "ts": 1776000996974,
+    "time": "12/4/2026, 13.36.36",
+    "fingerprint": "6b3ba82d2e10",
+    "name": "Error",
+    "message": "Connection Closed",
+    "stack": "Error: Connection Closed\n    at sendRawMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:59:19)\n    at sendNode (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:78:16)\n    at /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:586:19\n    at async Object.transaction (/home/container/node_modules/@whiskeysockets/baileys/lib/Utils/auth-utils.js:136:26)\n    at async relayMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:331:9)\n    at async sendPeerDataOperationMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:258:23)\n    at async sendRetryRequest (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-recv.js:213:27)",
+    "category": "BAILEYS",
+    "severity": "high",
+    "fixStrategy": "reconnect_wa",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "1368f370488a",
+    "ts": 1776001055101,
+    "time": "12/4/2026, 13.37.35",
+    "fingerprint": "a7c2ca30d296",
+    "name": "TypeError",
+    "message": "fetch failed",
+    "stack": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:12500:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async Timeout._onTimeout (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/newsletter.js:183:17)",
+    "category": "TIMEOUT",
+    "severity": "medium",
+    "fixStrategy": "retry",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "a78f4d49a6c1",
+    "ts": 1776001062954,
+    "time": "12/4/2026, 13.37.42",
+    "fingerprint": "6b3ba82d2e10",
+    "name": "Error",
+    "message": "Connection Closed",
+    "stack": "Error: Connection Closed\n    at sendRawMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:59:19)\n    at sendNode (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:78:16)\n    at /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:586:19\n    at async Object.transaction (/home/container/node_modules/@whiskeysockets/baileys/lib/Utils/auth-utils.js:136:26)\n    at async relayMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:331:9)\n    at async sendPeerDataOperationMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:258:23)\n    at async sendRetryRequest (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-recv.js:213:27)",
+    "category": "BAILEYS",
+    "severity": "high",
+    "fixStrategy": "reconnect_wa",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "6009f367d7cc",
+    "ts": 1776001389706,
+    "time": "12/4/2026, 13.43.09",
+    "fingerprint": "6b3ba82d2e10",
+    "name": "Error",
+    "message": "Connection Closed",
+    "stack": "Error: Connection Closed\n    at sendRawMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:59:19)\n    at sendNode (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:78:16)\n    at /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:586:19\n    at async Object.transaction (/home/container/node_modules/@whiskeysockets/baileys/lib/Utils/auth-utils.js:136:26)\n    at async relayMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:331:9)\n    at async sendPeerDataOperationMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:258:23)\n    at async sendRetryRequest (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-recv.js:213:27)",
+    "category": "BAILEYS",
+    "severity": "high",
+    "fixStrategy": "reconnect_wa",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "20027883753b",
+    "ts": 1776007437198,
+    "time": "12/4/2026, 15.23.57",
+    "fingerprint": "fe8036c728ba",
+    "name": "Error",
+    "message": "Memory leak detected: +265% growth",
+    "stack": "Error: Memory leak detected: +265% growth\n    at Timeout._onTimeout (/home/container/lib/system/autodoc.js:837:26)\n    at listOnTimeout (node:internal/timers:573:17)\n    at process.processTimers (node:internal/timers:514:7)",
+    "category": "TIMEOUT",
+    "severity": "medium",
+    "fixStrategy": "retry",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "watchdog"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "72bfcb63fcba",
+    "ts": 1776007557197,
+    "time": "12/4/2026, 15.25.57",
+    "fingerprint": "fe8036c728ba",
+    "name": "Error",
+    "message": "Memory leak detected: +204% growth",
+    "stack": "Error: Memory leak detected: +204% growth\n    at Timeout._onTimeout (/home/container/lib/system/autodoc.js:837:26)\n    at listOnTimeout (node:internal/timers:573:17)\n    at process.processTimers (node:internal/timers:514:7)",
+    "category": "TIMEOUT",
+    "severity": "medium",
+    "fixStrategy": "retry",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "watchdog"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "a9392ad8b709",
+    "ts": 1776007617197,
+    "time": "12/4/2026, 15.26.57",
+    "fingerprint": "fe8036c728ba",
+    "name": "Error",
+    "message": "Memory leak detected: +158% growth",
+    "stack": "Error: Memory leak detected: +158% growth\n    at Timeout._onTimeout (/home/container/lib/system/autodoc.js:837:26)\n    at listOnTimeout (node:internal/timers:573:17)\n    at process.processTimers (node:internal/timers:514:7)",
+    "category": "TIMEOUT",
+    "severity": "medium",
+    "fixStrategy": "retry",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "watchdog"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "3239bd50bc62",
+    "ts": 1776007677196,
+    "time": "12/4/2026, 15.27.57",
+    "fingerprint": "fe8036c728ba",
+    "name": "Error",
+    "message": "Memory leak detected: +132% growth",
+    "stack": "Error: Memory leak detected: +132% growth\n    at Timeout._onTimeout (/home/container/lib/system/autodoc.js:837:26)\n    at listOnTimeout (node:internal/timers:573:17)\n    at process.processTimers (node:internal/timers:514:7)",
+    "category": "TIMEOUT",
+    "severity": "medium",
+    "fixStrategy": "retry",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "watchdog"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "c1bcfeb47deb",
+    "ts": 1776007737197,
+    "time": "12/4/2026, 15.28.57",
+    "fingerprint": "fe8036c728ba",
+    "name": "Error",
+    "message": "Memory leak detected: +128% growth",
+    "stack": "Error: Memory leak detected: +128% growth\n    at Timeout._onTimeout (/home/container/lib/system/autodoc.js:837:26)\n    at listOnTimeout (node:internal/timers:573:17)\n    at process.processTimers (node:internal/timers:514:7)",
+    "category": "TIMEOUT",
+    "severity": "medium",
+    "fixStrategy": "retry",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "watchdog"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "ee49fa44fa07",
+    "ts": 1776007797197,
+    "time": "12/4/2026, 15.29.57",
+    "fingerprint": "fe8036c728ba",
+    "name": "Error",
+    "message": "Memory leak detected: +120% growth",
+    "stack": "Error: Memory leak detected: +120% growth\n    at Timeout._onTimeout (/home/container/lib/system/autodoc.js:837:26)\n    at listOnTimeout (node:internal/timers:573:17)\n    at process.processTimers (node:internal/timers:514:7)",
+    "category": "TIMEOUT",
+    "severity": "medium",
+    "fixStrategy": "retry",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "watchdog"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "548848db48d9",
+    "ts": 1776007857197,
+    "time": "12/4/2026, 15.30.57",
+    "fingerprint": "fe8036c728ba",
+    "name": "Error",
+    "message": "Memory leak detected: +105% growth",
+    "stack": "Error: Memory leak detected: +105% growth\n    at Timeout._onTimeout (/home/container/lib/system/autodoc.js:837:26)\n    at listOnTimeout (node:internal/timers:573:17)\n    at process.processTimers (node:internal/timers:514:7)",
+    "category": "TIMEOUT",
+    "severity": "medium",
+    "fixStrategy": "retry",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "watchdog"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "e1631ed31ca6",
+    "ts": 1776008037198,
+    "time": "12/4/2026, 15.33.57",
+    "fingerprint": "fe8036c728ba",
+    "name": "Error",
+    "message": "Memory leak detected: +46% growth",
+    "stack": "Error: Memory leak detected: +46% growth\n    at Timeout._onTimeout (/home/container/lib/system/autodoc.js:837:26)\n    at listOnTimeout (node:internal/timers:573:17)\n    at process.processTimers (node:internal/timers:514:7)",
+    "category": "TIMEOUT",
+    "severity": "medium",
+    "fixStrategy": "retry",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "watchdog"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "61c6dd555abb",
+    "ts": 1776008097198,
+    "time": "12/4/2026, 15.34.57",
+    "fingerprint": "fe8036c728ba",
+    "name": "Error",
+    "message": "Memory leak detected: +36% growth",
+    "stack": "Error: Memory leak detected: +36% growth\n    at Timeout._onTimeout (/home/container/lib/system/autodoc.js:837:26)\n    at listOnTimeout (node:internal/timers:573:17)\n    at process.processTimers (node:internal/timers:514:7)",
+    "category": "TIMEOUT",
+    "severity": "medium",
+    "fixStrategy": "retry",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "watchdog"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "7ac28e9186e6",
+    "ts": 1776026293182,
+    "time": "12/4/2026, 20.38.13",
+    "fingerprint": "fe8036c728ba",
+    "name": "Error",
+    "message": "Memory leak detected: +37% growth",
+    "stack": "Error: Memory leak detected: +37% growth\n    at Timeout._onTimeout (/home/container/lib/system/autodoc.js:837:26)\n    at listOnTimeout (node:internal/timers:573:17)\n    at process.processTimers (node:internal/timers:514:7)",
+    "category": "TIMEOUT",
+    "severity": "medium",
+    "fixStrategy": "retry",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "watchdog"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "75683d91b52e",
+    "ts": 1776032702019,
+    "time": "12/4/2026, 22.25.02",
+    "fingerprint": "fe8036c728ba",
+    "name": "Error",
+    "message": "Memory leak detected: +35% growth",
+    "stack": "Error: Memory leak detected: +35% growth\n    at Timeout._onTimeout (/home/container/lib/system/autodoc.js:837:26)\n    at listOnTimeout (node:internal/timers:573:17)\n    at process.processTimers (node:internal/timers:514:7)",
+    "category": "TIMEOUT",
+    "severity": "medium",
+    "fixStrategy": "retry",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "watchdog"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "1f83c80cb81b",
+    "ts": 1776050731491,
+    "time": "13/4/2026, 03.25.31",
+    "fingerprint": "fe8036c728ba",
+    "name": "Error",
+    "message": "Memory leak detected: +40% growth",
+    "stack": "Error: Memory leak detected: +40% growth\n    at Timeout._onTimeout (/home/container/lib/system/autodoc.js:837:26)\n    at listOnTimeout (node:internal/timers:573:17)\n    at process.processTimers (node:internal/timers:514:7)",
+    "category": "TIMEOUT",
+    "severity": "medium",
+    "fixStrategy": "retry",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "watchdog"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "042596dedc2b",
+    "ts": 1776050791491,
+    "time": "13/4/2026, 03.26.31",
+    "fingerprint": "fe8036c728ba",
+    "name": "Error",
+    "message": "Memory leak detected: +43% growth",
+    "stack": "Error: Memory leak detected: +43% growth\n    at Timeout._onTimeout (/home/container/lib/system/autodoc.js:837:26)\n    at listOnTimeout (node:internal/timers:573:17)\n    at process.processTimers (node:internal/timers:514:7)",
+    "category": "TIMEOUT",
+    "severity": "medium",
+    "fixStrategy": "retry",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "watchdog"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "eff7e2ffce34",
+    "ts": 1776063770923,
+    "time": "13/4/2026, 07.02.50",
+    "fingerprint": "6b3ba82d2e10",
+    "name": "Error",
+    "message": "Connection Closed",
+    "stack": "Error: Connection Closed\n    at sendRawMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:59:19)\n    at sendNode (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:78:16)\n    at query (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:175:13)\n    at assertSessions (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:221:34)\n    at async /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:418:21\n    at async Object.transaction (/home/container/node_modules/@whiskeysockets/baileys/lib/Utils/auth-utils.js:136:26)\n    at async relayMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:331:9)",
+    "category": "BAILEYS",
+    "severity": "high",
+    "fixStrategy": "reconnect_wa",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "d83d03885142",
+    "ts": 1776066554186,
+    "time": "13/4/2026, 07.49.14",
+    "fingerprint": "a7c2ca30d296",
+    "name": "TypeError",
+    "message": "fetch failed",
+    "stack": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:12500:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async Timeout._onTimeout (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/newsletter.js:183:17)",
+    "category": "TIMEOUT",
+    "severity": "medium",
+    "fixStrategy": "retry",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "ee354b042e1a",
+    "ts": 1776067474337,
+    "time": "13/4/2026, 08.04.34",
+    "fingerprint": "be18679c59f9",
+    "name": "Error",
+    "message": "Cannot find module './lib/system/getcase.js'\nRequire stack:\n- /home/container/bulter.js\n- /home/container/bulter.js\n- /home/container/bulter.js\n- /home/container/bulter.js\n- /home/container/settings.js\n- /home/container/index.js",
+    "stack": "Error: Cannot find module './lib/system/getcase.js'\nRequire stack:\n- /home/container/bulter.js\n- /home/container/bulter.js\n- /home/container/bulter.js\n- /home/container/bulter.js\n- /home/container/settings.js\n- /home/container/index.js",
+    "category": "MODULE",
+    "severity": "high",
+    "fixStrategy": "reinstall_module",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "uncaughtException"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "8d86ab34082d",
+    "ts": 1776068154447,
+    "time": "13/4/2026, 08.15.54",
+    "fingerprint": "6b3ba82d2e10",
+    "name": "Error",
+    "message": "Connection Closed",
+    "stack": "Error: Connection Closed\n    at sendRawMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:59:19)\n    at sendNode (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:78:16)\n    at query (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:175:13)\n    at groupQuery (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/groups.js:13:55)\n    at groupMetadata (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/groups.js:23:30)\n    at /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:355:47\n    at /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:359:23",
+    "category": "BAILEYS",
+    "severity": "high",
+    "fixStrategy": "reconnect_wa",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "6fcc52d6493c",
+    "ts": 1776068154571,
+    "time": "13/4/2026, 08.15.54",
+    "fingerprint": "6b3ba82d2e10",
+    "name": "Error",
+    "message": "Connection Closed",
+    "stack": "Error: Connection Closed\n    at sendRawMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:59:19)\n    at sendNode (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:78:16)\n    at query (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:175:13)\n    at groupQuery (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/groups.js:13:55)\n    at groupMetadata (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/groups.js:23:30)\n    at /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:355:47\n    at /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:359:23",
+    "category": "BAILEYS",
+    "severity": "high",
+    "fixStrategy": "reconnect_wa",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "5d5f38a54070",
+    "ts": 1776068154591,
+    "time": "13/4/2026, 08.15.54",
+    "fingerprint": "6b3ba82d2e10",
+    "name": "Error",
+    "message": "Connection Closed",
+    "stack": "Error: Connection Closed\n    at sendRawMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:59:19)\n    at sendNode (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:78:16)\n    at query (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:175:13)\n    at groupQuery (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/groups.js:13:55)\n    at groupMetadata (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/groups.js:23:30)\n    at /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:355:47\n    at /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:359:23",
+    "category": "BAILEYS",
+    "severity": "high",
+    "fixStrategy": "reconnect_wa",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "bafe79ff6310",
+    "ts": 1776068154594,
+    "time": "13/4/2026, 08.15.54",
+    "fingerprint": "6b3ba82d2e10",
+    "name": "Error",
+    "message": "Connection Closed",
+    "stack": "Error: Connection Closed\n    at sendRawMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:59:19)\n    at sendNode (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:78:16)\n    at query (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:175:13)\n    at groupQuery (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/groups.js:13:55)\n    at groupMetadata (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/groups.js:23:30)\n    at /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:355:47\n    at /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:359:23",
+    "category": "BAILEYS",
+    "severity": "high",
+    "fixStrategy": "reconnect_wa",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "edeae924eaa9",
+    "ts": 1776073949554,
+    "time": "13/4/2026, 09.52.29",
+    "fingerprint": "6b3ba82d2e10",
+    "name": "Error",
+    "message": "Connection Closed",
+    "stack": "Error: Connection Closed\n    at sendRawMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:59:19)\n    at sendNode (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:78:16)\n    at query (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:175:13)\n    at groupQuery (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/groups.js:13:55)\n    at groupMetadata (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/groups.js:23:30)\n    at /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:355:47\n    at /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:359:23",
+    "category": "BAILEYS",
+    "severity": "high",
+    "fixStrategy": "reconnect_wa",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "5a9d78717dd8",
+    "ts": 1776073949654,
+    "time": "13/4/2026, 09.52.29",
+    "fingerprint": "6b3ba82d2e10",
+    "name": "Error",
+    "message": "Connection Closed",
+    "stack": "Error: Connection Closed\n    at sendRawMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:59:19)\n    at sendNode (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:78:16)\n    at query (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:175:13)\n    at groupQuery (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/groups.js:13:55)\n    at groupMetadata (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/groups.js:23:30)\n    at /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:355:47\n    at /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:359:23",
+    "category": "BAILEYS",
+    "severity": "high",
+    "fixStrategy": "reconnect_wa",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "41e533625803",
+    "ts": 1776076071133,
+    "time": "13/4/2026, 10.27.51",
+    "fingerprint": "6b3ba82d2e10",
+    "name": "Error",
+    "message": "Connection Closed",
+    "stack": "Error: Connection Closed\n    at sendRawMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:59:19)\n    at sendNode (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:78:16)\n    at query (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:175:13)\n    at groupQuery (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/groups.js:13:55)\n    at groupMetadata (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/groups.js:23:30)\n    at /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:355:47\n    at /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:359:23",
+    "category": "BAILEYS",
+    "severity": "high",
+    "fixStrategy": "reconnect_wa",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "cdbca9ecee5d",
+    "ts": 1776076071227,
+    "time": "13/4/2026, 10.27.51",
+    "fingerprint": "6b3ba82d2e10",
+    "name": "Error",
+    "message": "Connection Closed",
+    "stack": "Error: Connection Closed\n    at sendRawMessage (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:59:19)\n    at sendNode (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:78:16)\n    at query (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:175:13)\n    at groupQuery (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/groups.js:13:55)\n    at groupMetadata (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/groups.js:23:30)\n    at /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:355:47\n    at /home/container/node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.js:359:23",
+    "category": "BAILEYS",
+    "severity": "high",
+    "fixStrategy": "reconnect_wa",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "5a8d71620672",
+    "ts": 1776077074825,
+    "time": "13/4/2026, 10.44.34",
+    "fingerprint": "a7c2ca30d296",
+    "name": "TypeError",
+    "message": "fetch failed",
+    "stack": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:12500:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async Timeout._onTimeout (/home/container/node_modules/@whiskeysockets/baileys/lib/Socket/newsletter.js:183:17)",
+    "category": "TIMEOUT",
+    "severity": "medium",
+    "fixStrategy": "retry",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "d91500283b68",
+    "ts": 1776079118986,
+    "time": "13/4/2026, 11.18.38",
+    "fingerprint": "a7c2ca30d296",
+    "name": "TypeError",
+    "message": "fetch failed",
+    "stack": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:12500:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async Starts (/home/container/index.js:109:26)",
+    "category": "RUNTIME",
+    "severity": "medium",
+    "fixStrategy": "isolate",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "unhandledRejection"
+    },
+    "fixed": false,
+    "fixResult": null
+  },
+  {
+    "id": "488cd4f18246",
+    "ts": 1776080825179,
+    "time": "13/4/2026, 11.47.05",
+    "fingerprint": "89d206805fd9",
+    "name": "SyntaxError",
+    "message": "Invalid or unexpected token",
+    "stack": "/home/container/bulter.js:18976\n        3d:        '3d render, octane render, blender, realistic, high quality',\n        ^\n\nSyntaxError: Invalid or unexpected token\n    at internalCompileFunction (node:internal/vm:128:18)\n    at wrapSafe (node:internal/modules/cjs/loader:1279:20)\n    at Module._compile (node:internal/modules/cjs/loader:1331:27)",
+    "category": "SYNTAX",
+    "severity": "low",
+    "fixStrategy": "none",
+    "context": {
+      "command": null,
+      "chat": null,
+      "sender": null,
+      "phase": "uncaughtException"
+    },
+    "fixed": false,
+    "fixResult": null
+  }
+]

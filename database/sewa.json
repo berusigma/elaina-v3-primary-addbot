@@ -1,0 +1,47 @@
+{
+  "120363423370858177@g.us": {
+    "paket": "basic",
+    "expiry": 1778071365225,
+    "lifetime": false,
+    "notifSent": false,
+    "addedBy": "6283815201912@s.whatsapp.net"
+  },
+  "120363422846424347@g.us": {
+    "paket": "basic",
+    "expiry": 1776034591367,
+    "lifetime": false,
+    "notifSent": true,
+    "addedBy": "6283815201912@s.whatsapp.net"
+  },
+  "120363406525393123@g.us": {
+    "paket": "basic",
+    "expiry": 1778237350867,
+    "lifetime": false,
+    "notifSent": false,
+    "addedBy": "6283815201912@s.whatsapp.net"
+  },
+  "120363424767529424@g.us": {
+    "paket": "basic",
+    "expiry": 1778238526679,
+    "lifetime": false,
+    "notifSent": false,
+    "addedBy": "6283815201912@s.whatsapp.net"
+  },
+  "120363426512701657@g.us": {
+    "paket": "basic",
+    "expiry": 1778238706017,
+    "lifetime": false,
+    "notifSent": false,
+    "addedBy": "6283815201912@s.whatsapp.net"
+  },
+  "120363409129794613@g.us": {
+    "groupId": "120363409129794613@g.us",
+    "addedAt": 1775981067346,
+    "addedBy": "6283815201912@s.whatsapp.net",
+    "expiry": 1778573067346,
+    "lifetime": false,
+    "paket": "basic",
+    "days": 30,
+    "notifSent": false
+  }
+}

@@ -1,0 +1,9 @@
+node_modules/
+sessions/
+database/*.db-wal
+database/*.db-shm
+database/addcase/backups/
+database/delcase/backups/
+*.tmp
+*.log
+.DS_Store

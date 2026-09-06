@@ -1,0 +1,58 @@
+{
+  "120363406525393123@g.us": [
+    {
+      "id": "INV-MNUTZVOC",
+      "groupId": "120363406525393123@g.us",
+      "groupName": "ASU",
+      "paket": "basic",
+      "paketLabel": "Basic",
+      "harga": 15000,
+      "days": 30,
+      "isLifetime": false,
+      "createdAt": 1775941971995,
+      "expiry": 1778533971995,
+      "addedBy": "6283815201912@s.whatsapp.net",
+      "status": "active",
+      "namaBot": "𝐁𝐮𝐭𝐥𝐞𝐫𝐁𝐨𝐭",
+      "namaOwner": "kyyinfinite",
+      "ownerNum": "6",
+      "remindersSent": []
+    },
+    {
+      "id": "INV-MNUHE62J",
+      "groupId": "120363406525393123@g.us",
+      "groupName": "ASU",
+      "paket": "basic",
+      "paketLabel": "Basic",
+      "harga": 15000,
+      "days": 30,
+      "isLifetime": false,
+      "createdAt": 1775920803643,
+      "expiry": 1778512803643,
+      "addedBy": "6283815201912@s.whatsapp.net",
+      "status": "active",
+      "namaBot": "𝐁𝐮𝐭𝐥𝐞𝐫𝐁𝐨𝐭",
+      "namaOwner": "kyyinfinite",
+      "ownerNum": "6",
+      "remindersSent": []
+    },
+    {
+      "id": "INV-MNUTZVOC",
+      "groupId": "120363406525393123@g.us",
+      "groupName": "ASU",
+      "paket": "basic",
+      "paketLabel": "Basic",
+      "harga": 15000,
+      "days": 30,
+      "isLifetime": false,
+      "createdAt": 1775941971995,
+      "expiry": 1778533971995,
+      "addedBy": "6283815201912@s.whatsapp.net",
+      "status": "active",
+      "namaBot": "𝐁𝐮𝐭𝐥𝐞𝐫𝐁𝐨𝐭",
+      "namaOwner": "kyyinfinite",
+      "ownerNum": "6",
+      "remindersSent": []
+    }
+  ]
+}

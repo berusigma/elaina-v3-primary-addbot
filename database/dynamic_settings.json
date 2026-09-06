@@ -1,0 +1,35 @@
+{
+    "owner": "6285813708397",
+    "nobot": "6285119732048",
+    "nomorowner": "6285813708397",
+    "namaowner": "FallZx Infinity",
+    "namaBot": "𝑬𝒍𝒂𝒊𝒏𝒆 𝑻𝒉𝒆 𝑷𝒓𝒊𝒎𝒂𝒓𝒚",
+    "thumnail2": "https://files.catbox.moe/i58vrz.jpg",
+    "replyimg": "https://files.catbox.moe/2hhala.jpg",
+    "ppowner": "https://files.catbox.moe/h5zya9.png",
+    "menuBg": "https://u.pone.rs/ezchqsab.jpg",
+    "welcomeBg": "https://files.catbox.moe/qbihzq.jpg",
+    "idch": "120363186130999681@newsletter",
+    "linkSaluran": "https://whatsapp.com/channel/0029Vb7MGFI7j6g0cOofOn1a",
+    "prefix": [
+        ".",
+        "/",
+        "#",
+        "?"
+    ],
+    "welcome": true,
+    "leave": true,
+    "mute": false,
+    "onlygc": false,
+    "welcomeMessage": "Selamat datang di grup!",
+    "leaveMessage": "Selamat tinggal!",
+    "mess": {
+        "owner": "Fitur ini khusus Owner!",
+        "prem": "Fitur ini khusus Premium!",
+        "group": "Fitur ini hanya bisa di Group!",
+        "admin": "Fitur ini khusus Admin Group!",
+        "botadmin": "Bot harus menjadi Admin terlebih dahulu!",
+        "private": "Fitur ini hanya untuk Private Chat!",
+        "done": "Selesai!"
+    }
+}

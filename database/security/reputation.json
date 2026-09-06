@@ -1,0 +1,562 @@
+{
+  "120363406234119805@g.us": {
+    "62881036032734@s.whatsapp.net": {
+      "score": 100,
+      "history": [
+        {
+          "event": "spam",
+          "delta": -10,
+          "prev": 100,
+          "after": 90,
+          "ts": 1775481986039
+        },
+        {
+          "event": "warn",
+          "delta": -5,
+          "prev": 90,
+          "after": 85,
+          "ts": 1775481986077
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1775680674273
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1775945252893
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1776023695324
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783075417442
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783148607255
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783191807287
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783235007346
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783278207397
+        }
+      ],
+      "streaks": {
+        "negative": 2,
+        "positive": 0
+      },
+      "lastEvent": {
+        "event": "warn",
+        "delta": -5,
+        "ts": 1775481986077
+      }
+    },
+    "212782754821@s.whatsapp.net": {
+      "score": 100,
+      "history": [
+        {
+          "event": "spam",
+          "delta": -10,
+          "prev": 100,
+          "after": 90,
+          "ts": 1775485620406
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1775680674273
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1775945252893
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1776023695324
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783075417442
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783148607255
+        }
+      ],
+      "streaks": {
+        "negative": 1,
+        "positive": 0
+      },
+      "lastEvent": {
+        "event": "spam",
+        "delta": -10,
+        "ts": 1775485620406
+      }
+    },
+    "6289520430523@s.whatsapp.net": {
+      "score": 60,
+      "history": [
+        {
+          "event": "spam",
+          "delta": -10,
+          "prev": 100,
+          "after": 90,
+          "ts": 1775712993160
+        },
+        {
+          "event": "fake_admin",
+          "delta": -20,
+          "prev": 90,
+          "after": 70,
+          "ts": 1775713145071
+        },
+        {
+          "event": "fake_admin",
+          "delta": -20,
+          "prev": 70,
+          "after": 50,
+          "ts": 1775713153778
+        },
+        {
+          "event": "spam",
+          "delta": -10,
+          "prev": 50,
+          "after": 40,
+          "ts": 1775713160841
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1775945252893
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1776023695324
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783075417442
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783148607255
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783191807287
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783235007346
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783278207397
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783343007354
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783386207402
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783546641330
+        }
+      ],
+      "streaks": {
+        "negative": 4,
+        "positive": 0
+      },
+      "lastEvent": {
+        "event": "spam",
+        "delta": -10,
+        "ts": 1775713160841
+      }
+    }
+  },
+  "120363426512701657@g.us": {
+    "584169606904@s.whatsapp.net": {
+      "score": 48,
+      "history": [
+        {
+          "event": "spam",
+          "delta": -10,
+          "prev": 100,
+          "after": 90,
+          "ts": 1775967102718
+        },
+        {
+          "event": "spam",
+          "delta": -10,
+          "prev": 90,
+          "after": 80,
+          "ts": 1775985465670
+        },
+        {
+          "event": "spam",
+          "delta": -10,
+          "prev": 80,
+          "after": 70,
+          "ts": 1775990781252
+        },
+        {
+          "event": "spam",
+          "delta": -10,
+          "prev": 70,
+          "after": 60,
+          "ts": 1775990794789
+        },
+        {
+          "event": "spam",
+          "delta": -10,
+          "prev": 60,
+          "after": 50,
+          "ts": 1776004286829
+        },
+        {
+          "event": "spam",
+          "delta": -10,
+          "prev": 50,
+          "after": 40,
+          "ts": 1776004402173
+        },
+        {
+          "event": "spam",
+          "delta": -10,
+          "prev": 40,
+          "after": 30,
+          "ts": 1776010436568
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1776058753913
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783075417442
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783148607255
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783191807287
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783235007346
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783278207397
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783343007354
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783386207402
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783546641330
+        }
+      ],
+      "streaks": {
+        "negative": 7,
+        "positive": 0
+      },
+      "lastEvent": {
+        "event": "spam",
+        "delta": -10,
+        "ts": 1776010436568
+      }
+    },
+    "584267652563@s.whatsapp.net": {
+      "score": 16,
+      "history": [
+        {
+          "event": "spam",
+          "delta": -10,
+          "prev": 100,
+          "after": 90,
+          "ts": 1775975463864
+        },
+        {
+          "event": "duplicate",
+          "delta": -8,
+          "prev": 90,
+          "after": 82,
+          "ts": 1775975917186
+        },
+        {
+          "event": "spam",
+          "delta": -10,
+          "prev": 82,
+          "after": 72,
+          "ts": 1775985592851
+        },
+        {
+          "event": "spam",
+          "delta": -10,
+          "prev": 72,
+          "after": 62,
+          "ts": 1775986977290
+        },
+        {
+          "event": "spam",
+          "delta": -10,
+          "prev": 62,
+          "after": 52,
+          "ts": 1775989491787
+        },
+        {
+          "event": "spam",
+          "delta": -10,
+          "prev": 52,
+          "after": 42,
+          "ts": 1775989661307
+        },
+        {
+          "event": "spam",
+          "delta": -10,
+          "prev": 42,
+          "after": 32,
+          "ts": 1775989705857
+        },
+        {
+          "event": "spam",
+          "delta": -10,
+          "prev": 32,
+          "after": 22,
+          "ts": 1775998623317
+        },
+        {
+          "event": "spam",
+          "delta": -10,
+          "prev": 22,
+          "after": 12,
+          "ts": 1775999460970
+        },
+        {
+          "event": "spam",
+          "delta": -10,
+          "prev": 12,
+          "after": 2,
+          "ts": 1776003277362
+        },
+        {
+          "event": "spam",
+          "delta": -10,
+          "prev": 2,
+          "after": 0,
+          "ts": 1776004325565
+        },
+        {
+          "event": "spam",
+          "delta": -10,
+          "prev": 0,
+          "after": 0,
+          "ts": 1776010538789
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1776058753913
+        },
+        {
+          "event": "spam",
+          "delta": -10,
+          "prev": 2,
+          "after": 0,
+          "ts": 1776058872183
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783075417442
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783148607255
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783191807287
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783235007346
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783278207397
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783343007354
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783386207402
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783546641330
+        }
+      ],
+      "streaks": {
+        "negative": 13,
+        "positive": 0
+      },
+      "lastEvent": {
+        "event": "spam",
+        "delta": -10,
+        "ts": 1776058872183
+      }
+    },
+    "923152814383@s.whatsapp.net": {
+      "score": 100,
+      "history": [
+        {
+          "event": "spam",
+          "delta": -10,
+          "prev": 100,
+          "after": 90,
+          "ts": 1775999605759
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1776058753913
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783075417442
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783148607255
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783191807287
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783235007346
+        }
+      ],
+      "streaks": {
+        "negative": 1,
+        "positive": 0
+      },
+      "lastEvent": {
+        "event": "spam",
+        "delta": -10,
+        "ts": 1775999605759
+      }
+    },
+    "6285813973702@s.whatsapp.net": {
+      "score": 100,
+      "history": [
+        {
+          "event": "spam",
+          "delta": -10,
+          "prev": 100,
+          "after": 90,
+          "ts": 1776076848213
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783075417442
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783148607255
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783191807287
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783235007346
+        },
+        {
+          "event": "auto_decay_recovery",
+          "delta": 2,
+          "ts": 1783278207397
+        }
+      ],
+      "streaks": {
+        "negative": 1,
+        "positive": 0
+      },
+      "lastEvent": {
+        "event": "spam",
+        "delta": -10,
+        "ts": 1776076848213
+      }
+    }
+  }
+}

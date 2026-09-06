@@ -1,0 +1,1052 @@
+[
+  {
+    "ts": 1775643080451,
+    "time": "8/4/2026, 10.11.20",
+    "errorId": "acfcf5205d1c",
+    "fingerprint": "a7c2ca30d296",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775643125452,
+    "time": "8/4/2026, 10.12.05",
+    "errorId": "acfcf5205d1c",
+    "fingerprint": "a7c2ca30d296",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775643170454,
+    "time": "8/4/2026, 10.12.50",
+    "errorId": "acfcf5205d1c",
+    "fingerprint": "a7c2ca30d296",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775659921234,
+    "time": "8/4/2026, 14.52.01",
+    "errorId": "d924e5df8ec3",
+    "fingerprint": "dc4770b9861f",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775659966231,
+    "time": "8/4/2026, 14.52.46",
+    "errorId": "d924e5df8ec3",
+    "fingerprint": "dc4770b9861f",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775659966233,
+    "time": "8/4/2026, 14.52.46",
+    "errorId": "dc4ad347e4a1",
+    "fingerprint": "dc4770b9861f",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775660011256,
+    "time": "8/4/2026, 14.53.31",
+    "errorId": "d924e5df8ec3",
+    "fingerprint": "dc4770b9861f",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775660011257,
+    "time": "8/4/2026, 14.53.31",
+    "errorId": "dc4ad347e4a1",
+    "fingerprint": "dc4770b9861f",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775660011264,
+    "time": "8/4/2026, 14.53.31",
+    "errorId": "53cdc797e0f7",
+    "fingerprint": "dc4770b9861f",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775660056264,
+    "time": "8/4/2026, 14.54.16",
+    "errorId": "dc4ad347e4a1",
+    "fingerprint": "dc4770b9861f",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775660056267,
+    "time": "8/4/2026, 14.54.16",
+    "errorId": "53cdc797e0f7",
+    "fingerprint": "dc4770b9861f",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775660101263,
+    "time": "8/4/2026, 14.55.01",
+    "errorId": "53cdc797e0f7",
+    "fingerprint": "dc4770b9861f",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775660101270,
+    "time": "8/4/2026, 14.55.01",
+    "errorId": "e5a344005d26",
+    "fingerprint": "dc4770b9861f",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775660146264,
+    "time": "8/4/2026, 14.55.46",
+    "errorId": "e5a344005d26",
+    "fingerprint": "dc4770b9861f",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775660146265,
+    "time": "8/4/2026, 14.55.46",
+    "errorId": "a65de35f1197",
+    "fingerprint": "dc4770b9861f",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775660191266,
+    "time": "8/4/2026, 14.56.31",
+    "errorId": "e5a344005d26",
+    "fingerprint": "dc4770b9861f",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775660191276,
+    "time": "8/4/2026, 14.56.31",
+    "errorId": "a65de35f1197",
+    "fingerprint": "dc4770b9861f",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775660191277,
+    "time": "8/4/2026, 14.56.31",
+    "errorId": "46b17bba897f",
+    "fingerprint": "dc4770b9861f",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775660236267,
+    "time": "8/4/2026, 14.57.16",
+    "errorId": "a65de35f1197",
+    "fingerprint": "dc4770b9861f",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775660236268,
+    "time": "8/4/2026, 14.57.16",
+    "errorId": "46b17bba897f",
+    "fingerprint": "dc4770b9861f",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775660281271,
+    "time": "8/4/2026, 14.58.01",
+    "errorId": "46b17bba897f",
+    "fingerprint": "dc4770b9861f",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775943187241,
+    "time": "11/4/2026, 21.33.07",
+    "errorId": "99c1fb242bbe",
+    "fingerprint": "6b3ba82d2e10",
+    "strategy": "reconnect_wa",
+    "success": true,
+    "action": "reconnect_wa",
+    "detail": "attempt #1"
+  },
+  {
+    "ts": 1775943232240,
+    "time": "11/4/2026, 21.33.52",
+    "errorId": "ca70d7450e7b",
+    "fingerprint": "08e674e1ef83",
+    "strategy": "repair_fs",
+    "success": true,
+    "action": "repair_fs",
+    "detail": "0 directories created"
+  },
+  {
+    "ts": 1775978756425,
+    "time": "12/4/2026, 07.25.56",
+    "errorId": "60dd99cd5a35",
+    "fingerprint": "08e674e1ef83",
+    "strategy": "repair_fs",
+    "success": true,
+    "action": "repair_fs",
+    "detail": "0 directories created"
+  },
+  {
+    "ts": 1775981284887,
+    "time": "12/4/2026, 08.08.04",
+    "errorId": "7568b729ec6b",
+    "fingerprint": "6b3ba82d2e10",
+    "strategy": "reconnect_wa",
+    "success": true,
+    "action": "reconnect_wa",
+    "detail": "attempt #1"
+  },
+  {
+    "ts": 1775981465205,
+    "time": "12/4/2026, 08.11.05",
+    "errorId": "56080057be48",
+    "fingerprint": "6b3ba82d2e10",
+    "strategy": "reconnect_wa",
+    "success": true,
+    "action": "reconnect_wa",
+    "detail": "attempt #2"
+  },
+  {
+    "ts": 1775981465207,
+    "time": "12/4/2026, 08.11.05",
+    "errorId": "0516238d8090",
+    "fingerprint": "08e674e1ef83",
+    "strategy": "repair_fs",
+    "success": true,
+    "action": "repair_fs",
+    "detail": "0 directories created"
+  },
+  {
+    "ts": 1775981465208,
+    "time": "12/4/2026, 08.11.05",
+    "errorId": "03170a54ec6f",
+    "fingerprint": "6b3ba82d2e10",
+    "strategy": "reconnect_wa",
+    "success": true,
+    "action": "reconnect_wa",
+    "detail": "attempt #3"
+  },
+  {
+    "ts": 1775981465208,
+    "time": "12/4/2026, 08.11.05",
+    "errorId": "e037cc71adb0",
+    "fingerprint": "08e674e1ef83",
+    "strategy": "repair_fs",
+    "success": true,
+    "action": "repair_fs",
+    "detail": "0 directories created"
+  },
+  {
+    "ts": 1775991016564,
+    "time": "12/4/2026, 10.50.16",
+    "errorId": "62131aa40001",
+    "fingerprint": "6b3ba82d2e10",
+    "strategy": "reconnect_wa",
+    "success": true,
+    "action": "reconnect_wa",
+    "detail": "attempt #4"
+  },
+  {
+    "ts": 1775991016567,
+    "time": "12/4/2026, 10.50.16",
+    "errorId": "cd5c2d392da8",
+    "fingerprint": "08e674e1ef83",
+    "strategy": "repair_fs",
+    "success": true,
+    "action": "repair_fs",
+    "detail": "0 directories created"
+  },
+  {
+    "ts": 1775991016569,
+    "time": "12/4/2026, 10.50.16",
+    "errorId": "cdb82aa6a4d8",
+    "fingerprint": "6b3ba82d2e10",
+    "strategy": "reconnect_wa",
+    "success": true,
+    "action": "reconnect_wa",
+    "detail": "attempt #5"
+  },
+  {
+    "ts": 1775991016574,
+    "time": "12/4/2026, 10.50.16",
+    "errorId": "46a5fbbf7c56",
+    "fingerprint": "08e674e1ef83",
+    "strategy": "repair_fs",
+    "success": true,
+    "action": "repair_fs",
+    "detail": "0 directories created"
+  },
+  {
+    "ts": 1775992168897,
+    "time": "12/4/2026, 11.09.28",
+    "errorId": "263399b36aba",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775992213897,
+    "time": "12/4/2026, 11.10.13",
+    "errorId": "263399b36aba",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775992213899,
+    "time": "12/4/2026, 11.10.13",
+    "errorId": "ea30ee302cbf",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775992260282,
+    "time": "12/4/2026, 11.11.00",
+    "errorId": "263399b36aba",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775992260286,
+    "time": "12/4/2026, 11.11.00",
+    "errorId": "ea30ee302cbf",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775992305284,
+    "time": "12/4/2026, 11.11.45",
+    "errorId": "ea30ee302cbf",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775996344246,
+    "time": "12/4/2026, 12.19.04",
+    "errorId": "554e85ec77b4",
+    "fingerprint": "24cd25c5d3fb",
+    "strategy": "reinstall_module",
+    "success": false,
+    "action": "reinstall_module",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775996389248,
+    "time": "12/4/2026, 12.19.49",
+    "errorId": "554e85ec77b4",
+    "fingerprint": "24cd25c5d3fb",
+    "strategy": "reinstall_module",
+    "success": false,
+    "action": "reinstall_module",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1775996434255,
+    "time": "12/4/2026, 12.20.34",
+    "errorId": "554e85ec77b4",
+    "fingerprint": "24cd25c5d3fb",
+    "strategy": "reinstall_module",
+    "success": false,
+    "action": "reinstall_module",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776000926776,
+    "time": "12/4/2026, 13.35.26",
+    "errorId": "e129d68db1b6",
+    "fingerprint": "6b3ba82d2e10",
+    "strategy": "reconnect_wa",
+    "success": true,
+    "action": "reconnect_wa",
+    "detail": "attempt #1"
+  },
+  {
+    "ts": 1776000926868,
+    "time": "12/4/2026, 13.35.26",
+    "errorId": "2af200d953a0",
+    "fingerprint": "6b3ba82d2e10",
+    "strategy": "reconnect_wa",
+    "success": true,
+    "action": "reconnect_wa",
+    "detail": "attempt #2"
+  },
+  {
+    "ts": 1776001029600,
+    "time": "12/4/2026, 13.37.09",
+    "errorId": "809ae81d6007",
+    "fingerprint": "6b3ba82d2e10",
+    "strategy": "reconnect_wa",
+    "success": true,
+    "action": "reconnect_wa",
+    "detail": "attempt #3"
+  },
+  {
+    "ts": 1776001085217,
+    "time": "12/4/2026, 13.38.05",
+    "errorId": "1368f370488a",
+    "fingerprint": "a7c2ca30d296",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776001085300,
+    "time": "12/4/2026, 13.38.05",
+    "errorId": "a78f4d49a6c1",
+    "fingerprint": "6b3ba82d2e10",
+    "strategy": "reconnect_wa",
+    "success": true,
+    "action": "reconnect_wa",
+    "detail": "attempt #4"
+  },
+  {
+    "ts": 1776001404839,
+    "time": "12/4/2026, 13.43.24",
+    "errorId": "6009f367d7cc",
+    "fingerprint": "6b3ba82d2e10",
+    "strategy": "reconnect_wa",
+    "success": true,
+    "action": "reconnect_wa",
+    "detail": "attempt #1"
+  },
+  {
+    "ts": 1776007452238,
+    "time": "12/4/2026, 15.24.12",
+    "errorId": "20027883753b",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776007497238,
+    "time": "12/4/2026, 15.24.57",
+    "errorId": "20027883753b",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776007542238,
+    "time": "12/4/2026, 15.25.42",
+    "errorId": "20027883753b",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776007587238,
+    "time": "12/4/2026, 15.26.27",
+    "errorId": "72bfcb63fcba",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776007632242,
+    "time": "12/4/2026, 15.27.12",
+    "errorId": "72bfcb63fcba",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776007632245,
+    "time": "12/4/2026, 15.27.12",
+    "errorId": "a9392ad8b709",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776007677242,
+    "time": "12/4/2026, 15.27.57",
+    "errorId": "72bfcb63fcba",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776007677244,
+    "time": "12/4/2026, 15.27.57",
+    "errorId": "a9392ad8b709",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776007677244,
+    "time": "12/4/2026, 15.27.57",
+    "errorId": "3239bd50bc62",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776007722243,
+    "time": "12/4/2026, 15.28.42",
+    "errorId": "a9392ad8b709",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776007722244,
+    "time": "12/4/2026, 15.28.42",
+    "errorId": "3239bd50bc62",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776007767242,
+    "time": "12/4/2026, 15.29.27",
+    "errorId": "3239bd50bc62",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776007767243,
+    "time": "12/4/2026, 15.29.27",
+    "errorId": "c1bcfeb47deb",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776007812243,
+    "time": "12/4/2026, 15.30.12",
+    "errorId": "c1bcfeb47deb",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776007812246,
+    "time": "12/4/2026, 15.30.12",
+    "errorId": "ee49fa44fa07",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776007857244,
+    "time": "12/4/2026, 15.30.57",
+    "errorId": "c1bcfeb47deb",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776007857245,
+    "time": "12/4/2026, 15.30.57",
+    "errorId": "ee49fa44fa07",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776007857245,
+    "time": "12/4/2026, 15.30.57",
+    "errorId": "548848db48d9",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776007902244,
+    "time": "12/4/2026, 15.31.42",
+    "errorId": "ee49fa44fa07",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776007902245,
+    "time": "12/4/2026, 15.31.42",
+    "errorId": "548848db48d9",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776007947245,
+    "time": "12/4/2026, 15.32.27",
+    "errorId": "548848db48d9",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776008037247,
+    "time": "12/4/2026, 15.33.57",
+    "errorId": "e1631ed31ca6",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776008082247,
+    "time": "12/4/2026, 15.34.42",
+    "errorId": "e1631ed31ca6",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776008127247,
+    "time": "12/4/2026, 15.35.27",
+    "errorId": "e1631ed31ca6",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776008127248,
+    "time": "12/4/2026, 15.35.27",
+    "errorId": "61c6dd555abb",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776008172249,
+    "time": "12/4/2026, 15.36.12",
+    "errorId": "61c6dd555abb",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776008217249,
+    "time": "12/4/2026, 15.36.57",
+    "errorId": "61c6dd555abb",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776026336576,
+    "time": "12/4/2026, 20.38.56",
+    "errorId": "7ac28e9186e6",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776026381575,
+    "time": "12/4/2026, 20.39.41",
+    "errorId": "7ac28e9186e6",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776026426578,
+    "time": "12/4/2026, 20.40.26",
+    "errorId": "7ac28e9186e6",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776032704499,
+    "time": "12/4/2026, 22.25.04",
+    "errorId": "75683d91b52e",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776032749498,
+    "time": "12/4/2026, 22.25.49",
+    "errorId": "75683d91b52e",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776032794496,
+    "time": "12/4/2026, 22.26.34",
+    "errorId": "75683d91b52e",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776050761356,
+    "time": "13/4/2026, 03.26.01",
+    "errorId": "1f83c80cb81b",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776050806357,
+    "time": "13/4/2026, 03.26.46",
+    "errorId": "1f83c80cb81b",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776050806358,
+    "time": "13/4/2026, 03.26.46",
+    "errorId": "042596dedc2b",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776050851358,
+    "time": "13/4/2026, 03.27.31",
+    "errorId": "1f83c80cb81b",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776050851360,
+    "time": "13/4/2026, 03.27.31",
+    "errorId": "042596dedc2b",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776050896359,
+    "time": "13/4/2026, 03.28.16",
+    "errorId": "042596dedc2b",
+    "fingerprint": "fe8036c728ba",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776063774731,
+    "time": "13/4/2026, 07.02.54",
+    "errorId": "eff7e2ffce34",
+    "fingerprint": "6b3ba82d2e10",
+    "strategy": "reconnect_wa",
+    "success": true,
+    "action": "reconnect_wa",
+    "detail": "attempt #1"
+  },
+  {
+    "ts": 1776066581432,
+    "time": "13/4/2026, 07.49.41",
+    "errorId": "d83d03885142",
+    "fingerprint": "a7c2ca30d296",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776066626374,
+    "time": "13/4/2026, 07.50.26",
+    "errorId": "d83d03885142",
+    "fingerprint": "a7c2ca30d296",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776066671374,
+    "time": "13/4/2026, 07.51.11",
+    "errorId": "d83d03885142",
+    "fingerprint": "a7c2ca30d296",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776067483162,
+    "time": "13/4/2026, 08.04.43",
+    "errorId": "ee354b042e1a",
+    "fingerprint": "be18679c59f9",
+    "strategy": "reinstall_module",
+    "success": false,
+    "action": "reinstall_module",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776067528195,
+    "time": "13/4/2026, 08.05.28",
+    "errorId": "ee354b042e1a",
+    "fingerprint": "be18679c59f9",
+    "strategy": "reinstall_module",
+    "success": false,
+    "action": "reinstall_module",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776067573194,
+    "time": "13/4/2026, 08.06.13",
+    "errorId": "ee354b042e1a",
+    "fingerprint": "be18679c59f9",
+    "strategy": "reinstall_module",
+    "success": false,
+    "action": "reinstall_module",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776068158289,
+    "time": "13/4/2026, 08.15.58",
+    "errorId": "8d86ab34082d",
+    "fingerprint": "6b3ba82d2e10",
+    "strategy": "reconnect_wa",
+    "success": true,
+    "action": "reconnect_wa",
+    "detail": "attempt #2"
+  },
+  {
+    "ts": 1776068158323,
+    "time": "13/4/2026, 08.15.58",
+    "errorId": "6fcc52d6493c",
+    "fingerprint": "6b3ba82d2e10",
+    "strategy": "reconnect_wa",
+    "success": true,
+    "action": "reconnect_wa",
+    "detail": "attempt #3"
+  },
+  {
+    "ts": 1776068158326,
+    "time": "13/4/2026, 08.15.58",
+    "errorId": "5d5f38a54070",
+    "fingerprint": "6b3ba82d2e10",
+    "strategy": "reconnect_wa",
+    "success": true,
+    "action": "reconnect_wa",
+    "detail": "attempt #4"
+  },
+  {
+    "ts": 1776068158333,
+    "time": "13/4/2026, 08.15.58",
+    "errorId": "bafe79ff6310",
+    "fingerprint": "6b3ba82d2e10",
+    "strategy": "reconnect_wa",
+    "success": true,
+    "action": "reconnect_wa",
+    "detail": "attempt #5"
+  },
+  {
+    "ts": 1776073983216,
+    "time": "13/4/2026, 09.53.03",
+    "errorId": "edeae924eaa9",
+    "fingerprint": "6b3ba82d2e10",
+    "strategy": "reconnect_wa",
+    "success": true,
+    "action": "reconnect_wa",
+    "detail": "attempt #1"
+  },
+  {
+    "ts": 1776073983270,
+    "time": "13/4/2026, 09.53.03",
+    "errorId": "5a9d78717dd8",
+    "fingerprint": "6b3ba82d2e10",
+    "strategy": "reconnect_wa",
+    "success": true,
+    "action": "reconnect_wa",
+    "detail": "attempt #2"
+  },
+  {
+    "ts": 1776076126896,
+    "time": "13/4/2026, 10.28.46",
+    "errorId": "41e533625803",
+    "fingerprint": "6b3ba82d2e10",
+    "strategy": "reconnect_wa",
+    "success": true,
+    "action": "reconnect_wa",
+    "detail": "attempt #3"
+  },
+  {
+    "ts": 1776076126899,
+    "time": "13/4/2026, 10.28.46",
+    "errorId": "cdbca9ecee5d",
+    "fingerprint": "6b3ba82d2e10",
+    "strategy": "reconnect_wa",
+    "success": true,
+    "action": "reconnect_wa",
+    "detail": "attempt #4"
+  },
+  {
+    "ts": 1776077113912,
+    "time": "13/4/2026, 10.45.13",
+    "errorId": "5a8d71620672",
+    "fingerprint": "a7c2ca30d296",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776077158918,
+    "time": "13/4/2026, 10.45.58",
+    "errorId": "5a8d71620672",
+    "fingerprint": "a7c2ca30d296",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  },
+  {
+    "ts": 1776077218110,
+    "time": "13/4/2026, 10.46.58",
+    "errorId": "5a8d71620672",
+    "fingerprint": "a7c2ca30d296",
+    "strategy": "retry",
+    "success": false,
+    "action": "retry",
+    "detail": "no handler for strategy"
+  }
+]

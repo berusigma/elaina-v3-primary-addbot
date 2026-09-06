@@ -1,0 +1,47 @@
+{
+  "233642395742342@lid": {
+    "jid": "233642395742342@lid",
+    "addedBy": "6283815201912@s.whatsapp.net",
+    "addedAt": 1775949805247,
+    "expiry": 1778541805247,
+    "lifetime": false,
+    "paket": "30d",
+    "note": ""
+  },
+  "6283815201912@s.whatsapp.net": {
+    "jid": "6283815201912@s.whatsapp.net",
+    "addedBy": "6283815201912@s.whatsapp.net",
+    "addedAt": 1775949970956,
+    "expiry": 1778541970956,
+    "lifetime": false,
+    "paket": "30d",
+    "note": ""
+  },
+  "181007873523898@lid": {
+    "jid": "181007873523898@lid",
+    "addedBy": "6283815201912@s.whatsapp.net",
+    "addedAt": 1775952219370,
+    "expiry": 1778544219370,
+    "lifetime": false,
+    "paket": "30d",
+    "note": ""
+  },
+  "584169606904@s.whatsapp.net": {
+    "jid": "584169606904@s.whatsapp.net",
+    "addedBy": "6283815201912@s.whatsapp.net",
+    "addedAt": 1775975741590,
+    "expiry": 1778567741590,
+    "lifetime": false,
+    "paket": "30d",
+    "note": ""
+  },
+  "584267652563@s.whatsapp.net": {
+    "jid": "584267652563@s.whatsapp.net",
+    "addedBy": "6283815201912@s.whatsapp.net",
+    "addedAt": 1775975829860,
+    "expiry": 1778567829860,
+    "lifetime": false,
+    "paket": "30d",
+    "note": ""
+  }
+}

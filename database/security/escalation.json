@@ -1,0 +1,21 @@
+{
+  "120363406234119805@g.us": {
+    "62881036032734@s.whatsapp.net": {
+      "currentLevel": 0,
+      "history": [
+        {
+          "level": 1,
+          "reason": "🔗 Link invite grup lain tidak diizinkan",
+          "ts": 1775481986077
+        },
+        {
+          "level": 0,
+          "reason": "Auto de-escalate",
+          "ts": 1775503998166
+        }
+      ],
+      "firstViolation": 1775481986077,
+      "lastViolation": 1775481986077
+    }
+  }
+}

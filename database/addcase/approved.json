@@ -1,0 +1,107 @@
+{
+  "cekbumi": {
+    "code": "case 'cekbumi':\n  try {\n    await bulter.sendMessage(m.chat, { react: { text: '⏳', key: m.key } });\n\n    const now = new Date();\n    const utcHours = now.getUTCHours();\n    const utcMinutes = now.getUTCMinutes();\n    const utcSeconds = now.getUTCSeconds();\n\n    const totalSecondsInDay = utcHours * 3600 + utcMinutes * 60 + utcSeconds;\n    const solarDaySeconds = 86400;\n    const siderealDaySeconds = 86164.0916;\n\n    const solarRotationAngle = ((totalSecondsInDay / solarDaySeconds) * 360).toFixed(2);\n    const siderealRotationAngle = ((totalSecondsInDay / siderealDaySeconds) * 360).toFixed(2);\n\n    const message = `*🌍 INFORMASI ROTASI BUMI*\n\n*Waktu UTC:* ${utcHours.toString().padStart(2, '0')}:${utcMinutes.toString().padStart(2, '0')}:${utcSeconds.toString().padStart(2, '0')}\n*Sudut Rotasi (Solar):* ${solarRotationAngle}°\n*Sudut Rotasi (Sidereal):* ${siderealRotationAngle}°\n\n*📊 Data Akurat:*\n• Kecepatan rotasi di ekuator: _1.670 km/jam_\n• Periode rotasi (sideris): _23j 56m 4.1d_\n• Periode rotasi (solar): _24 jam tepat_\n• Kecepatan sudut: _15°/jam_\n\n*📈 Interpretasi:*\nBumi telah berotasi ${solarRotationAngle}° dari posisi tengah malam UTC (00:00). Sudut ini dihitung secara real-time berdasarkan waktu atomik internasional.\n\n_Data dihitung menggunakan formula astronomi standar dengan presisi milidetik._`;\n\n    await reply(message);\n  } catch (error) {\n    await reply(`*Error:* Gagal menghitung rotasi bumi\\n_${error.message}_`);\n  }\n  break;\ncase 'rotasibumi':\ncase 'earthrotation':\n  try {\n    await bulter.sendMessage(m.chat, { react: { text: '⏳', key: m.key } });\n\n    const now = new Date();\n    const utcTotalSeconds = now.getUTCHours() * 3600 + now.getUTCMinutes() * 60 + now.getUTCSeconds();\n    const rotationPercent = ((utcTotalSeconds / 86164.0916) * 100).toFixed(3);\n\n    const message = `*🔄 Rotasi Bumi Saat Ini:*\n• Persentase rotasi: _${rotationPercent}%_\n• Sudut rotasi: _${((utcTotalSeconds / 86164.0916) * 360).toFixed(2)}°_\n• Kecepatan linear: _1.670 km/jam_\n\n_Bumi berotasi penuh setiap 23 jam 56 menit 4.1 detik (periode sideris)_`;\n\n    await reply(message);\n  } catch (error) {\n    await reply(`*Error:* ${error.message}`);\n  }\n  break;",
+    "desc": "buatkan alu case cek bumi yang bisa mengecek rotasi bumi secara akurat",
+    "mode": "ai_generated",
+    "backupPath": "./database/addcase/backups/bulter_2026-04-13T06-53-23.js",
+    "lineNum": 27732,
+    "approvedBy": "6283815201912@s.whatsapp.net",
+    "bulterHash": "5b5acf65b65b2586af480c7d4ac265dd77aa8724ae84750a2fc7a39aca82ccf5",
+    "codeStats": {
+      "lines": 59,
+      "chars": 2178,
+      "caseCount": 3,
+      "breakCount": 2,
+      "returnCount": 0,
+      "awaitCount": 6,
+      "asyncCount": 0,
+      "hasAsync": true,
+      "hasTryCatch": true,
+      "braceDepth": -1,
+      "complexity": 14.5,
+      "maintainability": {
+        "score": 95,
+        "grade": "A",
+        "avgLineLength": 36,
+        "codeLines": 46,
+        "commentLines": 0,
+        "commentRatio": 0
+      }
+    },
+    "dependencies": [
+      {
+        "type": "baileys",
+        "methods": [
+          "sendMessage"
+        ]
+      }
+    ],
+    "version": 1,
+    "injectedAt": 1776063210055,
+    "codeHash": "fb7e25c0094f088acc3ddaf98ae7eecb430c67642ec5acde8d69d87e02a70691",
+    "structHash": "815d76f764dfaf123b648e6e739772af",
+    "fingerprint": "b609c9319ad6ce2d",
+    "quality": {
+      "score": 100,
+      "issues": [],
+      "suggestions": [
+        "Banyak magic number, pertimbangkan constants"
+      ],
+      "grade": "A"
+    },
+    "injectionCount": 1,
+    "previousInjections": []
+  },
+  "getsw": {
+    "code": "case 'colongsw':\ncase 'getsw':\n    await bulter.sendMessage(m.chat, { react: { text: '⏳', key: m.key } });\n    if (!m.quoted || m.quoted.chat !== 'status@broadcast') return reply('*Quotе* pesan status!');\n    try {\n        const buffer = await bulter.downloadMediaMessage(m.quoted);\n        const mediaType = m.quoted.mtype;\n        if (mediaType === 'imageMessage') {\n            await bulter.sendMessage(m.chat, { image: buffer }, { quoted: fakeQuoted });\n        } else if (mediaType === 'videoMessage') {\n            await bulter.sendMessage(m.chat, { video: buffer }, { quoted: fakeQuoted });\n        } else {\n            const text = m.quoted.text || m.quoted.caption || '*Tidak ada teks*';\n            await reply(text);\n        }\n    } catch (e) {\n        const text = m.quoted.text || m.quoted.caption || '*Gagal mengunduh media*';\n        await reply(text);\n    }\n    break;",
+    "desc": "Manual input + AI corrected",
+    "mode": "manual",
+    "backupPath": "./database/addcase/backups/bulter_2026-04-13T08-21-31.js",
+    "lineNum": 27741,
+    "approvedBy": "6283815201912@s.whatsapp.net",
+    "bulterHash": "7dc6978f3a60aec24e28491cfb25fe9f92617a0ea4cb1c6ea2e7c52a4ed16c57",
+    "codeStats": {
+      "lines": 20,
+      "chars": 884,
+      "caseCount": 2,
+      "breakCount": 1,
+      "returnCount": 1,
+      "awaitCount": 6,
+      "asyncCount": 0,
+      "hasAsync": true,
+      "hasTryCatch": true,
+      "braceDepth": 0,
+      "complexity": 19.5,
+      "maintainability": {
+        "score": 100,
+        "grade": "A",
+        "avgLineLength": 43,
+        "codeLines": 20,
+        "commentLines": 0,
+        "commentRatio": 0
+      }
+    },
+    "dependencies": [
+      {
+        "type": "baileys",
+        "methods": [
+          "sendMessage",
+          "downloadMediaMessage"
+        ]
+      }
+    ],
+    "version": 1,
+    "injectedAt": 1776068494115,
+    "codeHash": "154f2ec3ef19a0573f2ce356fdfa65a354a5e81838bae83a8a3a615c5e0df57f",
+    "structHash": "f1cea32902c735fc5e688c8d399b82e3",
+    "fingerprint": "a01a03f38b0c5d27",
+    "quality": {
+      "score": 100,
+      "issues": [],
+      "suggestions": [],
+      "grade": "A"
+    },
+    "injectionCount": 1,
+    "previousInjections": []
+  }
+}

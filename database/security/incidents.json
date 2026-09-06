@@ -1,0 +1,44 @@
+{
+  "120363406234119805@g.us": [
+    {
+      "id": "cf6b95b0",
+      "ts": 1775481986039,
+      "time": "6/4/2026, 13.26.26",
+      "type": "invite_link",
+      "userId": "62881036032734@s.whatsapp.net",
+      "detail": "1 invite link",
+      "severity": "medium",
+      "level": 2
+    },
+    {
+      "id": "dcc75e05",
+      "ts": 1775481986077,
+      "time": "6/4/2026, 13.26.26",
+      "type": "escalation_level_1",
+      "userId": "62881036032734@s.whatsapp.net",
+      "detail": "Peringatan: 🔗 Link invite grup lain tidak diizinkan",
+      "severity": "high",
+      "level": 3
+    },
+    {
+      "id": "b345e350",
+      "ts": 1775713145076,
+      "time": "9/4/2026, 05.39.05",
+      "type": "fake_admin",
+      "userId": "6289520430523@s.whatsapp.net",
+      "detail": "Nama meniru format admin/staff/owner",
+      "severity": "high",
+      "level": 3
+    },
+    {
+      "id": "be2087d4",
+      "ts": 1775713153778,
+      "time": "9/4/2026, 05.39.13",
+      "type": "fake_admin",
+      "userId": "6289520430523@s.whatsapp.net",
+      "detail": "Nama meniru format admin/staff/owner",
+      "severity": "high",
+      "level": 3
+    }
+  ]
+}

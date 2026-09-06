@@ -1,0 +1,176 @@
+{
+  "overallStatus": "disconnected",
+  "uptime": 41233,
+  "uptimeHuman": "11j 27m 13d",
+  "connectionOk": false,
+  "lastConnected": "8/7/2026, 15.37.22",
+  "disconnects": 1,
+  "recentErrors": 0,
+  "riskScore": 0,
+  "riskLevel": "low",
+  "prediction": {
+    "trend": "stable",
+    "slope": "0.00",
+    "predicted5min": 0,
+    "confidence": 1
+  },
+  "queue": {
+    "pending": 0,
+    "paused": false,
+    "pauseUntil": null,
+    "perMinute": 0,
+    "perHour": 0,
+    "perDay": 0,
+    "totalSent": 0,
+    "processing": false,
+    "errorCount": 0,
+    "uniqueJidsThisHour": 0,
+    "priorities": {
+      "critical": 0,
+      "high": 0,
+      "normal": 0,
+      "low": 0,
+      "background": 0
+    }
+  },
+  "warmup": {
+    "active": false,
+    "completed": false,
+    "trustScore": 100
+  },
+  "idle": {
+    "active": false,
+    "until": null,
+    "remaining": null,
+    "totalIdles": 12,
+    "history": [
+      {
+        "ts": "8/7/2026, 18.48.13",
+        "duration": "5min"
+      },
+      {
+        "ts": "8/7/2026, 19.43.33",
+        "duration": "9min"
+      },
+      {
+        "ts": "8/7/2026, 21.03.46",
+        "duration": "8min"
+      },
+      {
+        "ts": "8/7/2026, 22.13.24",
+        "duration": "5min"
+      },
+      {
+        "ts": "8/7/2026, 23.21.25",
+        "duration": "7min"
+      },
+      {
+        "ts": "8/7/2026, 23.43.33",
+        "duration": "20min"
+      },
+      {
+        "ts": "9/7/2026, 00.09.03",
+        "duration": "13min"
+      },
+      {
+        "ts": "9/7/2026, 00.42.41",
+        "duration": "25min"
+      },
+      {
+        "ts": "9/7/2026, 01.39.43",
+        "duration": "22min"
+      },
+      {
+        "ts": "9/7/2026, 02.30.26",
+        "duration": "19min"
+      }
+    ]
+  },
+  "safeMode": {
+    "active": false
+  },
+  "reconnect": {
+    "attemptsInWindow": 1,
+    "backoffLevel": 0,
+    "totalLifetime": 1,
+    "successStreak": 0,
+    "failStreak": 1,
+    "circuitState": "closed",
+    "lastAttempt": "8/7/2026, 15.40.06",
+    "recentHistory": [
+      {
+        "ts": 1783525206720,
+        "reason": "QR refs attempts ended",
+        "attempt": 1,
+        "backoffLevel": 0
+      }
+    ],
+    "recentDisconnectReasons": [
+      {
+        "ts": 1783525206720,
+        "reason": "QR refs attempts ended"
+      }
+    ]
+  },
+  "factors": [],
+  "interaction": {
+    "health": "healthy",
+    "outboundPerHour": 0,
+    "inboundPerHour": 0,
+    "ratio": "1.00",
+    "totalContacts": 0,
+    "activeContacts": 0,
+    "newContactsNoReply": 0,
+    "issues": []
+  },
+  "connection": {
+    "quality": "good",
+    "avgLatency5min": "0ms",
+    "reconnects10min": 0,
+    "errors5min": 0,
+    "totalLatencyPts": 0,
+    "qualityHistory": []
+  },
+  "degradation": {
+    "level": 0,
+    "levelName": "normal",
+    "since": "-",
+    "reason": "",
+    "config": {
+      "name": "normal",
+      "sendMultiplier": 1,
+      "skipMedia": false,
+      "skipGroups": false,
+      "skipBroadcast": false
+    }
+  },
+  "anomaly": {
+    "calibrated": false,
+    "violationCount": 0
+  },
+  "heartbeat": {
+    "status": "stopped",
+    "lastBeat": "-",
+    "beatCount": 0,
+    "missedBeats": 0,
+    "ageMs": 0
+  },
+  "presence": {
+    "currentState": "unavailable",
+    "transitionCount": 0,
+    "recentHistory": []
+  },
+  "poisson": {
+    "rate": 0.02,
+    "fit": "insufficient_data"
+  },
+  "circadian": {
+    "active": false,
+    "multiplier": "9%"
+  },
+  "delayAnalytics": {},
+  "entropy": {
+    "status": "insufficient_data"
+  },
+  "savedAt": "2026-07-09T03:04:35.960Z"
+}

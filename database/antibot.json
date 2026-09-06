@@ -1,0 +1,12 @@
+{
+  "clients": {},
+  "whitelist": [],
+  "blacklist": [],
+  "groupConfig": {},
+  "stats": {
+    "total_scanned": 0,
+    "detected": 0,
+    "false_positive": 0
+  },
+  "lastReport": "2026-07-09T01:42:09.810Z"
+}
