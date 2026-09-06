@@ -369,6 +369,215 @@
         .btn-danger { background: linear-gradient(135deg, #f43f5e, #e11d48); }
         .btn-warning { background: linear-gradient(135deg, #f59e0b, #d97706); }
 
+        /* SETTINGS MODERN STYLES */
+        .settings-nav-pills {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 6px;
+            background: rgba(9, 13, 22, 0.8);
+            border-radius: 14px;
+            border: 1px solid var(--border-subtle);
+            margin-bottom: 1.5rem;
+            -webkit-overflow-scrolling: touch;
+        }
+        .settings-nav-pills::-webkit-scrollbar { display: none; }
+        .set-pill {
+            background: transparent;
+            border: none;
+            color: var(--text-sub);
+            padding: 0.55rem 1rem;
+            border-radius: 10px;
+            font-size: 0.84rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+        .set-pill.active {
+            background: var(--accent-gradient);
+            color: white;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+        }
+        .set-pill:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+        }
+
+        .settings-group-card {
+            background: rgba(14, 20, 33, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .settings-group-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-gradient);
+            border-radius: 4px 0 0 4px;
+        }
+        .settings-group-card:hover {
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+        .settings-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .settings-card-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+        .settings-card-title i {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--accent-cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+        .badge-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            color: #a5b4fc;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        /* MEDIA PREVIEW CARD */
+        .media-preview-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        @media (min-width: 768px) {
+            .media-preview-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        .media-item-card {
+            background: rgba(9, 13, 22, 0.9);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        .media-preview-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .media-preview-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .media-preview-box {
+            width: 100%;
+            height: 130px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px dashed rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        .media-preview-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        .media-preview-box img:hover {
+            transform: scale(1.05);
+        }
+        .media-preview-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-sub);
+            font-size: 0.8rem;
+        }
+        .media-preview-placeholder i {
+            font-size: 1.8rem;
+            opacity: 0.5;
+        }
+
+        .input-icon-group {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .input-icon-group i {
+            position: absolute;
+            left: 12px;
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            pointer-events: none;
+        }
+        .input-icon-group .form-control {
+            padding-left: 36px;
+        }
+
+        .settings-action-bar {
+            position: sticky;
+            bottom: 1rem;
+            z-index: 90;
+            background: rgba(11, 16, 28, 0.92);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-radius: 16px;
+            padding: 0.8rem 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .settings-action-bar p {
+            font-size: 0.82rem;
+            color: var(--text-sub);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
         /* PAIRING & QR CONTAINERS */
         .pairing-container, .qr-container {
             background: rgba(9, 13, 22, 0.95);
@@ -679,116 +888,306 @@
         <!-- TAB 2: SETTINGS (LENGKAP SEMUA PENGATURAN) -->
         <div id="tab-settings" class="tab-content">
             <div class="glass-card">
-                <div class="card-header">
-                    <div class="card-title"><i class="fa-solid fa-sliders"></i> Complete Bot Identity &amp; Assets Config</div>
+                <div class="card-header" style="border-bottom: none; margin-bottom: 0.8rem; padding-bottom: 0;">
+                    <div>
+                        <div class="card-title" style="font-size: 1.2rem;"><i class="fa-solid fa-sliders"></i> Complete Bot Identity &amp; Assets Config</div>
+                        <p style="font-size: 0.82rem; color: var(--text-sub); margin-top: 4px;">Kelola identitas, URL thumbnail media, channel ID, dan respon sistem otomatis.</p>
+                    </div>
+                </div>
+
+                <!-- CATEGORY NAVIGATION PILLS -->
+                <div class="settings-nav-pills">
+                    <button type="button" class="set-pill active" onclick="filterSettingsCategory('all', this)"><i class="fa-solid fa-layer-group"></i> Semua Setting</button>
+                    <button type="button" class="set-pill" onclick="filterSettingsCategory('identity', this)"><i class="fa-solid fa-id-card"></i> Identitas Bot</button>
+                    <button type="button" class="set-pill" onclick="filterSettingsCategory('media', this)"><i class="fa-solid fa-images"></i> Media &amp; Thumbnail</button>
+                    <button type="button" class="set-pill" onclick="filterSettingsCategory('channel', this)"><i class="fa-solid fa-bullhorn"></i> Channel WA</button>
+                    <button type="button" class="set-pill" onclick="filterSettingsCategory('auto', this)"><i class="fa-solid fa-wand-magic-sparkles"></i> Automation</button>
+                    <button type="button" class="set-pill" onclick="filterSettingsCategory('mess', this)"><i class="fa-solid fa-comments"></i> Respon Sistem</button>
                 </div>
 
                 <form id="form-settings" onsubmit="saveSettings(event)">
                     
-                    <!-- CATEGORY 1: IDENTITY -->
-                    <div class="section-subtitle"><i class="fa-solid fa-user-gear"></i> 1. Identitas Bot &amp; Owner</div>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label>Nama Bot (`namaBot`)</label>
-                            <input type="text" id="set-namaBot" class="form-control" required>
+                    <!-- GROUP 1: IDENTITAS BOT & OWNER -->
+                    <div class="settings-group-card" data-category="identity">
+                        <div class="settings-card-header">
+                            <div class="settings-card-title">
+                                <i class="fa-solid fa-robot"></i>
+                                <div>
+                                    1. Identitas Bot &amp; Owner
+                                    <div style="font-size: 0.75rem; color: var(--text-sub); font-weight: normal;">Konfigurasi profil dasar, nomor WhatsApp, dan prefix command</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Nama Owner (`namaowner`)</label>
-                            <input type="text" id="set-namaowner" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Nomor Owner (`owner` / `nomorowner`)</label>
-                            <input type="text" id="set-owner" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Nomor Bot (`nobot`)</label>
-                            <input type="text" id="set-nobot" class="form-control">
-                        </div>
-                        <div class="form-group" style="grid-column: span 2;">
-                            <label>Prefix Commands (Pisahkan koma, misal: ., /, #, ?)</label>
-                            <input type="text" id="set-prefix" class="form-control" required>
-                        </div>
-                    </div>
-
-                    <!-- CATEGORY 2: THUMBNAILS & ASSET IMAGES -->
-                    <div class="section-subtitle"><i class="fa-solid fa-image"></i> 2. URL Gambar &amp; Thumbnail Bot</div>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label>Thumbnail Menu Utama (`menuBg`)</label>
-                            <input type="url" id="set-menuBg" class="form-control" placeholder="https://files.catbox.moe/...">
-                        </div>
-                        <div class="form-group">
-                            <label>Thumbnail Welcome Card (`welcomeBg`)</label>
-                            <input type="url" id="set-welcomeBg" class="form-control" placeholder="https://files.catbox.moe/...">
-                        </div>
-                        <div class="form-group">
-                            <label>Reply Image Primary (`replyimg`)</label>
-                            <input type="url" id="set-replyimg" class="form-control" placeholder="https://files.catbox.moe/...">
-                        </div>
-                        <div class="form-group">
-                            <label>Reply Image Secondary (`thumnail2`)</label>
-                            <input type="url" id="set-thumnail2" class="form-control" placeholder="https://files.catbox.moe/...">
-                        </div>
-                        <div class="form-group" style="grid-column: span 2;">
-                            <label>Photo Profile Owner (`ppowner`)</label>
-                            <input type="url" id="set-ppowner" class="form-control" placeholder="https://files.catbox.moe/...">
-                        </div>
-                    </div>
-
-                    <!-- CATEGORY 3: SALURAN & CHANNEL WA -->
-                    <div class="section-subtitle"><i class="fa-solid fa-bullhorn"></i> 3. Channel &amp; Saluran WhatsApp</div>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label>ID Channel WhatsApp (`idch`)</label>
-                            <input type="text" id="set-idch" class="form-control" placeholder="120363xxx@newsletter">
-                        </div>
-                        <div class="form-group">
-                            <label>Link Saluran WhatsApp (`linkSaluran`)</label>
-                            <input type="url" id="set-linkSaluran" class="form-control" placeholder="https://whatsapp.com/channel/...">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Nama Bot <span class="badge-tag">global.namaBot</span></label>
+                                <div class="input-icon-group">
+                                    <i class="fa-solid fa-font"></i>
+                                    <input type="text" id="set-namaBot" class="form-control" placeholder="Contoh: Elaina V3 Multi-Device" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Nama Owner <span class="badge-tag">global.namaowner</span></label>
+                                <div class="input-icon-group">
+                                    <i class="fa-solid fa-user-astronaut"></i>
+                                    <input type="text" id="set-namaowner" class="form-control" placeholder="Contoh: Beru Sigma" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Nomor Owner <span class="badge-tag">global.owner</span></label>
+                                <div class="input-icon-group">
+                                    <i class="fa-solid fa-phone"></i>
+                                    <input type="text" id="set-owner" class="form-control" placeholder="Contoh: 628123456789" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Nomor Bot Utama <span class="badge-tag">global.nobot</span></label>
+                                <div class="input-icon-group">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                    <input type="text" id="set-nobot" class="form-control" placeholder="Contoh: 628987654321">
+                                </div>
+                            </div>
+                            <div class="form-group" style="grid-column: span 2;">
+                                <label>Prefix Commands <span class="badge-tag">global.prefix</span> (Pisahkan dengan koma)</label>
+                                <div class="input-icon-group">
+                                    <i class="fa-solid fa-terminal"></i>
+                                    <input type="text" id="set-prefix" class="form-control" placeholder="Contoh: ., /, #, !" required>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- CATEGORY 4: AUTOMATION & MESSAGES -->
-                    <div class="section-subtitle"><i class="fa-solid fa-robot"></i> 4. Pesan Welcome &amp; Goodbye</div>
-                    <div class="form-group">
-                        <label>Pesan Welcome (`welcomeMessage`)</label>
-                        <input type="text" id="set-welcomeMessage" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label>Pesan Goodbye (`leaveMessage`)</label>
-                        <input type="text" id="set-leaveMessage" class="form-control">
+                    <!-- GROUP 2: THUMBNAILS & ASSET IMAGES -->
+                    <div class="settings-group-card" data-category="media">
+                        <div class="settings-card-header">
+                            <div class="settings-card-title">
+                                <i class="fa-solid fa-photo-film"></i>
+                                <div>
+                                    2. URL Media &amp; Visual Thumbnail Bot
+                                    <div style="font-size: 0.75rem; color: var(--text-sub); font-weight: normal;">Live preview URL thumbnail gambar menu, reply card, dan foto profil</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="media-preview-grid">
+                            <!-- ITEM 1: menuBg -->
+                            <div class="media-item-card">
+                                <div class="media-preview-header">
+                                    <span class="media-preview-title"><i class="fa-solid fa-image"></i> Menu Utama (`menuBg`)</span>
+                                    <span class="badge-tag">global.menuBg</span>
+                                </div>
+                                <div class="media-preview-box">
+                                    <img id="prev-menuBg" src="" alt="Preview Menu Background" onerror="handleImageError(this)" onload="handleImageSuccess(this)">
+                                    <div class="media-preview-placeholder" id="ph-menuBg">
+                                        <i class="fa-solid fa-image"></i>
+                                        <span>No Image Loaded</span>
+                                    </div>
+                                </div>
+                                <div class="input-icon-group">
+                                    <i class="fa-solid fa-link"></i>
+                                    <input type="url" id="set-menuBg" class="form-control" placeholder="https://files.catbox.moe/..." oninput="updateMediaPreview('set-menuBg', 'prev-menuBg', 'ph-menuBg')">
+                                </div>
+                            </div>
+
+                            <!-- ITEM 2: welcomeBg -->
+                            <div class="media-item-card">
+                                <div class="media-preview-header">
+                                    <span class="media-preview-title"><i class="fa-solid fa-door-open"></i> Card Welcome (`welcomeBg`)</span>
+                                    <span class="badge-tag">global.welcomeBg</span>
+                                </div>
+                                <div class="media-preview-box">
+                                    <img id="prev-welcomeBg" src="" alt="Preview Welcome Card" onerror="handleImageError(this)" onload="handleImageSuccess(this)">
+                                    <div class="media-preview-placeholder" id="ph-welcomeBg">
+                                        <i class="fa-solid fa-image"></i>
+                                        <span>No Image Loaded</span>
+                                    </div>
+                                </div>
+                                <div class="input-icon-group">
+                                    <i class="fa-solid fa-link"></i>
+                                    <input type="url" id="set-welcomeBg" class="form-control" placeholder="https://files.catbox.moe/..." oninput="updateMediaPreview('set-welcomeBg', 'prev-welcomeBg', 'ph-welcomeBg')">
+                                </div>
+                            </div>
+
+                            <!-- ITEM 3: replyimg -->
+                            <div class="media-item-card">
+                                <div class="media-preview-header">
+                                    <span class="media-preview-title"><i class="fa-solid fa-reply"></i> Reply Card Utama (`replyimg`)</span>
+                                    <span class="badge-tag">global.replyimg</span>
+                                </div>
+                                <div class="media-preview-box">
+                                    <img id="prev-replyimg" src="" alt="Preview Reply Card" onerror="handleImageError(this)" onload="handleImageSuccess(this)">
+                                    <div class="media-preview-placeholder" id="ph-replyimg">
+                                        <i class="fa-solid fa-image"></i>
+                                        <span>No Image Loaded</span>
+                                    </div>
+                                </div>
+                                <div class="input-icon-group">
+                                    <i class="fa-solid fa-link"></i>
+                                    <input type="url" id="set-replyimg" class="form-control" placeholder="https://files.catbox.moe/..." oninput="updateMediaPreview('set-replyimg', 'prev-replyimg', 'ph-replyimg')">
+                                </div>
+                            </div>
+
+                            <!-- ITEM 4: thumnail2 -->
+                            <div class="media-item-card">
+                                <div class="media-preview-header">
+                                    <span class="media-preview-title"><i class="fa-solid fa-file-image"></i> Reply Card Sekunder (`thumnail2`)</span>
+                                    <span class="badge-tag">global.thumnail2</span>
+                                </div>
+                                <div class="media-preview-box">
+                                    <img id="prev-thumnail2" src="" alt="Preview Secondary Thumbnail" onerror="handleImageError(this)" onload="handleImageSuccess(this)">
+                                    <div class="media-preview-placeholder" id="ph-thumnail2">
+                                        <i class="fa-solid fa-image"></i>
+                                        <span>No Image Loaded</span>
+                                    </div>
+                                </div>
+                                <div class="input-icon-group">
+                                    <i class="fa-solid fa-link"></i>
+                                    <input type="url" id="set-thumnail2" class="form-control" placeholder="https://files.catbox.moe/..." oninput="updateMediaPreview('set-thumnail2', 'prev-thumnail2', 'ph-thumnail2')">
+                                </div>
+                            </div>
+
+                            <!-- ITEM 5: ppowner -->
+                            <div class="media-item-card" style="grid-column: span 1;">
+                                <div class="media-preview-header">
+                                    <span class="media-preview-title"><i class="fa-solid fa-circle-user"></i> Foto Profile Owner (`ppowner`)</span>
+                                    <span class="badge-tag">global.ppowner</span>
+                                </div>
+                                <div class="media-preview-box">
+                                    <img id="prev-ppowner" src="" alt="Preview PP Owner" onerror="handleImageError(this)" onload="handleImageSuccess(this)">
+                                    <div class="media-preview-placeholder" id="ph-ppowner">
+                                        <i class="fa-solid fa-image"></i>
+                                        <span>No Image Loaded</span>
+                                    </div>
+                                </div>
+                                <div class="input-icon-group">
+                                    <i class="fa-solid fa-link"></i>
+                                    <input type="url" id="set-ppowner" class="form-control" placeholder="https://files.catbox.moe/..." oninput="updateMediaPreview('set-ppowner', 'prev-ppowner', 'ph-ppowner')">
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- CATEGORY 5: CUSTOM RESPONSES (MESS) -->
-                    <div class="section-subtitle"><i class="fa-solid fa-comment-dots"></i> 5. Pesan Respon Sistem (`mess`)</div>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label>Pesan Bukan Owner (`mess.owner`)</label>
-                            <input type="text" id="set-mess-owner" class="form-control">
+                    <!-- GROUP 3: SALURAN & CHANNEL WA -->
+                    <div class="settings-group-card" data-category="channel">
+                        <div class="settings-card-header">
+                            <div class="settings-card-title">
+                                <i class="fa-solid fa-bullhorn"></i>
+                                <div>
+                                    3. Channel &amp; Saluran WhatsApp
+                                    <div style="font-size: 0.75rem; color: var(--text-sub); font-weight: normal;">Integrasi Newsletter ID dan link tautan saluran resmi</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Pesan Bukan Premium (`mess.prem`)</label>
-                            <input type="text" id="set-mess-prem" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>Pesan Harus di Group (`mess.group`)</label>
-                            <input type="text" id="set-mess-group" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>Pesan Bukan Admin (`mess.admin`)</label>
-                            <input type="text" id="set-mess-admin" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>Pesan Bot Harus Admin (`mess.botadmin`)</label>
-                            <input type="text" id="set-mess-botadmin" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>Pesan Selesai (`mess.done`)</label>
-                            <input type="text" id="set-mess-done" class="form-control">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>ID Channel Newsletter <span class="badge-tag">global.idch</span></label>
+                                <div class="input-icon-group">
+                                    <i class="fa-solid fa-hashtag"></i>
+                                    <input type="text" id="set-idch" class="form-control" placeholder="Contoh: 120363xxx@newsletter">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Link Tautan Saluran <span class="badge-tag">global.linkSaluran</span></label>
+                                <div class="input-icon-group">
+                                    <i class="fa-solid fa-globe"></i>
+                                    <input type="url" id="set-linkSaluran" class="form-control" placeholder="https://whatsapp.com/channel/...">
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <button type="submit" class="btn" style="margin-top: 1rem;"><i class="fa-solid fa-floppy-disk"></i> Simpan Semua Perubahan Settings</button>
+                    <!-- GROUP 4: AUTOMATION & MESSAGES -->
+                    <div class="settings-group-card" data-category="auto">
+                        <div class="settings-card-header">
+                            <div class="settings-card-title">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                <div>
+                                    4. Pesan Sambutan (Welcome &amp; Goodbye)
+                                    <div style="font-size: 0.75rem; color: var(--text-sub); font-weight: normal;">Template pesan otomatis saat member bergabung atau keluar grup</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Pesan Welcome Member Baru <span class="badge-tag">welcomeMessage</span></label>
+                            <div class="input-icon-group">
+                                <i class="fa-solid fa-hands-clapping"></i>
+                                <input type="text" id="set-welcomeMessage" class="form-control" placeholder="Halo @user, selamat datang di @subject!">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Pesan Perpisahan Goodbye <span class="badge-tag">leaveMessage</span></label>
+                            <div class="input-icon-group">
+                                <i class="fa-solid fa-person-walking-arrow-right"></i>
+                                <input type="text" id="set-leaveMessage" class="form-control" placeholder="Selamat tinggal @user dari grup @subject!">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GROUP 5: CUSTOM RESPONSES (MESS) -->
+                    <div class="settings-group-card" data-category="mess">
+                        <div class="settings-card-header">
+                            <div class="settings-card-title">
+                                <i class="fa-solid fa-comments"></i>
+                                <div>
+                                    5. Pesan Respon Sistem (`global.mess`)
+                                    <div style="font-size: 0.75rem; color: var(--text-sub); font-weight: normal;">Teks peringatan otomatis saat user melanggar hak akses command</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Pesan Akses Khusus Owner <span class="badge-tag">mess.owner</span></label>
+                                <div class="input-icon-group">
+                                    <i class="fa-solid fa-lock"></i>
+                                    <input type="text" id="set-mess-owner" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Pesan Fitur Khusus Premium <span class="badge-tag">mess.prem</span></label>
+                                <div class="input-icon-group">
+                                    <i class="fa-solid fa-crown"></i>
+                                    <input type="text" id="set-mess-prem" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Pesan Harus Di Dalam Grup <span class="badge-tag">mess.group</span></label>
+                                <div class="input-icon-group">
+                                    <i class="fa-solid fa-users"></i>
+                                    <input type="text" id="set-mess-group" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Pesan Akses Khusus Admin <span class="badge-tag">mess.admin</span></label>
+                                <div class="input-icon-group">
+                                    <i class="fa-solid fa-user-shield"></i>
+                                    <input type="text" id="set-mess-admin" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Pesan Bot Harus Jadi Admin <span class="badge-tag">mess.botadmin</span></label>
+                                <div class="input-icon-group">
+                                    <i class="fa-solid fa-shield-cat"></i>
+                                    <input type="text" id="set-mess-botadmin" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Pesan Proses Selesai <span class="badge-tag">mess.done</span></label>
+                                <div class="input-icon-group">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <input type="text" id="set-mess-done" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FLOATING STICKY ACTION BAR -->
+                    <div class="settings-action-bar">
+                        <p><i class="fa-solid fa-circle-info" style="color: var(--accent-cyan);"></i> Perubahan langsung aktif ke runtime bot</p>
+                        <div style="display: flex; gap: 8px; width: auto;">
+                            <button type="button" class="btn btn-secondary" style="background: rgba(255,255,255,0.08); width: auto;" onclick="loadSettings()"><i class="fa-solid fa-rotate-left"></i> Reset</button>
+                            <button type="submit" id="btn-save-settings" class="btn" style="width: auto;"><i class="fa-solid fa-floppy-disk"></i> Simpan Perubahan Settings</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -1042,6 +1441,47 @@
             } catch (err) { alert('Error: ' + err.message); }
         }
 
+        function updateMediaPreview(inputId, imgId, phId) {
+            const val = document.getElementById(inputId).value;
+            const imgEl = document.getElementById(imgId);
+            const phEl = document.getElementById(phId);
+            if (val && /^https?:\/\//i.test(val.trim())) {
+                imgEl.src = val.trim();
+            } else {
+                imgEl.style.display = 'none';
+                if (phEl) phEl.style.display = 'flex';
+            }
+        }
+
+        function handleImageSuccess(imgEl) {
+            imgEl.style.display = 'block';
+            const parent = imgEl.parentElement;
+            const ph = parent.querySelector('.media-preview-placeholder');
+            if (ph) ph.style.display = 'none';
+        }
+
+        function handleImageError(imgEl) {
+            imgEl.style.display = 'none';
+            const parent = imgEl.parentElement;
+            const ph = parent.querySelector('.media-preview-placeholder');
+            if (ph) ph.style.display = 'flex';
+        }
+
+        function filterSettingsCategory(cat, btn) {
+            const pills = document.querySelectorAll('.set-pill');
+            pills.forEach(p => p.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+
+            const cards = document.querySelectorAll('.settings-group-card');
+            cards.forEach(c => {
+                if (cat === 'all' || c.getAttribute('data-category') === cat) {
+                    c.style.display = 'block';
+                } else {
+                    c.style.display = 'none';
+                }
+            });
+        }
+
         async function loadSettings() {
             try {
                 const res = await fetch('/api/settings');
@@ -1059,6 +1499,12 @@
                     document.getElementById('set-replyimg').value = s.replyimg || '';
                     document.getElementById('set-thumnail2').value = s.thumnail2 || '';
                     document.getElementById('set-ppowner').value = s.ppowner || '';
+
+                    updateMediaPreview('set-menuBg', 'prev-menuBg', 'ph-menuBg');
+                    updateMediaPreview('set-welcomeBg', 'prev-welcomeBg', 'ph-welcomeBg');
+                    updateMediaPreview('set-replyimg', 'prev-replyimg', 'ph-replyimg');
+                    updateMediaPreview('set-thumnail2', 'prev-thumnail2', 'ph-thumnail2');
+                    updateMediaPreview('set-ppowner', 'prev-ppowner', 'ph-ppowner');
 
                     document.getElementById('set-idch').value = s.idch || '';
                     document.getElementById('set-linkSaluran').value = s.linkSaluran || '';
